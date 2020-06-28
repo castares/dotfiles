@@ -1,0 +1,47 @@
+{
+  "editor.wordWrap": "on",
+  "editor.minimap.enabled": true,
+  "editor.formatOnSave": true,
+  "editor.mouseWheelZoom": true,
+  "breadcrumbs.enabled": true,
+  "window.menuBarVisibility": "toggle",
+  "python.pythonPath": "/home/castares/miniconda3/bin/python3",
+  "python.analysis.logLevel": "Information",
+  "python.autoComplete.addBrackets": true,
+  "python.formatting.provider": "black",
+  "terminal.integrated.inheritEnv": false,
+  "workbench.activityBar.visible": true,
+  "workbench.settings.editor": "json",
+  "workbench.settings.openDefaultSettings": true,
+  "workbench.settings.useSplitJSON": true,
+  "workbench.statusBar.visible": true,
+  "workbench.startupEditor": "welcomePageInEmptyWorkbench",
+  "workbench.iconTheme": "material-icon-theme",
+  "oneDarkPro.vivid": true,
+  "oneDarkPro.bold": true,
+  "oneDarkPro.italic": true,
+  "material-icon-theme.folders.color": "#90a4ae",
+  "[django-html]": {},
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "zenMode.centerLayout": false,
+  "zenMode.fullScreen": false,
+  "zenMode.hideLineNumbers": false,
+  "zenMode.hideTabs": false,
+  "code-runner.executorMap": {
+    "python": "$pythonPath -u $fullFileName"
+  },
+  "code-runner.clearPreviousOutput": true,
+  "code-runner.showExecutionMessage": false,
+  "code-runner.ignoreSelection": true,
+  "code-runner.saveFileBeforeRun": true,
+  "git.suggestSmartCommit": false,
+  "workbench.colorTheme": "One Dark Pro",
+  "explorer.confirmDragAndDrop": false,
+  "window.zoomLevel": 0,
+  "html.format.indentInnerHtml": true
+}
