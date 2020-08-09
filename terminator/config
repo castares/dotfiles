@@ -3,13 +3,19 @@
   extra_styling = False
   sticky = True
   title_hide_sizetext = True
-  title_transmit_bg_color = "#204a87"
+  title_transmit_fg_color = "#eeeeec"
+  title_transmit_bg_color = "#3465a4"
+  title_receive_fg_color = "#eeeeec"
   title_receive_bg_color = "#5c3566"
   title_inactive_bg_color = "#888a85"
   inactive_color_offset = 0.8560606060606061
   title_use_system_font = False
   title_font = MesloLGS NF 11
 [keybindings]
+  go_up = <Alt>k
+  go_down = <Alt>j
+  go_left = <Alt>h
+  go_right = <Alt>l
   split_horiz = <Primary><Shift>o
   split_vert = <Primary><Shift>i
   copy = <Primary>c
@@ -28,6 +34,7 @@
   switch_to_tab_9 = <Alt>9
   switch_to_tab_10 = <Alt>0
   new_window = <Primary><Shift>z
+  layout_launcher = <Primary>l
 [profiles]
   [[default]]
     icon_bell = False
@@ -37,7 +44,6 @@
     scrollbar_position = hidden
     palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000cd:#cd00cd:#00cdcd:#faebd7:#404040:#ff0000:#00ff00:#ffff00:#0000ff:#ff00ff:#00ffff:#ffffff"
     use_system_font = False
-    use_theme_colors = True
     copy_on_selection = True
     autoclean_groups = False
   [[gruvbox]]
@@ -48,65 +54,34 @@
     palette = "#282828:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#a89984:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
     use_system_font = False
     copy_on_selection = True
-  [[gris_negro]]
+  [[sistema]]
     icon_bell = False
     cursor_shape = ibeam
     cursor_color = "#aaaaaa"
     font = MesloLGS NF 11
     use_system_font = False
+    use_theme_colors = True
     copy_on_selection = True
 [layouts]
   [[default]]
-    [[[window0]]]
-      type = Window
-      parent = ""
-    [[[child1]]]
-      type = Terminal
-      parent = window0
-      profile = default
-  [[1x2]]
     [[[child0]]]
       type = Window
       parent = ""
       order = 0
-      position = 0:27
+      position = 1366:27
       maximised = False
       fullscreen = False
-      size = 768, 800
-      title = cesar@cesar-laptop: ~
-      last_active_term = f346c54e-db6e-4464-9a94-0fa5b9e92126
+      size = 960, 1016
+      title = castares@PROMETHEA: ~
+      last_active_term = 99aed21d-00bd-4232-abb3-8c91b5f04bcc
       last_active_window = True
-    [[[child1]]]
-      type = VPaned
+    [[[terminal1]]]
+      type = Terminal
       parent = child0
       order = 0
-      position = 398
-      ratio = 0.5006289308176101
-    [[[terminal2]]]
-      type = Terminal
-      parent = child1
-      order = 0
       profile = default
-      uuid = f346c54e-db6e-4464-9a94-0fa5b9e92126
-    [[[child3]]]
-      type = HPaned
-      parent = child1
-      order = 1
-      position = 383
-      ratio = 0.5019659239842726
-    [[[terminal4]]]
-      type = Terminal
-      parent = child3
-      order = 0
-      profile = default
-      uuid = 19e85ae3-78a8-4952-9c97-36c63d1529c7
-    [[[terminal5]]]
-      type = Terminal
-      parent = child3
-      order = 1
-      profile = default
-      uuid = 98acb184-a4db-443d-8b7d-bdad24651da3
-  [[2x2]]
+      uuid = 99aed21d-00bd-4232-abb3-8c91b5f04bcc
+  [[1x2]]
     [[[child0]]]
       type = Window
       parent = ""
