@@ -1,11 +1,21 @@
 [global_config]
+  handle_size = 1
+  extra_styling = False
   sticky = True
   title_hide_sizetext = True
+  title_transmit_bg_color = "#204a87"
+  title_receive_bg_color = "#5c3566"
+  title_inactive_bg_color = "#888a85"
+  inactive_color_offset = 0.8560606060606061
+  title_use_system_font = False
+  title_font = MesloLGS NF 11
 [keybindings]
   split_horiz = <Primary><Shift>o
   split_vert = <Primary><Shift>i
   copy = <Primary>c
   paste = <Primary>v
+  toggle_scrollbar = <Primary><Shift>f
+  search = <Primary><Shift>s
   scaled_zoom = <Primary><Shift>asterisk
   switch_to_tab_1 = <Alt>1
   switch_to_tab_2 = <Alt>2
@@ -21,13 +31,30 @@
 [profiles]
   [[default]]
     icon_bell = False
-    background_color = "#300a24"
+    cursor_shape = ibeam
     cursor_color = "#aaaaaa"
-    foreground_color = "#ffffff"
+    font = MesloLGS NF 11
     scrollbar_position = hidden
+    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000cd:#cd00cd:#00cdcd:#faebd7:#404040:#ff0000:#00ff00:#ffff00:#0000ff:#ff00ff:#00ffff:#ffffff"
+    use_system_font = False
     use_theme_colors = True
     copy_on_selection = True
     autoclean_groups = False
+  [[gruvbox]]
+    icon_bell = False
+    cursor_shape = ibeam
+    cursor_color = "#aaaaaa"
+    font = MesloLGS NF 11
+    palette = "#282828:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#a89984:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
+    use_system_font = False
+    copy_on_selection = True
+  [[gris_negro]]
+    icon_bell = False
+    cursor_shape = ibeam
+    cursor_color = "#aaaaaa"
+    font = MesloLGS NF 11
+    use_system_font = False
+    copy_on_selection = True
 [layouts]
   [[default]]
     [[[window0]]]
