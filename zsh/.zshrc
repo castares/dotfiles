@@ -65,7 +65,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -78,7 +78,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
 	git
 	vi-mode
-	zsh-vimode-visual #https://github.com/b4b4r07/zsh-vimode-visual
 	)
 
 source $ZSH/oh-my-zsh.sh
@@ -92,9 +91,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
+   export EDITOR='vi'
  else
-   export EDITOR='nvim'
+   export EDITOR='vim'
  fi
 
 # Compilation flags
@@ -107,14 +106,15 @@ source $ZSH/oh-my-zsh.sh
 #
 #PATH
 PATH="$PATH:/snap/bin"
+PATH="$PATH:/home/castares/.local/bin"
 
 # Aliases
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias cl=clear
-alias vim=nvim
-alias vimo=vim
-
+alias pip=pip3
+alias python=python3
+alias vimrc="vim ~/.vimrc"
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/castares/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -167,7 +167,8 @@ zle-line-init() {
     echo -ne "\e[5 q"
 }
 zle -N zle-line-init
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # <<< Copied from LukeSmithxyz https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52 <<< 
+
+# Initialize https://github.com/junegunn/fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
