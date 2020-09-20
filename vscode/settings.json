@@ -17,10 +17,11 @@
   "workbench.statusBar.visible": true,
   "workbench.startupEditor": "welcomePageInEmptyWorkbench",
   "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "One Dark Pro",
   "oneDarkPro.vivid": true,
   "oneDarkPro.bold": true,
   "oneDarkPro.italic": true,
-  "material-icon-theme.folders.color": "#90a4ae",
+  "material-icon-theme.folders.color": "#42a5f5",
   "[django-html]": {},
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
@@ -40,8 +41,59 @@
   "code-runner.ignoreSelection": true,
   "code-runner.saveFileBeforeRun": true,
   "git.suggestSmartCommit": false,
-  "workbench.colorTheme": "One Dark Pro",
   "explorer.confirmDragAndDrop": false,
   "window.zoomLevel": 0,
-  "html.format.indentInnerHtml": true
+  "html.format.indentInnerHtml": true,
+  "python.analysis.completeFunctionParens": true,
+  "python.languageServer": "Pylance",
+  "keyboard.dispatch": "keyCode",
+  "vim.vimrc.enable": true,
+  "vim.argumentObjectClosingDelimiters": [
+    ")",
+    "]",
+    "}"
+  ],
+  "vim.argumentObjectOpeningDelimiters": [
+    "(",
+    "[",
+    "{"
+  ],
+  "vim.cursorStylePerMode.replace": "underline",
+  "vim.cursorStylePerMode.insert": "line-thin",
+  "vim.cursorStylePerMode.normal": "block",
+  "vim.cursorStylePerMode.visualblock": "block",
+  "vim.easymotion": true,
+  "vim.enableNeovim": true,
+  "vim.history": 1000,
+  "vim.leader": "<space>",
+  "vim.useCtrlKeys": true,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "u"
+      ],
+      "commands": [
+        "undo"
+      ]
+    },
+    {
+      "before": [
+        "<C-r>"
+      ],
+      "commands": [
+        "redo"
+      ]
+    },
+  ],
+  "vim.handleKeys": {
+    "<C-d>": false,
+    "<C-c>": false,
+    "<C-v>": false,
+    "<C-x>": false,
+    "<C-f>": false,
+    "<C-b>": false,
+    "<C-S-f>": false,
+    "<C-S-e>": false,
+    "<C-a>": false
+  }
 }
