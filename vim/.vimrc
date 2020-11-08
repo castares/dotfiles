@@ -1,3 +1,4 @@
+
 "VIM Settings: basic configs already enabled in NVIM
 
 set encoding=utf-8
@@ -15,6 +16,7 @@ set incsearch		" Enable incremental search
 set numberwidth=1
 set clipboard+=unnamedplus
 set mouse=a
+set number
 set relativenumber
 set wrap
 set showmode
@@ -34,9 +36,9 @@ set showmatch		" When a bracket is inserted, briefly jump to the matching one
 set nobackup            " This is recommended by coc
 set nowritebackup       " This is recommended by coc
 set updatetime=300      " Faster completion
-set timeoutlen=100      " By default timeoutlen is 1000 ms
+
+
 " set signcolumn=yes      " Always show the signcolumn, otherwise it would shift the text each time
-" set shortmess+=c        " Don't pass messages to |ins-completion-menu|.
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
@@ -55,18 +57,19 @@ au BufNewFile,BufRead *.js,*.html,*.css	"JS HTML CSS indentation
     \ set softtabstop=2
     \ set shiftwidth=2
 
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/	" Flag extra whitespace
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhiteSpace /\s\+$/	" Flag extra whitespace
 
 
 " Plugins:
 call plug#begin('~/.vim/plugged')
 
-
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'sheerun/vim-polyglot'		" Better Syntax Support
 Plug 'jiangmiao/auto-pairs'		" Auto pairs for '(' '[' '{'
 Plug 'scrooloose/NERDTree'		" File Explorer
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }	" Fuzzy Finder 
 Plug 'joshdick/onedark.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'} 	" Conquer of Completion. Use release branch (recommend)
 
 " Plugins to review
 
@@ -104,19 +107,23 @@ endif
 
 
 " Mappings:
+let mapleader="\<Space>"
 
-let mapleader=" "
 " Move between splits with CTRL+hjkl
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-nmap <Leader>s <Plug>(easymotion-s2)
-nmap <Leader>nt :NERDTreeFind<CR>
+"nmap <Leader>s <Plug>(easymotion-s2)
+
+"NERDTree
+nmap <Leader>ntf :NERDTreeFind<CR>
+let NERDTreeQuitOnOpen=1
+map <Leader>t :NERDTreeToggle<CR>
 
 " Better indenting
-vnoremap < <gv
+vnoremap < <GV
 vnoremap > >gv
 
 " TODO: Conflict with Terminator keybindings
@@ -131,7 +138,7 @@ nnoremap <C-TAB> :bnext<CR>
 " SHIFT-TAB will go back
 nnoremap <S-TAB> :bprevious<CR>
 
-" Remove search highlighting with CTRL+h
+" Remove search highlighting with CTRL+n
 nnoremap <C-n> :nohl<CR>
 inoremap <C-n> :nohl<CR>
 
@@ -143,11 +150,7 @@ nnoremap <c-c> viwU<Esc>
 let g:python3_host_prog = expand("~/miniconda3/envs/nvim/bin/python3.8")
 let g:node_host_prog = expand("/usr/local/bin/neovim-node-host")
 
-
-
-let NERDTreeQuitOnOpen=1
 let g:SimpylFold_docstring_preview=1
 
 
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
-
