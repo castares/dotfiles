@@ -1,5 +1,5 @@
 
-"VIM Settings: basic configs already enabled in NVIM
+" VIM Settings: basic configs already enabled in NVIM
 
 set encoding=utf-8
 set ruler
@@ -70,7 +70,9 @@ Plug 'scrooloose/NERDTree'		" File Explorer
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }	" Fuzzy Finder 
 Plug 'joshdick/onedark.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} 	" Conquer of Completion. Use release branch (recommend)
-
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-commentary'
 " Plugins to review
 
 " Plug 'easymotion/vim-easymotion'
@@ -98,13 +100,35 @@ let g:onedark_termcolors=256
 
 colorscheme onedark
 
-
 " checks if your terminal has 24-bit color support
 if (has("termguicolors"))
     set termguicolors
     hi LineNr ctermbg=NONE guibg=NONE
 endif
 
+" Airline:
+
+" enable tabline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+
+" enable powerline fonts
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+
+" Switch to your current theme
+let g:airline_theme = 'onedark'
+
+" Always show tabs
+set showtabline=2
+
+" Vim Commentary:
+nnoremap <space>cm :Commentary<CR>
+vnoremap <space>cm :Commentary<CR>
 
 " Mappings:
 let mapleader="\<Space>"
