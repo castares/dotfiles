@@ -73,6 +73,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} 	" Conquer of Completion. Use re
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-commentary'
+Plug 'szw/vim-maximizer'
 " Plugins to review
 
 " Plug 'easymotion/vim-easymotion'
@@ -169,6 +170,9 @@ inoremap <C-n> :nohl<CR>
 " Easy CAPS with CTRL+u
 inoremap <c-c> <ESC>viwUi
 nnoremap <c-c> viwU<Esc>
+
+" Vim Maximizer:
+nmap <Leader>m :MaximizerToggle<CR>
 
 " Paths:
 let g:python3_host_prog = expand("~/miniconda3/envs/nvim/bin/python3.8")
