@@ -17,3 +17,9 @@ let g:airline_theme = 'onedark'
 
 " Always show tabs
 set showtabline=2
+
+" enable/disable vim-obsession integration
+let g:airline#extensions#obsession#enabled = 1
+
+" set marked window indicator string
+let g:airline#extensions#obsession#indicator_text = ''

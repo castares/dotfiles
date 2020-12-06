@@ -39,17 +39,66 @@ set showtabline=2   " Always show tabs
 let mapleader="\<Space>"
 
 " Paths:
+let g:python_host_prog = expand("~/.conda/envs/neovim_python2/bin/python")
 let g:python3_host_prog = expand("~/.conda/envs/neovim/bin/python3.8")
 let g:node_host_prog = expand("/usr/local/bin/neovim-node-host")
 
+" Plugins:
+call plug#begin(stdpath('data') . '/plugged')
+
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'sheerun/vim-polyglot'		" Better Syntax Support
+Plug 'jiangmiao/auto-pairs'		" Auto pairs for '(' '[' '{'
+Plug 'scrooloose/NERDTree'		" File Explorer
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }	" Fuzzy Finder 
+Plug 'junegunn/fzf.vim'
+Plug 'joshdick/onedark.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'} 	" Conquer of Completion. Use release branch (recommend)
+Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'szw/vim-maximizer'
+Plug 'tpope/vim-commentary'
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
+Plug 'norcalli/nvim-colorizer.lua'
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'mhinz/vim-startify'
+" Plug 'tpope/vim-obsession'
+Plug 'mhinz/vim-signify'    "Git changes symbols 
+Plug 'tpope/vim-fugitive'   "Git commands
+Plug 'tpope/vim-rhubarb'    "Git browser
+Plug 'junegunn/gv.vim'
+Plug 'liuchengxu/vim-which-key'
+Plug 'honza/vim-snippets'
+Plug 'metakirby5/codi.vim'
+Plug 'tpope/vim-surround'
+Plug 'cjrh/vim-conda'
+
+call plug#end()
+
+" Plugins to review
+" Plug 'easymotion/vim-easymotion'
+" Plug 'tmhedberg/SimpylFold'
+" Plug 'vim-scripts/indentpython.vim'
+
+
 " Sourcing Config Files:
-source $HOME/.config/nvim/plugged.vim
 source $HOME/.config/nvim/mappings.vim
 source $HOME/.config/nvim/onedark_config.vim
 source $HOME/.config/nvim/coc_config.vim
 source $HOME/.config/nvim/airline_config.vim
 source $HOME/.config/nvim/ranger_config.vim
 source $HOME/.config/nvim/commenter_config.vim
+source $HOME/.config/nvim/fzf_config.vim
+luafile $HOME/.config/nvim/colorizer_config.lua
+source $HOME/.config/nvim/rainbow_parenthesis_config.vim
+source $HOME/.config/nvim/startfy_config.vim
+source $HOME/.config/nvim/nerdtree_config.vim
+source $HOME/.config/nvim/signify_config.vim
+source $HOME/.config/nvim/which_key_config.vim
+source $HOME/.config/nvim/conda_config.vim
+" source $HOME/.config/nvim/obsession_config.vim
 
 
 " Enable folding
