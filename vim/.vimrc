@@ -8,7 +8,6 @@ set ttyfast
 set background=dark 
 set showcmd
 set laststatus=2	" Always display the status line
-set encoding=utf-8
 set incsearch		" Enable incremental search
 
 " NVIM Settings:
@@ -77,7 +76,6 @@ Plug 'szw/vim-maximizer'
 " Plugins to review
 
 " Plug 'easymotion/vim-easymotion'
-" Plug 'christoomey/vim-tmux-navigator'
 " Plug 'tmhedberg/SimpylFold'
 " Plug 'vim-scripts/indentpython.vim'
 

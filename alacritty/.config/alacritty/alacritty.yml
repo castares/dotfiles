@@ -31,24 +31,24 @@ background_opacity: 1.0
 
 font:
   normal:
-    family: "Hack"
+    family: "Hack Nerd Font"
     style: Regular
   bold:
-    family: "Hack"
+    family: "Hack Nerd Font"
     style: Bold
   italic:
-    family: "Hack"
+    family: "Hack Nerd Font"
     style: Italic
   bold_italic:
-    family: "Hack"
+    family: "Hack Nerd Font"
     style: Bold Italic
 
   # Point size
-  size: 12.0
+  size: 10.0
 
   offset:
-    x: 0
-    y: 0
+    x: 1
+    y: 1
   glyph_offset:
     x: 0
     y: 0
@@ -81,7 +81,12 @@ key_bindings:
   - { key: C, mods: Control|Shift, action: Copy }
   - { key: Key0, mods: Control, action: ResetFontSize }
   - { key: Equals, mods: Control, action: IncreaseFontSize }
-  - { key: Add, mods: Control, action: IncreaseFontSize }
-  - { key: Subtract, mods: Control, action: DecreaseFontSize }
+  # - { key: Add, mods: Control, action: IncreaseFontSize }
+    #  - { key: Subtract, mods: Control, action: DecreaseFontSize }
   - { key: Minus, mods: Control, action: DecreaseFontSize }
   - { key: N, mods: Control|Shift, action: SpawnNewInstance }
+  - { key: Tab,  mods: Control,        chars: "\x1b[27;5;9~" }
+  - { key: Tab,  mods: Control|Shift,  chars: "\x1b[27;6;9~" }
+  - { key: V,        mods: Control, action: Paste            } # Optional
+  # - { key: C,        mods: Control, action: CopyDynamic      }
+

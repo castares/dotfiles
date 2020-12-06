@@ -109,23 +109,26 @@ PATH="$PATH:/snap/bin"
 PATH="$PATH:/home/castares/.local/bin"
 
 # Aliases
-alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
+alias vim=nvim
+alias zshrc="nvim ~/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias cl=clear
 alias pip=pip3
 alias python=python3
-alias vimrc="nvim ~/.vimrc"
+alias vimrc="nvim ~/.config/nvim/init.vim"
+alias i3config="nvim ~/.config/i3/config"
+alias alacritty_config="nvim ~/.config/alacritty/alacritty.yml"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('$HOME/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="$HOME/miniconda3/bin:$PATH"
+        export PATH="/opt/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -176,3 +179,10 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # Initialize https://github.com/junegunn/fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+# To activate completions for zsh you need to have bashcompinit enabled in zsh:
+autoload -U bashcompinit
+bashcompinit
+# Afterwards you can enable completion for pipx:
+eval "$(register-python-argcomplete pipx)"
