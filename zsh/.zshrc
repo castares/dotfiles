@@ -106,7 +106,7 @@ source $ZSH/oh-my-zsh.sh
 #
 #PATH
 PATH="$PATH:/snap/bin"
-PATH="$PATH:/home/castares/.local/bin"
+PATH="$PATH:$HOME/.local/bin"
 
 # Aliases
 alias vim=nvim
@@ -177,10 +177,14 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # <<< Copied from LukeSmithxyz https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52 <<< 
 
+# >>> FZF >>>
 # Initialize https://github.com/junegunn/fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Source fzf keybindings and completion
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 
-
+# >>> Pipx >>>
 # To activate completions for zsh you need to have bashcompinit enabled in zsh:
 autoload -U bashcompinit
 bashcompinit
