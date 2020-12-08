@@ -54,7 +54,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }	" Fuzzy Finder
 Plug 'junegunn/fzf.vim'
 Plug 'joshdick/onedark.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} 	" Conquer of Completion. Use release branch (recommend)
-Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
+"Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'szw/vim-maximizer'
@@ -73,14 +73,13 @@ Plug 'liuchengxu/vim-which-key'
 Plug 'honza/vim-snippets'
 Plug 'metakirby5/codi.vim'
 Plug 'tpope/vim-surround'
-Plug 'cjrh/vim-conda'
+Plug 'vim-scripts/indentpython.vim'
+" Plug 'cjrh/vim-conda'
 
 call plug#end()
 
 " Plugins to review
-" Plug 'easymotion/vim-easymotion'
 " Plug 'tmhedberg/SimpylFold'
-" Plug 'vim-scripts/indentpython.vim'
 
 
 " Sourcing Config Files:
@@ -97,13 +96,14 @@ source $HOME/.config/nvim/startfy_config.vim
 source $HOME/.config/nvim/nerdtree_config.vim
 source $HOME/.config/nvim/signify_config.vim
 source $HOME/.config/nvim/which_key_config.vim
-source $HOME/.config/nvim/conda_config.vim
+" source $HOME/.config/nvim/conda_config.vim
 " source $HOME/.config/nvim/obsession_config.vim
 
 
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
+let g:SimpylFold_docstring_preview=1
 
 au BufNewFile,BufRead *.py "Python indentation
     \ set tabstop=4
@@ -122,7 +122,6 @@ au BufNewFile,BufRead *.js,*.html,*.css	"JS HTML CSS indentation
 
 
 
-let g:SimpylFold_docstring_preview=1
 
 
 

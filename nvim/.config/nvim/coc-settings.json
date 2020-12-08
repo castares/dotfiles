@@ -15,30 +15,11 @@
 		"UltiSnips",
 		"~/.config/nvim/utils/snips"
 	],
-	"languageserver": {
-		"python": {
-			"command": "~/.local/bin/jedi-language-server",
-			"filetypes": [
-				"python"
-			]
-		}
-	},
-	"jedi.enable": true,
-	"jedi.startupMessage": true,
-	"jedi.markupKindPreferred": "plaintext",
-	"jedi.trace.server": "messages",
-	"jedi.jediSettings.autoImportModules": [],
-	"jedi.executable.command": "~/.local/bin/jedi-language-server",
-	"jedi.executable.args": [],
-	"jedi.completion.disableSnippets": false,
-	"jedi.diagnostics.enable": true,
-	"jedi.diagnostics.didOpen": true,
-	"jedi.diagnostics.didChange": true,
-	"jedi.diagnostics.didSave": true,
-	"jedi.workspace.extraPaths": [],
-	"diagnostic-languageserver.filetypes": {
-		"python": "pylint"
-	},
+	"python.analysis.extraPaths": [],
+	"python.analysis.logLevel": "Warning",
+	"python.venvPath": "~/.conda/env/",
+	"python.formatting.provider": "black",
+	"python.linting.flake8Enabled": true,
 	"diagnostic-languageserver.linters": {
 		"pylint": {
 			"sourceName": "pylint",
@@ -67,7 +48,7 @@
 				"setup.py"
 			],
 			"securities": {
-				"informational": "hint",
+				"informational": "",
 				"refactor": "info",
 				"convention": "info",
 				"warning": "warning",
