@@ -190,3 +190,9 @@ autoload -U bashcompinit
 bashcompinit
 # Afterwards you can enable completion for pipx:
 eval "$(register-python-argcomplete pipx)"
+
+if [ -e /usr/share/nvm/init-nvm.sh ]
+then
+  source /usr/share/nvm/init-nvm.sh 
+fi
+ 
