@@ -29,3 +29,6 @@ inoremap <C-n> :nohl<CR>
 command W w
 command Q q
 command X x
+
+
+nmap <Leader>cn :let @+ = expand("%:p")<CR>

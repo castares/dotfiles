@@ -83,7 +83,7 @@
       "commands": [
         "redo"
       ]
-    },
+    }
   ],
   "vim.handleKeys": {
     "<C-d>": false,
