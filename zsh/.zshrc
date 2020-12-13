@@ -121,14 +121,14 @@ alias alacritty_config="nvim ~/.config/alacritty/alacritty.yml"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/cesar/.conda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/opt/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/cesar/.conda/etc/profile.d/conda.sh" ]; then
+        . "/home/cesar/.conda/etc/profile.d/conda.sh"
     else
-        export PATH="/opt/miniconda3/bin:$PATH"
+        export PATH="/home/cesar/.conda/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -181,7 +181,8 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 # Initialize https://github.com/junegunn/fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # Source fzf keybindings and completion
-if [ -e /usr/share/doc/fzf/examples/completion.zsh ]; then 
+if [ -e /usr/share/fzf/key-bindings.zsh ] 
+then 
     source /usr/share/fzf/key-bindings.zsh
     source /usr/share/fzf/completion.zsh
 fi
