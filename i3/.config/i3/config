@@ -283,7 +283,7 @@ mode "resize" {
 }
 
 # Lock screen
-bindsym $mod+BackSpace exec --no-startup-id blurlock
+bindsym $mod+Shift+x exec --no-startup-id blurlock
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
