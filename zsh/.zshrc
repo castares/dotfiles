@@ -181,7 +181,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 # Initialize https://github.com/junegunn/fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # Source fzf keybindings and completion
-if [ -e /usr/share/fzf/key-bindings.zsh ] 
+if [ -e /usr/share/fzf/key-bindings.zsh ] && [-e /usr/share/fzf/completion.zsh];
 then 
     source /usr/share/fzf/key-bindings.zsh
     source /usr/share/fzf/completion.zsh
