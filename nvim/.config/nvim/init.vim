@@ -22,7 +22,7 @@ set relativenumber
 set wrap
 set showmode
 set hidden
-set iskeyword+=-	" treat dash separated words as a word text object"
+set iskeyword-=-_	" treat dash separated words as a word text object"
 set formatoptions-=cro	" Stop newline continution of comments
 set pumheight=10	" Makes popup menu smaller
 set splitbelow		" Horizontal splits will automatically be below
