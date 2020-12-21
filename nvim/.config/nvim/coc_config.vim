@@ -31,7 +31,6 @@ let g:coc_global_extensions = [
       \ 'coc-json', 
       \ 'coc-vimlsp', 
       \ 'coc-marketplace',
-      \ 'coc-diagnostic',
       \ 'coc-snippets',
       \ 'coc-lua',
       \ 'coc-pyright',

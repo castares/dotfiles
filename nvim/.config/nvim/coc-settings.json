@@ -15,78 +15,10 @@
 		"UltiSnips",
 		"~/.config/nvim/utils/snips"
 	],
-	"python.analysis.extraPaths": [],
 	"python.analysis.logLevel": "Warning",
+	"python.pythonPath": "python3",
 	"python.venvPath": "~/.conda/env/",
 	"python.formatting.provider": "black",
 	"python.linting.flake8Enabled": true,
-	"diagnostic-languageserver.linters": {
-		"pylint": {
-			"sourceName": "pylint",
-			"command": "pylint",
-			"args": [
-				"--output-format",
-				"text",
-				"--score",
-				"no",
-				"--msg-template",
-				"'{line}:{column}:{category}:{msg} ({msg_id}:{symbol})'",
-				"%file"
-			],
-			"formatPattern": [
-				"^(\\d+?):(\\d+?):([a-z]+?):(.*)$",
-				{
-					"line": 1,
-					"column": 2,
-					"security": 3,
-					"message": 4
-				}
-			],
-			"rootPatterns": [
-				".git",
-				"pyproject.toml",
-				"setup.py"
-			],
-			"securities": {
-				"informational": "",
-				"refactor": "info",
-				"convention": "info",
-				"warning": "warning",
-				"error": "error",
-				"fatal": "error"
-			},
-			"offsetColumn": 1,
-			"formatLines": 1
-		}
-	},
-	"diagnostic-languageserver.formatFiletypes": {
-		"python": [
-			"black",
-			"isort",
-			"docformatter"
-		]
-	},
-	"diagnostic-languageserver.formatters": {
-		"black": {
-			"command": "black",
-			"args": [
-				"black",
-				"-q",
-				"-"
-			]
-		},
-		"isort": {
-			"command": "isort",
-			"args": [
-				"-q",
-				"-"
-			]
-		},
-		"docformatter": {
-			"command": "docformatter",
-			"args": [
-				"-"
-			]
-		}
-	}
+	"python.linting.mypyEnabled": true
 }

@@ -43,7 +43,7 @@ let mapleader="\<Space>"
 " Paths:
 let g:python_host_prog = expand("~/.conda/envs/neovim_python2/bin/python")
 let g:python3_host_prog = expand("~/.conda/envs/neovim/bin/python3.8")
-let g:node_host_prog = expand("~/.nvm/versions/node/v14.15.2/bin/neovim-node-host")
+let g:node_host_prog = expand("~/.nvm/versions/node/v14.15.3/bin/neovim-node-host")
 
 " Plugins:
 call plug#begin(stdpath('data') . '/plugged')
@@ -63,7 +63,6 @@ Plug 'tpope/vim-commentary'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'norcalli/nvim-colorizer.lua'
-Plug 'ulwlu/elly.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'mhinz/vim-startify'
 Plug 'mhinz/vim-signify'    "Git changes symbols 
@@ -79,6 +78,9 @@ Plug 'Yggdroot/indentLine'
 Plug 'psf/black', { 'branch': 'stable' }
 Plug 'Xuyuanp/nerdtree-git-plugin' 
 Plug 'ryanoasis/vim-devicons'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-dadbod'
+" Plug 'ulwlu/elly.vim'
 " Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
 " Plug 'cjrh/vim-conda'
 " Plug 'tpope/vim-obsession'
@@ -103,6 +105,7 @@ source $HOME/.config/nvim/nerdtree_config.vim
 source $HOME/.config/nvim/signify_config.vim
 source $HOME/.config/nvim/which_key_config.vim
 source $HOME/.config/nvim/black_config.vim
+source $HOME/.config/nvim/coc_explorer_config.vim
 " source $HOME/.config/nvim/conda_config.vim
 " source $HOME/.config/nvim/obsession_config.vim
 
