@@ -1,0 +1,85 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "ctrl+alt+0",
+        "command": "editor.action.fontZoomReset"
+    },
+    {
+        "key": "ctrl+shift+0",
+        "command": "workbench.action.zoomReset"
+    },
+    {
+        "key": "ctrl+numpad0",
+        "command": "-workbench.action.zoomReset"
+    },
+    {
+        "key": "ctrl+[BracketRight]",
+        "command": "workbench.action.zoomIn"
+    },
+    {
+        "key": "ctrl+shift+0",
+        "command": "-workbench.action.zoomIn"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.navigateUp"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.navigateDown"
+    },
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.navigateLeft"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.navigateRight"
+    },
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.previousPanelView",
+        "when": "panelFocus"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.nextPanelView",
+        "when": "panelFocus"
+    },
+    {
+        "key": "ctrl+alt+o",
+        "command": "workbench.files.action.focusOpenEditorsView",
+        "when": "explorerViewletVisible && sideBarFocus"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.files.action.focusFilesExplorer",
+        "when": "sideBarFocus && explorerViewletVisible && !filesExplorerFocus"
+    },
+    {
+        "key": "ctrl+shift+a",
+        "command": "workbench.view.explorer"
+    },
+    {
+        "key": "ctrl+shift+e",
+        "command": "-workbench.view.explorer"
+    },
+    {
+        "key": "ctrl+[",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "ctrl+`",
+        "command": "-workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "ctrl+[",
+        "command": "editor.action.commentLine",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+/",
+        "command": "-editor.action.commentLine",
+        "when": "editorTextFocus && !editorReadonly"
+    }
+]
