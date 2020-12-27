@@ -37,6 +37,13 @@ set showmatch		" When a bracket is inserted, briefly jump to the matching one
 set updatetime=300      " Faster completion
 set showtabline=2   " Always show tabs
 
+" Use persistent history.
+if !isdirectory("/tmp/.vim-undo-dir")
+    call mkdir("/tmp/.vim-undo-dir", "", 0700)
+endif
+set undodir=/tmp/.vim-undo-dir
+set undofile
+
 "Map Leader:
 let mapleader="\<Space>"
 
@@ -89,7 +96,6 @@ call plug#end()
 
 " Plugins to review
 " Plug 'tmhedberg/SimpylFold'
-
 
 " Sourcing Config Files:
 source $HOME/.config/nvim/mappings.vim
