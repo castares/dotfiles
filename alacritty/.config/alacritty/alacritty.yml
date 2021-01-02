@@ -84,9 +84,8 @@ key_bindings:
   # - { key: Add, mods: Control, action: IncreaseFontSize }
     #  - { key: Subtract, mods: Control, action: DecreaseFontSize }
   - { key: Minus, mods: Control, action: DecreaseFontSize }
-  - { key: N, mods: Control|Shift, action: SpawnNewInstance }
+  - { key: Return, mods: Control|Shift, action: SpawnNewInstance }
   - { key: Tab,  mods: Control,        chars: "\x1b[27;5;9~" }
   - { key: Tab,  mods: Control|Shift,  chars: "\x1b[27;6;9~" }
   - { key: V,        mods: Control, action: Paste            } # Optional
   # - { key: C,        mods: Control, action: CopyDynamic      }
-
