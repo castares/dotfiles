@@ -26,9 +26,10 @@ nnoremap <S-TAB> :bprevious<CR>
 nnoremap <C-n> :nohl<CR>
 inoremap <C-n> :nohl<CR>
 
+" Save and close with capital letters also
 command W w
 command Q q
 command X x
 
-
+" Copy path to current buffer
 nmap <Leader>cn :let @+ = expand("%:p")<CR>

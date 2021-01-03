@@ -15,16 +15,17 @@ nnoremap <leader>f :Files<CR>
 map <leader>b :Buffers<CR>
 nnoremap <leader>g :RG<CR>
 nnoremap <leader>t :Tags<CR>
-nnoremap <leader>m :Marks<CR>
+" nnoremap <leader>m :Marks<CR>
 nnoremap <leader>l :Lines<CR>
 
 
 let g:fzf_tags_command = 'ctags -R'
+
 " Border color
 let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
 
 let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
-let $FZF_DEFAULT_COMMAND="rg --files --hidden"
+let $FZF_DEFAULT_COMMAND="rg --files --hidden --glob='!{.git,node_modules}/*'"
 
 
 " Customize fzf colors to match your color scheme
@@ -56,7 +57,8 @@ command! -bang -nargs=* Rg
 
 " Ripgrep advanced
 function! RipgrepFzf(query, fullscreen)
-  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
+  let command_fmt = "rg  --glob '!*{po,pot,csv,rst}' --glob='!{git,node_modules}/*' --follow --multiline --column --line-number --no-heading --color=always --smart-case %s || true"
+
   let initial_command = printf(command_fmt, shellescape(a:query))
   let reload_command = printf(command_fmt, '{q}')
   let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}

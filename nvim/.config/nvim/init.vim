@@ -55,42 +55,50 @@ let g:node_host_prog = expand("~/.nvm/versions/node/v14.15.3/bin/neovim-node-hos
 " Plugins:
 call plug#begin(stdpath('data') . '/plugged')
 
+" Display Navigation:
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'sheerun/vim-polyglot'		" Better Syntax Support
-Plug 'jiangmiao/auto-pairs'		" Auto pairs for '(' '[' '{'
-Plug 'scrooloose/NERDTree'		" File Explorer
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }	" Fuzzy Finder 
-Plug 'junegunn/fzf.vim'
-Plug 'joshdick/onedark.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'} 	" Conquer of Completion. Use release branch (recommend)
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'szw/vim-maximizer'
-Plug 'tpope/vim-commentary'
-Plug 'francoiscabrol/ranger.vim'
-Plug 'rbgrouleff/bclose.vim'
-Plug 'norcalli/nvim-colorizer.lua'
+Plug 'ryanoasis/vim-devicons'
+" Extra Features:
+Plug 'liuchengxu/vim-which-key'     "Show all mappings in a list
+Plug 'szw/vim-maximizer'            "Maximize a split inside an instance
+Plug 'jiangmiao/auto-pairs'		    " Auto pairs for '(' '[' '{'
+Plug 'tpope/vim-eunuch'             "Extra Commands
+Plug 'tpope/vim-commentary'         "Extra Motions
+Plug 'tpope/vim-surround'           "Extra Motions
+Plug 'norcalli/nvim-colorizer.lua'  "Visual Display for Color References
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'mhinz/vim-startify'
+Plug 'mhinz/vim-startify'   "Session Management
+Plug 'francoiscabrol/ranger.vim'    "Ranger integration
+Plug 'tpope/vim-dadbod'
+" FZF:
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }	" Fuzzy Finder 
+Plug 'junegunn/fzf.vim'
+" Git:
 Plug 'mhinz/vim-signify'    "Git changes symbols 
 Plug 'tpope/vim-fugitive'   "Git commands
 Plug 'tpope/vim-rhubarb'    "Git browser
-Plug 'junegunn/gv.vim'
-Plug 'liuchengxu/vim-which-key'
+Plug 'junegunn/gv.vim'      "Git Commit Browser
+" IDE:
+Plug 'neoclide/coc.nvim', {'branch': 'release'} 	" Conquer of Completion. Use release branch (recommend)
 Plug 'honza/vim-snippets'
 Plug 'metakirby5/codi.vim'
-Plug 'tpope/vim-surround'
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-Plug 'Yggdroot/indentLine'
+Plug 'sheerun/vim-polyglot'		" Better Syntax Support
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}  "Python Syntax Highlight
+Plug 'mattn/emmet-vim'
+
+Plug 'rbgrouleff/bclose.vim'        "Buffer Close abreviation
+" Plug 'scrooloose/NERDTree'		" File Explorer
+" Plug 'Xuyuanp/nerdtree-git-plugin' 
+" Plug 'Yggdroot/indentLine'
 Plug 'psf/black', { 'branch': 'stable' }
-Plug 'Xuyuanp/nerdtree-git-plugin' 
-Plug 'ryanoasis/vim-devicons'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-dadbod'
-" Plug 'ulwlu/elly.vim'
 " Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
 " Plug 'cjrh/vim-conda'
 " Plug 'tpope/vim-obsession'
+
+"Themes:
+Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
@@ -112,6 +120,7 @@ source $HOME/.config/nvim/signify_config.vim
 source $HOME/.config/nvim/which_key_config.vim
 source $HOME/.config/nvim/black_config.vim
 source $HOME/.config/nvim/coc_explorer_config.vim
+source $HOME/.config/nvim/maximizer_config.vim
 " source $HOME/.config/nvim/conda_config.vim
 " source $HOME/.config/nvim/obsession_config.vim
 
@@ -139,6 +148,7 @@ au BufNewFile,BufRead *.js,*.html,*.css	"JS HTML CSS indentation
     \ set tabstop=2
     \ set softtabstop=2
     \ set shiftwidth=2
+    \ set expandtab
 
 
 
