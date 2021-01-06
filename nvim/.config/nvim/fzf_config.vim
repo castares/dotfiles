@@ -10,13 +10,13 @@ let g:fzf_action = {
 " explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
-map <C-f> :Files<CR>
-nnoremap <leader>f :Files<CR>
-map <leader>b :Buffers<CR>
-nnoremap <leader>g :RG<CR>
-nnoremap <leader>t :Tags<CR>
-" nnoremap <leader>m :Marks<CR>
-nnoremap <leader>l :Lines<CR>
+" map <C-f> :Files<CR>
+" nnoremap <leader>f :Files<CR>
+" map <leader>b :Buffers<CR>
+" nnoremap <leader>g :RG<CR>
+" nnoremap <leader>t :Tags<CR>
+" " nnoremap <leader>m :Marks<CR>
+" nnoremap <leader>l :Lines<CR>
 
 
 let g:fzf_tags_command = 'ctags -R'
@@ -24,8 +24,8 @@ let g:fzf_tags_command = 'ctags -R'
 " Border color
 let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
 
-let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
-let $FZF_DEFAULT_COMMAND="rg --files --hidden --glob='!{.git,node_modules}/*'"
+let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline '
+let $FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob='!{.git,node_modules}/*'"
 
 
 " Customize fzf colors to match your color scheme
@@ -57,8 +57,7 @@ command! -bang -nargs=* Rg
 
 " Ripgrep advanced
 function! RipgrepFzf(query, fullscreen)
-  let command_fmt = "rg  --glob '!*{po,pot,csv,rst}' --glob='!{git,node_modules}/*' --follow --multiline --column --line-number --no-heading --color=always --smart-case %s || true"
-
+  let command_fmt = "rg --hidden --glob='!*{po,pot,csv,rst}' --glob='!{git,node_modules}/*' --follow --multiline --column --line-number --no-heading --color=always --smart-case %s || true"
   let initial_command = printf(command_fmt, shellescape(a:query))
   let reload_command = printf(command_fmt, '{q}')
   let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
@@ -72,3 +71,22 @@ command! -bang -nargs=* GGrep
   \ call fzf#vim#grep(
   \   'git grep --line-number '.shellescape(<q-args>), 0,
   \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
+
+" Prevent FZF commands from opening in none modifiable buffers
+function! FZFOpen(cmd)
+    " If more than 1 window, and buffer is not modifiable or file type is
+    " Coc Explorer or Quickfix type
+    if winnr('$') > 1 && (!&modifiable || &ft == 'coc-explorer' || &ft == 'qf')
+        " Move one window to the right, then up
+        wincmd l
+        wincmd k
+    endif
+    exe a:cmd
+endfunction
+
+nnoremap <silent> <leader>b :call FZFOpen(":Buffers")<CR>
+nnoremap <silent> <leader>f :call FZFOpen(":Files")<CR>
+nnoremap <silent> <leader>g :call FZFOpen(":RG")<CR>
+nnoremap <silent> <leader>t :call FZFOpen(":Tags")<CR>
+nnoremap <silent> <leader>l :call FZFOpen(":Lines")<CR>
+

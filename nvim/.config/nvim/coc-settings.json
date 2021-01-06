@@ -20,5 +20,21 @@
 	"python.venvPath": "~/.conda/env/",
 	"python.formatting.provider": "black",
 	"python.linting.flake8Enabled": true,
-	"python.linting.mypyEnabled": true
+	"python.linting.mypyEnabled": true,
+	"explorer.width": 35,
+	"explorer.buffer.root.template": "[icon & 1] BUFFERS",
+	"explorer.file.root.template": "[icon & 1] TREE ([root])",
+	"explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1 omitCenter 5]",
+	"explorer.file.showHiddenFiles": true,
+	"explorer.file.autoReveal": false,
+	"explorer.icon.enableVimDevicons": true,
+	"explorer.icon.enableNerdfont": true,
+	"explorer.previewAction.onHover": false,
+	"explorer.git.showIgnored": true,
+	"explorer.keyMappings.global": {
+		"v": "open:vsplit:intelligent",
+		"s": "open:split:intelligent"
+	}
 }
+
+

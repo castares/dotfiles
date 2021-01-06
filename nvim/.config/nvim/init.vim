@@ -115,12 +115,12 @@ source $HOME/.config/nvim/fzf_config.vim
 luafile $HOME/.config/nvim/colorizer_config.lua
 source $HOME/.config/nvim/rainbow_parenthesis_config.vim
 source $HOME/.config/nvim/startfy_config.vim
-source $HOME/.config/nvim/nerdtree_config.vim
 source $HOME/.config/nvim/signify_config.vim
 source $HOME/.config/nvim/which_key_config.vim
 source $HOME/.config/nvim/black_config.vim
 source $HOME/.config/nvim/coc_explorer_config.vim
 source $HOME/.config/nvim/maximizer_config.vim
+" source $HOME/.config/nvim/nerdtree_config.vim
 " source $HOME/.config/nvim/conda_config.vim
 " source $HOME/.config/nvim/obsession_config.vim
 
