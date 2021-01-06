@@ -187,6 +187,9 @@ then
     source /usr/share/fzf/completion.zsh
 fi
 
+export FZF_DEFAULT_OPTS="--layout=reverse --info=inline"
+export FZF_DEFAULT_COMMAND="rg --files --hidden --follow"
+export FZF_CTRL_T_COMMAND="rg --files --hidden --follow --glob='!{.git,node_modules}/*'"
 # >>> Pipx >>>
 # To activate completions for zsh you need to have bashcompinit enabled in zsh:
 autoload -U bashcompinit
