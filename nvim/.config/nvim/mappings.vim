@@ -33,3 +33,10 @@ command X x
 
 " Copy path to current buffer
 nmap <Leader>cn :let @+ = expand("%:p")<CR>
+
+" Mappings for Spanish layout keyboard
+nnoremap ñ ;
+nnoremap Ñ :
+nnoremap - /
+nnoremap _ ?
+
