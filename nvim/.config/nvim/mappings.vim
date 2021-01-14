@@ -34,6 +34,10 @@ command X x
 " Copy path to current buffer
 nmap <Leader>cn :let @+ = expand("%:p")<CR>
 
+" Open splits:
+nnoremap <silent> <leader>v :vsplit<CR>
+nnoremap <silent> <leader>h :split<CR>
+
 " Mappings for Spanish layout keyboard
 nnoremap ñ ;
 nnoremap Ñ :

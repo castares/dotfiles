@@ -86,7 +86,7 @@ endfunction
 
 nnoremap <silent> <leader>b :call FZFOpen(":Buffers")<CR>
 nnoremap <silent> <leader>f :call FZFOpen(":Files")<CR>
-nnoremap <silent> <leader>g :call FZFOpen(":RG")<CR>
+nnoremap <silent> <leader>s :call FZFOpen(":RG")<CR>
 nnoremap <silent> <leader>t :call FZFOpen(":Tags")<CR>
 nnoremap <silent> <leader>l :call FZFOpen(":Lines")<CR>
 
