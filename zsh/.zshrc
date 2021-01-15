@@ -109,6 +109,7 @@ PATH="$PATH:/snap/bin"
 PATH="$PATH:$HOME/.local/bin"
 
 # Aliases
+alias vi=nvim
 alias vim=nvim
 alias zshrc="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
@@ -118,6 +119,9 @@ alias cl=clear
 alias vimrc="nvim ~/.config/nvim/init.vim"
 alias i3config="nvim ~/.config/i3/config"
 alias alacritty_config="nvim ~/.config/alacritty/alacritty.yml"
+
+# Custom Aliases per machine
+[ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
