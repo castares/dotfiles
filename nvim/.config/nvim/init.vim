@@ -37,12 +37,16 @@ set showmatch		" When a bracket is inserted, briefly jump to the matching one
 set updatetime=300      " Faster completion
 set showtabline=2   " Always show tabs
 
-" Use persistent history.
-if !isdirectory("/tmp/.vim-undo-dir")
-    call mkdir("/tmp/.vim-undo-dir", "", 0700)
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+    let myUndoDir = expand(stdpath('data') . '/undodir')
+    " Create dirs
+    silent call mkdir(myUndoDir, 'p')
+    let &undodir = myUndoDir
+    set undofile
+    set nobackup
+    set noswapfile
 endif
-set undodir=/tmp/.vim-undo-dir
-set undofile
 
 "Map Leader:
 let mapleader="\<Space>"
@@ -85,14 +89,18 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} 	" Conquer of Completion. Use re
 Plug 'honza/vim-snippets'
 Plug 'metakirby5/codi.vim'
 Plug 'sheerun/vim-polyglot'		" Better Syntax Support
+
+" Python:
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}  "Python Syntax Highlight
+Plug 'psf/black', { 'branch': 'stable' }
+
+" JS TS HTML CSS:
 Plug 'mattn/emmet-vim'
 
 Plug 'rbgrouleff/bclose.vim'        "Buffer Close abreviation
 " Plug 'scrooloose/NERDTree'		" File Explorer
 " Plug 'Xuyuanp/nerdtree-git-plugin' 
 " Plug 'Yggdroot/indentLine'
-Plug 'psf/black', { 'branch': 'stable' }
 " Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
 " Plug 'cjrh/vim-conda'
 " Plug 'tpope/vim-obsession'
@@ -105,52 +113,41 @@ call plug#end()
 " Plugins to review
 " Plug 'tmhedberg/SimpylFold'
 
-" Sourcing Config Files:
-source $HOME/.config/nvim/mappings.vim
-source $HOME/.config/nvim/coc_config.vim
-source $HOME/.config/nvim/airline_config.vim
-source $HOME/.config/nvim/ranger_config.vim
-source $HOME/.config/nvim/commenter_config.vim
-source $HOME/.config/nvim/fzf_config.vim
-luafile $HOME/.config/nvim/colorizer_config.lua
-source $HOME/.config/nvim/rainbow_parenthesis_config.vim
-source $HOME/.config/nvim/startfy_config.vim
-source $HOME/.config/nvim/signify_config.vim
-source $HOME/.config/nvim/which_key_config.vim
-source $HOME/.config/nvim/black_config.vim
-source $HOME/.config/nvim/coc_explorer_config.vim
-source $HOME/.config/nvim/maximizer_config.vim
-" source $HOME/.config/nvim/nerdtree_config.vim
-" source $HOME/.config/nvim/conda_config.vim
-" source $HOME/.config/nvim/obsession_config.vim
-
-" Sourcing Theme (only 1):
-source $HOME/.config/nvim/onedark_config.vim
-" source $HOME/.config/nvim/elly_config.vim
-
-
 " Enable folding
 " set foldlevel=99
 " let g:SimpylFold_docstring_preview=1
 
-au BufNewFile,BufRead *.py "Python indentation
+au BufNewFile,BufRead,BufEnter *.py "Python indentation
     \ set tabstop=4
     \ set softtabstop=4
     \ set shiftwidth=4
     \ set textwidth=89
-    \ set colorcolumn
     \ set expandtab
     \ set autoindent
     \ set fileformat=unix
     \ set foldmethod=indent
 
-au BufNewFile,BufRead *.js,*.html,*.css	"JS HTML CSS indentation
+au BufNewFile,BufRead,BufEnter *.js,*.html,*.css	"JS HTML CSS indentation
     \ set tabstop=2
     \ set softtabstop=2
     \ set shiftwidth=2
     \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
 
+function! s:SetColorColumn()
+    if &textwidth == 0
+        setlocal colorcolumn=80
+    else
+        setlocal colorcolumn=+0
+    endif
+endfunction
 
+augroup colorcolumn
+    autocmd!
+    autocmd OptionSet textwidth call s:SetColorColumn()
+    autocmd BufEnter * call s:SetColorColumn()
+augroup end
 
 
 

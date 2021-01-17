@@ -17,6 +17,10 @@ nnoremap <M-k> :resize +2<CR>
 nnoremap <M-h> :vertical resize -2<CR>
 nnoremap <M-l> :vertical resize +2<CR>
 
+" Change 2 split windows from vert to horiz or horiz to vert
+map <Leader>tv <C-w>t<C-w>H
+map <Leader>th <C-w>t<C-w>K
+
 " CTRL+TAB in general mode will move to text buffer
 nnoremap <silent> <C-TAB> :bnext<CR>
 " SHIFT-TAB will go back
