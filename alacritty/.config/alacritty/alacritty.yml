@@ -44,19 +44,19 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 11.0
+  size: 11.5
 
   offset:
-    x: 1
-    y: 1
+    x: 0
+    y: 0
   glyph_offset:
     x: 0
     y: 0
 
 window:
   padding:
-    x: 2
-    y: 2
+    x: 1
+    y: 1
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -82,10 +82,10 @@ key_bindings:
   - { key: Key0, mods: Control, action: ResetFontSize }
   - { key: Equals, mods: Control, action: IncreaseFontSize }
   # - { key: Add, mods: Control, action: IncreaseFontSize }
-    #  - { key: Subtract, mods: Control, action: DecreaseFontSize }
+  #  - { key: Subtract, mods: Control, action: DecreaseFontSize }
   - { key: Minus, mods: Control, action: DecreaseFontSize }
   - { key: Return, mods: Control|Shift, action: SpawnNewInstance }
-  - { key: Tab,  mods: Control,        chars: "\x1b[27;5;9~" }
-  - { key: Tab,  mods: Control|Shift,  chars: "\x1b[27;6;9~" }
-  - { key: V,        mods: Control, action: Paste            } # Optional
+  - { key: Tab, mods: Control, chars: "\x1b[27;5;9~" }
+  - { key: Tab, mods: Control|Shift, chars: "\x1b[27;6;9~" }
+  - { key: V, mods: Control, action: Paste } # Optional
   # - { key: C,        mods: Control, action: CopyDynamic      }
