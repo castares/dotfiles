@@ -8,8 +8,8 @@ let mapleader="\<Space>"
 " nnoremap <C-l> <C-w>l
 
 " Better indenting
-vnoremap < <GV
-vnoremap > >gv
+" vnoremap < <GV
+" vnoremap > >gv
 
 " Use alt + hjkl to resize windows
 nnoremap <M-j> :resize -2<CR>

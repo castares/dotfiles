@@ -8,12 +8,15 @@ set background=dark
 set showcmd
 set laststatus=2	" Always display the status line
 set incsearch		" Enable incremental search
-set scrolloff=5
+set scrolloff=10
 set termguicolors
 
 " NVIM Settings:
 
+set expandtab
 set tabstop=4   " Insert 4 spaces for a tab
+set shiftwidth=4   " Insert 4 spaces for a tab
+set softtabstop=4   " Insert 4 spaces for a tab
 set numberwidth=1
 set clipboard+=unnamedplus
 set mouse=a
@@ -36,6 +39,7 @@ set matchpairs+=<:>	" Highlight matching pairs of brackets. Use the '%' characte
 set showmatch		" When a bracket is inserted, briefly jump to the matching one 
 set updatetime=300      " Faster completion
 set showtabline=2   " Always show tabs
+set noshowmode
 
 " Keep undo history across sessions by storing it in a file
 if has('persistent_undo')
@@ -88,7 +92,7 @@ Plug 'junegunn/gv.vim'      "Git Commit Browser
 Plug 'neoclide/coc.nvim', {'branch': 'release'} 	" Conquer of Completion. Use release branch (recommend)
 Plug 'honza/vim-snippets'
 Plug 'metakirby5/codi.vim'
-Plug 'sheerun/vim-polyglot'		" Better Syntax Support
+" Plug 'sheerun/vim-polyglot'		" Better Syntax Support
 
 " Python:
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}  "Python Syntax Highlight
