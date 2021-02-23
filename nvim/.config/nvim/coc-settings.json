@@ -10,7 +10,6 @@
         "python",
         "xml"
     ],
-    // python config
     "snippets.ultisnips.directories": [
         "UltiSnips",
         "~/.config/nvim/utils/snips"

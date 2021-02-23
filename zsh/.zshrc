@@ -106,6 +106,7 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
+
 #PATH
 PATH="$PATH:/snap/bin"
 PATH="$PATH:$HOME/.local/bin"
@@ -116,8 +117,8 @@ alias vim=nvim
 alias zshrc="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias cl=clear
-# alias pip=pip3
-# alias python=python3
+alias pip=pip3
+alias python=python3
 alias vimrc="nvim ~/.config/nvim/init.vim"
 alias i3config="nvim ~/.config/i3/config"
 alias alacritty_config="nvim ~/.config/alacritty/alacritty.yml"

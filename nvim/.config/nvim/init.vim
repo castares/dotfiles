@@ -108,7 +108,6 @@ Plug 'rbgrouleff/bclose.vim'        "Buffer Close abreviation
 " Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
 " Plug 'cjrh/vim-conda'
 " Plug 'tpope/vim-obsession'
-
 "Themes:
 Plug 'joshdick/onedark.vim'
 
@@ -132,16 +131,16 @@ au BufNewFile,BufRead,BufEnter *.py "Python indentation
     \ set foldmethod=indent
 
 au BufNewFile,BufRead,BufEnter *.js,*.html,*.css	"JS HTML CSS indentation
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
     \ set expandtab
     \ set autoindent
     \ set fileformat=unix
 
 function! s:SetColorColumn()
     if &textwidth == 0
-        setlocal colorcolumn=80
+        setlocal colorcolumn=79
     else
         setlocal colorcolumn=+0
     endif
