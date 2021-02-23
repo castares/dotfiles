@@ -3,7 +3,7 @@
     "editor.minimap.enabled": false,
     "editor.mouseWheelZoom": true,
     "breadcrumbs.enabled": true,
-    "workbench.colorTheme": "Material Theme Darker",
+    "workbench.colorTheme": "One Dark Pro",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.activityBar.visible": true,
     "workbench.settings.editor": "json",
