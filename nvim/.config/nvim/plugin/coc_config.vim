@@ -28,13 +28,15 @@ else
 endif
 
 let g:coc_global_extensions = [
-      \ 'coc-json', 
-      \ 'coc-vimlsp', 
+      \ 'coc-json',
+      \ 'coc-vimlsp',
       \ 'coc-marketplace',
       \ 'coc-snippets',
       \ 'coc-lua',
       \ 'coc-pyright',
       \ 'coc-tsserver',
+      \ 'coc-xml',
+      \ 'coc-explorer',
       \]
 
 " Use tab for trigger completion with characters ahead and navigate.
