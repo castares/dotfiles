@@ -4,25 +4,30 @@ set encoding=utf-8
 set ruler
 syntax enable
 set ttyfast
-set background=dark 
+set background=dark
 set showcmd
-set laststatus=2	" Always display the status line
-set incsearch		" Enable incremental search
-set scrolloff=5
+set laststatus=2 " Always display the status line
+set incsearch       " Enable incremental search
+set scrolloff=8
 set termguicolors
+set noerrorbells
 
 " NVIM Settings:
 
-set tabstop=4   " Insert 4 spaces for a tab
-set numberwidth=1
+set list
+set tabstop=4       " Insert 4 spaces for a tab
+set softtabstop=4
+set shiftwidth=4
+set expandtab
 set clipboard+=unnamedplus
 set mouse=a
+set numberwidth=1
 set number
 set relativenumber
 set wrap
-set showmode
+set noshowmode
 set hidden
-set iskeyword-=-_	" treat dash separated words as a word text object"
+set iskeyword+=-    " treat dash separated words as a word text object
 set formatoptions-=cro	" Stop newline continution of comments
 set pumheight=10	" Makes popup menu smaller
 set splitbelow		" Horizontal splits will automatically be below
@@ -31,9 +36,9 @@ set t_Co=256		" Support 256 colors
 set conceallevel=0	" So that I can see `` in markdown files
 set ignorecase		" Include matching uppercase words with lowercase search term
 set smartcase		" Override the 'ignorecase' option if the search pattern contains upper
-set hlsearch		" Highlight matching search patterns
-set matchpairs+=<:>	" Highlight matching pairs of brackets. Use the '%' character to jump between them.
-set showmatch		" When a bracket is inserted, briefly jump to the matching one 
+set hlsearch        " Highlight matching search patterns
+set matchpairs+=<:> " Highlight matching pairs of brackets. Use the '%' character to jump between them.
+set showmatch       " When a bracket is inserted, briefly jump to the matching one
 set updatetime=300      " Faster completion
 set showtabline=2   " Always show tabs
 
@@ -67,7 +72,7 @@ Plug 'ryanoasis/vim-devicons'
 " Extra Features:
 Plug 'liuchengxu/vim-which-key'     "Show all mappings in a list
 Plug 'szw/vim-maximizer'            "Maximize a split inside an instance
-Plug 'jiangmiao/auto-pairs'		    " Auto pairs for '(' '[' '{'
+Plug 'jiangmiao/auto-pairs'         " Auto pairs for '(' '[' '{'
 Plug 'tpope/vim-eunuch'             "Extra Commands
 Plug 'tpope/vim-commentary'         "Extra Motions
 Plug 'tpope/vim-surround'           "Extra Motions
@@ -77,10 +82,10 @@ Plug 'mhinz/vim-startify'   "Session Management
 Plug 'francoiscabrol/ranger.vim'    "Ranger integration
 Plug 'tpope/vim-dadbod'
 " FZF:
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }	" Fuzzy Finder 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }	" Fuzzy Finder
 Plug 'junegunn/fzf.vim'
 " Git:
-Plug 'mhinz/vim-signify'    "Git changes symbols 
+Plug 'mhinz/vim-signify'    "Git changes symbols
 Plug 'tpope/vim-fugitive'   "Git commands
 Plug 'tpope/vim-rhubarb'    "Git browser
 Plug 'junegunn/gv.vim'      "Git Commit Browser
@@ -99,7 +104,7 @@ Plug 'mattn/emmet-vim'
 
 Plug 'rbgrouleff/bclose.vim'        "Buffer Close abreviation
 " Plug 'scrooloose/NERDTree'		" File Explorer
-" Plug 'Xuyuanp/nerdtree-git-plugin' 
+" Plug 'Xuyuanp/nerdtree-git-plugin'
 " Plug 'Yggdroot/indentLine'
 " Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
 " Plug 'cjrh/vim-conda'
@@ -115,40 +120,6 @@ call plug#end()
 " Enable folding
 " set foldlevel=99
 " let g:SimpylFold_docstring_preview=1
-
-au BufNewFile,BufRead,BufEnter *.py "Python indentation
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=89
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
-    \ set foldmethod=indent
-
-au BufNewFile,BufRead,BufEnter *.js,*.html,*.css	"JS HTML CSS indentation
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
-
-function! s:SetColorColumn()
-    if &textwidth == 0
-        setlocal colorcolumn=79
-    else
-        setlocal colorcolumn=+0
-    endif
-endfunction
-
-augroup colorcolumn
-    autocmd!
-    autocmd OptionSet textwidth call s:SetColorColumn()
-    autocmd BufEnter * call s:SetColorColumn()
-augroup end
-
-
 
 
 
