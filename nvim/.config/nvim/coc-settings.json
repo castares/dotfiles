@@ -1,45 +1,45 @@
 {
-	"coc.preferences.formatOnSaveFiletypes": [
-		"css",
-		"markdown",
-		"javascript",
-		"graphql",
-		"html",
-		"yaml",
-		"json",
-		"python",
-		"xml"
-	],
-	// python config
-	"snippets.ultisnips.directories": [
-		"UltiSnips",
-		"~/.config/nvim/utils/snips"
-	],
-	"python.analysis.logLevel": "Warning",
-	"python.pythonPath": "python3",
-	"python.venvPath": "~/.conda/env/",
-	"python.formatting.provider": "black",
-	"python.formatting.blackPath": "black",
-	"python.linting.enabled": true,
-	"python.linting.pylintEnabled": true,
-	"python.linting.flake8Enabled": true,
-	"python.linting.mypyEnabled": true,
-	"explorer.width": 35,
-	"explorer.buffer.root.template": "[icon & 1] BUFFERS",
-	"explorer.file.root.template": "[icon & 1] TREE ([root])",
-	"explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1 omitCenter 5]",
-	"explorer.file.showHiddenFiles": true,
-	"explorer.file.autoReveal": true,
-	"explorer.icon.enableVimDevicons": true,
-	"explorer.icon.enableNerdfont": true,
-	"explorer.previewAction.onHover": false,
-	"explorer.git.showIgnored": true,
-	"explorer.keyMappings.global": {
-		"v": "open:vsplit:intelligent",
-		"s": "open:split:intelligent",
-		"e": ""
-  },
-  "clangd.path": "/home/castares/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd"
+    "coc.preferences.formatOnSaveFiletypes": [
+        "css",
+        "markdown",
+        "javascript",
+        "graphql",
+        "html",
+        "yaml",
+        "json",
+        "python",
+        "xml"
+    ],
+    "snippets.ultisnips.directories": [
+        "UltiSnips",
+        "~/.config/nvim/utils/snips"
+    ],
+    "python.analysis.logLevel": "Warning",
+    "python.pythonPath": "python3",
+    "python.venvPath": "~/.conda/env/",
+    "python.formatting.provider": "autopep8",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.mypyEnabled": false,
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportMissingImports": "none"
+    },
+    "explorer.width": 35,
+    "explorer.buffer.root.template": "[icon & 1] BUFFERS",
+    "explorer.file.root.template": "[icon & 1] TREE ([root])",
+    "explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1 omitCenter 5]",
+    "explorer.file.showHiddenFiles": true,
+    "explorer.file.autoReveal": true,
+    "explorer.icon.enableVimDevicons": true,
+    "explorer.icon.enableNerdfont": true,
+    "explorer.previewAction.onHover": false,
+    "explorer.git.showIgnored": true,
+    "explorer.keyMappings.global": {
+        "v": "open:vsplit:intelligent",
+        "s": "open:split:intelligent",
+        "e": ""
+    },
+    "xml.format.spaceBeforeEmptyCloseTag": false,
+    "xml.format.enabled": false
 }
-
-

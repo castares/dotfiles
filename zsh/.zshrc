@@ -78,6 +78,8 @@ HIST_STAMPS="mm/dd/yyyy"
 plugins=(
 	git
 	vi-mode
+    docker
+    docker-compose
 	)
 
 source $ZSH/oh-my-zsh.sh
@@ -145,7 +147,7 @@ unset __conda_setup
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# >>> Copied from LukeSmithxyz https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52 >>>
+# >>> From LukeSmithxyz https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52 >>>
  
 # Basic auto/tab complete:
 autoload -U compinit
@@ -183,7 +185,7 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-# <<< Copied from LukeSmithxyz https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52 <<< 
+# <<< From LukeSmithxyz https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52 <<< 
 
 # >>> FZF >>>
 # Initialize https://github.com/junegunn/fzf
@@ -195,9 +197,11 @@ then
     source /usr/share/fzf/completion.zsh
 fi
 
-export FZF_DEFAULT_OPTS="--layout=reverse --info=inline"
+export FZF_DEFAULT_OPTS="--layout=reverse --info=inline --bind alt-j:down,alt-k:up"
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow"
 export FZF_CTRL_T_COMMAND="rg --files --hidden --follow --glob='!{.git,node_modules}/*'"
+# <<< FZF <<<
+ 
 # >>> Pipx >>>
 # To activate completions for zsh you need to have bashcompinit enabled in zsh:
 autoload -U bashcompinit
@@ -209,7 +213,10 @@ if [ -e /usr/share/nvm/init-nvm.sh ]
 then
   source /usr/share/nvm/init-nvm.sh 
 fi
+# <<< Pipx <<<
 
+# >>> NVM >>>
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# <<< NVM <<<
