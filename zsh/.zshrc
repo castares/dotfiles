@@ -110,6 +110,9 @@ PATH="$PATH:/snap/bin"
 PATH="$PATH:$HOME/.local/bin"
 
 # Aliases
+alias mv="mv -iv"
+alias cp="cp -riv"
+alias mkdir="mkdir -vp"
 alias vi=nvim
 alias vim=nvim
 alias zshrc="nvim ~/.zshrc"
