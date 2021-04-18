@@ -92,10 +92,13 @@ Plug 'tpope/vim-rhubarb'    "Git browser
 Plug 'junegunn/gv.vim'      "Git Commit Browser
 " IDE:
 Plug 'neoclide/coc.nvim', {'branch': 'release'} 	" Conquer of Completion. Use release branch (recommend)
-Plug 'honza/vim-snippets'
 Plug 'metakirby5/codi.vim'
 " Plug 'sheerun/vim-polyglot'		" Better Syntax Support
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+" Snippets:
+Plug 'honza/vim-snippets'
+Plug 'castares/vim-odoo-snippets'
 
 " Python:
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}  "Python Syntax Highlight
