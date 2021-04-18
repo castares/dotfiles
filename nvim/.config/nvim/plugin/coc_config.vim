@@ -34,6 +34,7 @@ let g:coc_global_extensions = [
       \ 'coc-snippets',
       \ 'coc-lua',
       \ 'coc-pyright',
+      \ 'coc-diagnostic',
       \ 'coc-tsserver',
       \ 'coc-xml',
       \ 'coc-explorer',

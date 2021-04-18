@@ -18,12 +18,20 @@
     "python.pythonPath": "python3",
     "python.venvPath": "~/.conda/env/",
     "python.formatting.provider": "autopep8",
-    "python.linting.enabled": true,
-    "python.linting.pylintEnabled": false,
-    "python.linting.flake8Enabled": true,
-    "python.linting.mypyEnabled": false,
-    "python.analysis.diagnosticSeverityOverrides": {
-        "reportMissingImports": "none"
+    "pyright.disableDiagnostics": true,
+    "diagnostic-languageserver.filetypes": {
+        "python": [
+            "flake8"
+            /* "mypy" */
+        ],
+        "javascript": "eslint"
+    },
+    "diagnostic-languageserver.formatFiletypes": {
+        "python": [
+            "autopep8",
+            "pyright"
+        ],
+        "javascript": "prettier"
     },
     "explorer.width": 35,
     "explorer.buffer.root.template": "[icon & 1] BUFFERS",
