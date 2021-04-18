@@ -115,6 +115,7 @@ Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
+luafile $HOME/.config/nvim/lua/colorizer_config.lua
 " Plugins to review
 " Plug 'tmhedberg/SimpylFold'
 
