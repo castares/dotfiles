@@ -38,6 +38,8 @@ let g:coc_global_extensions = [
       \ 'coc-tsserver',
       \ 'coc-xml',
       \ 'coc-explorer',
+      \ 'coc-prettier',
+      \ 'coc-emmet',
       \]
 
 " Use tab for trigger completion with characters ahead and navigate.
