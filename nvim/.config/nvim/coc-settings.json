@@ -33,6 +33,8 @@
         ],
         "javascript": "prettier"
     },
+    "prettier.tabWidth": 4,
+    "prettier.trailingComma":"all",
     "explorer.width": 35,
     "explorer.buffer.root.template": "[icon & 1] BUFFERS",
     "explorer.file.root.template": "[icon & 1] TREE ([root])",
