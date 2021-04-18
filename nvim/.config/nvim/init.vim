@@ -95,6 +95,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} 	" Conquer of Completion. Use re
 Plug 'honza/vim-snippets'
 Plug 'metakirby5/codi.vim'
 " Plug 'sheerun/vim-polyglot'		" Better Syntax Support
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Python:
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}  "Python Syntax Highlight
@@ -110,12 +111,14 @@ Plug 'rbgrouleff/bclose.vim'        "Buffer Close abreviation
 " Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
 " Plug 'cjrh/vim-conda'
 " Plug 'tpope/vim-obsession'
-"Themes:
+"Colorschemes:
 Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
 luafile $HOME/.config/nvim/lua/colorizer_config.lua
+luafile $HOME/.config/nvim/lua/treesitter_config.lua
+
 " Plugins to review
 " Plug 'tmhedberg/SimpylFold'
 
