@@ -35,6 +35,10 @@
     },
     "prettier.tabWidth": 4,
     "prettier.trailingComma":"all",
+    "emmet.showAbbreviationSuggestions": true,
+    "emmet.includeLanguages":{
+        "javascript":"javascriptreact"
+    },
     "explorer.width": 35,
     "explorer.buffer.root.template": "[icon & 1] BUFFERS",
     "explorer.file.root.template": "[icon & 1] TREE ([root])",
