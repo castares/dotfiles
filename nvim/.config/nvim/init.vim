@@ -98,7 +98,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Snippets:
 Plug 'honza/vim-snippets'
-Plug 'castares/vim-odoo-snippets'
+Plug 'castares/vim-odoo-snippets', {'branch': 'odoo-11'}
 
 " Python:
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}  "Python Syntax Highlight
