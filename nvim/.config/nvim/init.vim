@@ -82,6 +82,7 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'mhinz/vim-startify'   "Session Management
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'} "Ranger integration
 Plug 'tpope/vim-dadbod'
+Plug 'will133/vim-dirdiff'
 " FZF:
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }	" Fuzzy Finder
 Plug 'junegunn/fzf.vim'
@@ -97,6 +98,7 @@ Plug 'metakirby5/codi.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Snippets:
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'castares/vim-odoo-snippets', {'branch': 'odoo-11'}
 
