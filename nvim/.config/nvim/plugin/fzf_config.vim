@@ -1,8 +1,8 @@
 " This is the default extra key bindings
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
+  \ 'ctrl-o': 'split',
+  \ 'ctrl-i': 'vsplit' }
 
 " Enable per-command history.
 " CTRL-N and CTRL-P will be automatically bound to next-history and
@@ -10,21 +10,13 @@ let g:fzf_action = {
 " explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
-" map <C-f> :Files<CR>
-" nnoremap <leader>f :Files<CR>
-" map <leader>b :Buffers<CR>
-" nnoremap <leader>g :RG<CR>
-" nnoremap <leader>t :Tags<CR>
-" " nnoremap <leader>m :Marks<CR>
-" nnoremap <leader>l :Lines<CR>
-
-
 let g:fzf_tags_command = 'ctags -R'
 
 " Border color
-let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.9, 'height': 0.9,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
+let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.9, 'height': 0.9, 'yoffset':0.5, 'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
 
-let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline '
+" let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline alt-j:down,alt-k:up'
+let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
 let $FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob='!{.git,node_modules}/*'"
 
 
@@ -85,8 +77,12 @@ function! FZFOpen(cmd)
 endfunction
 
 nnoremap <silent> <leader>b :call FZFOpen(":Buffers")<CR>
+nnoremap <silent> <M-b> :call FZFOpen(":Buffers")<CR>
 nnoremap <silent> <leader>f :call FZFOpen(":Files")<CR>
+nnoremap <silent> <M-f> :call FZFOpen(":Files")<CR>
 nnoremap <silent> <leader>s :call FZFOpen(":RG")<CR>
-nnoremap <silent> <leader>t :call FZFOpen(":Tags")<CR>
+nnoremap <silent> <M-s> :call FZFOpen(":RG")<CR>
+" nnoremap <silent> <leader>t :call FZFOpen(":Tags")<CR>
 nnoremap <silent> <leader>l :call FZFOpen(":Lines")<CR>
+nnoremap <silent> <M-l> :call FZFOpen(":Lines")<CR>
 
