@@ -10,10 +10,6 @@
         "python",
         "xml"
     ],
-    "snippets.ultisnips.directories": [
-        "UltiSnips",
-        "~/.config/nvim/utils/snips"
-    ],
     "python.analysis.logLevel": "Warning",
     "python.pythonPath": "python3",
     "python.venvPath": "~/.conda/env/",
@@ -50,8 +46,8 @@
     "explorer.previewAction.onHover": false,
     "explorer.git.showIgnored": true,
     "explorer.keyMappings.global": {
-        "v": "open:vsplit:intelligent",
-        "s": "open:split:intelligent",
+        "i": "open:vsplit:intelligent",
+        "o": "open:split:intelligent",
         "e": ""
     }
 }
