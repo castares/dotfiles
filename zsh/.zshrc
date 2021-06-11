@@ -80,6 +80,7 @@ plugins=(
 	vi-mode
     docker
     docker-compose
+    tmux
 	)
 
 source $ZSH/oh-my-zsh.sh
