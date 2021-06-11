@@ -36,7 +36,6 @@ let g:coc_global_extensions = [
       \ 'coc-pyright',
       \ 'coc-diagnostic',
       \ 'coc-tsserver',
-      \ 'coc-xml',
       \ 'coc-explorer',
       \ 'coc-prettier',
       \ 'coc-emmet',

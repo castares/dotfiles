@@ -53,7 +53,5 @@
         "v": "open:vsplit:intelligent",
         "s": "open:split:intelligent",
         "e": ""
-    },
-    "xml.format.spaceBeforeEmptyCloseTag": false,
-    "xml.format.enabled": false
+    }
 }
