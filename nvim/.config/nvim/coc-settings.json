@@ -17,8 +17,8 @@
     "pyright.disableDiagnostics": true,
     "diagnostic-languageserver.filetypes": {
         "python": [
-            "flake8"
-            /* "mypy" */
+            "flake8",
+            "mypy"
         ],
         "javascript": "eslint"
     },
@@ -30,11 +30,15 @@
         "javascript": "prettier"
     },
     "prettier.tabWidth": 4,
-    "prettier.trailingComma":"all",
+    "prettier.trailingComma": "all",
     "emmet.showAbbreviationSuggestions": true,
-    "emmet.includeLanguages":{
-        "javascript":"javascriptreact"
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
     },
+    "prettier.disableLanguages": [
+        "yaml",
+        "json"
+    ],
     "explorer.width": 35,
     "explorer.buffer.root.template": "[icon & 1] BUFFERS",
     "explorer.file.root.template": "[icon & 1] TREE ([root])",
@@ -49,5 +53,6 @@
         "i": "open:vsplit:intelligent",
         "o": "open:split:intelligent",
         "e": ""
-    }
+    },
+    "yaml.format.enable": true
 }
