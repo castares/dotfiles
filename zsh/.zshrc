@@ -63,17 +63,26 @@ HIST_STAMPS="mm/dd/yyyy"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# NVM Lazy Loading
+# export NVM_DIR="$HOME/.nvm"
+# export NVM_LAZY_LOAD=true
+# export NVM_COMPLETION=true
+# export NVM_LAZY_LOAD_EXTRA_COMMANDS=('nvim')
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+    evalcache
 	git
 	vi-mode
     docker
     docker-compose
     tmux
+    gcloud
+    conda-zsh-completion
 	)
 
 source $ZSH/oh-my-zsh.sh
@@ -198,20 +207,17 @@ export FZF_CTRL_T_COMMAND="rg --files --hidden --follow --glob='!{.git,node_modu
 autoload -U bashcompinit
 bashcompinit
 # Afterwards you can enable completion for pipx:
-eval "$(register-python-argcomplete pipx)"
-
-if [ -e /usr/share/nvm/init-nvm.sh ]
-then
-  source /usr/share/nvm/init-nvm.sh
-fi
+# eval "$(register-python-argcomplete pipx)"
+_evalcache register-python-argcomplete pipx
 # <<< Pipx <<<
 
-# >>> NVM >>>
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# <<< NVM <<<
-
 # >>> Starship >>>
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
+_evalcache starship init zsh
 # <<< Starship <<<
+
+
+# >>> fnm >>>
+export PATH=/home/castares/.fnm:$PATH
+_evalcache fnm env
+# <<< fnm <<<
