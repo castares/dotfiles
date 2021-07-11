@@ -103,7 +103,7 @@ Plug 'honza/vim-snippets'
 Plug 'castares/vim-odoo-snippets', {'branch': 'odoo-11'}
 
 " Python:
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}  "Python Syntax Highlight
+" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}  "Python Syntax Highlight
 Plug 'psf/black', { 'branch': 'stable' }
 
 " JS TS HTML CSS:
