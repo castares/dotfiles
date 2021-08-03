@@ -1,6 +1,6 @@
 function! SetColorColumn()
     if &textwidth == 0
-        setlocal colorcolumn=79
+        setlocal colorcolumn=0
     else
         setlocal colorcolumn=+0
     endif
