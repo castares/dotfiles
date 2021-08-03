@@ -150,11 +150,11 @@ unset __conda_setup
 # >>> From LukeSmithxyz https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52 >>>
 
 # Basic auto/tab complete:
-autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)		# Include hidden files.
+# autoload -U compinit
+# zstyle ':completion:*' menu select
+# zmodload zsh/complist
+# compinit
+_comp_options+=(globdots) # Include hidden files.
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
@@ -216,8 +216,7 @@ _evalcache register-python-argcomplete pipx
 _evalcache starship init zsh
 # <<< Starship <<<
 
-
 # >>> fnm >>>
-export PATH=/home/castares/.fnm:$PATH
-_evalcache fnm env
+export PATH=$HOME/.fnm:$PATH
+eval "`fnm env`"
 # <<< fnm <<<
