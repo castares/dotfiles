@@ -9,6 +9,33 @@
         "python",
         "xml"
     ],
+    "suggest.completionItemKindLabels": {
+        "method": "  ",
+        "function": "  ",
+        "variable": "[]",
+        "field": "  ",
+        "typeParameter": "<>",
+        "constant": "  ",
+        "class": " פּ ",
+        "interface": " 蘒",
+        "struct": "  ",
+        "event": "  ",
+        "operator": "  ",
+        "module": "  ",
+        "property": "  ",
+        "enum": " 練",
+        "reference": "  ",
+        "keyword": "  ",
+        "file": "  ",
+        "folder": " ﱮ ",
+        "color": "  ",
+        "unit": " 塞 ",
+        "snippet": "  ",
+        "text": "  ",
+        "constructor": "  ",
+        "value": "  ",
+        "enumMember": "  "
+    },
     "python.analysis.logLevel": "Warning",
     "python.pythonPath": "python3",
     "python.venvPath": "~/.conda/env/",
@@ -22,11 +49,19 @@
         "javascript": "eslint"
     },
     "diagnostic-languageserver.formatFiletypes": {
-        "python": [
-            "autopep8",
-            "pyright"
-        ],
+        "python": "black",
         "javascript": "prettier"
+    },
+    "diagnostic-languageserver.formatters": {
+        "black": {
+            "command": "black",
+            "args": [
+                "--quiet",
+                "--line-length",
+                "79",
+                "-"
+            ]
+        }
     },
     "prettier.tabWidth": 4,
     "prettier.trailingComma": "all",
