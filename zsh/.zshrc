@@ -83,6 +83,7 @@ plugins=(
     tmux
     gcloud
     conda-zsh-completion
+    poetry
 	)
 
 source $ZSH/oh-my-zsh.sh
@@ -211,12 +212,12 @@ bashcompinit
 _evalcache register-python-argcomplete pipx
 # <<< Pipx <<<
 
-# >>> Starship >>>
-# eval "$(starship init zsh)"
-_evalcache starship init zsh
-# <<< Starship <<<
-
 # >>> fnm >>>
 export PATH=$HOME/.fnm:$PATH
 eval "`fnm env`"
 # <<< fnm <<<
+
+# >>> Starship >>>
+# eval "$(starship init zsh)"
+_evalcache starship init zsh
+# <<< Starship <<<
