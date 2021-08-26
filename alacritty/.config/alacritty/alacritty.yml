@@ -26,8 +26,6 @@ colors:
     cyan: "#56b6c2"
     white: "#ECEFF4"
 
-background_opacity: 1.0
-
 font:
   normal:
     family: "Hack Nerd Font"
@@ -53,6 +51,7 @@ font:
     y: 0
 
 window:
+  opacity: 1.0
   padding:
     x: 1
     y: 0
