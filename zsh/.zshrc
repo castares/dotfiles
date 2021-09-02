@@ -114,6 +114,7 @@ source $ZSH/oh-my-zsh.sh
 #PATH
 PATH="$PATH:/snap/bin"
 PATH="$PATH:$HOME/.local/bin"
+PATH="$PATH:$HOME/.cargo/bin"
 
 # Aliases
 alias mv="mv -iv"
