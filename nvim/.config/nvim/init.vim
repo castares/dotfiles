@@ -42,6 +42,7 @@ set showmatch       " When a bracket is inserted, briefly jump to the matching o
 set updatetime=300      " Faster completion
 set showtabline=2   " Always show tabs
 set noshowmode
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:< "enable with :set list
 
 " Keep undo history across sessions by storing it in a file
 if has('persistent_undo')
