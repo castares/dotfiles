@@ -22,9 +22,9 @@ map <Leader>tv <C-w>t<C-w>H
 map <Leader>th <C-w>t<C-w>K
 
 " CTRL+TAB in general mode will move to text buffer
-nnoremap <silent> <C-TAB> :bnext<CR>
+nnoremap <silent> <S-l> :bnext<CR>
 " SHIFT-TAB will go back
-nnoremap <silent> <S-TAB> :bprevious<CR>
+nnoremap <silent> <S-h> :bprevious<CR>
 
 " Remove search highlighting with CTRL+n
 nnoremap <silent> <C-n> :nohl<CR>
