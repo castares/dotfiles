@@ -81,7 +81,6 @@ Plug 'tpope/vim-surround'           "Extra Motions
 Plug 'norcalli/nvim-colorizer.lua'  "Visual Display for Color References
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'mhinz/vim-startify'   "Session Management
-Plug 'kevinhwang91/rnvimr', {'do': 'make sync'} "Ranger integration
 Plug 'tpope/vim-dadbod'
 Plug 'will133/vim-dirdiff'
 " FZF:
