@@ -84,6 +84,7 @@ plugins=(
     gcloud
     conda-zsh-completion
     poetry
+    kubectl
 	)
 
 source $ZSH/oh-my-zsh.sh
@@ -115,6 +116,7 @@ source $ZSH/oh-my-zsh.sh
 PATH="$PATH:/snap/bin"
 PATH="$PATH:$HOME/.local/bin"
 PATH="$PATH:$HOME/.cargo/bin"
+PATH="$PATH:$HOME/.pyenv/bin"
 
 # Aliases
 alias mv="mv -iv"
@@ -130,6 +132,8 @@ alias python=python3
 alias vimrc="nvim ~/.config/nvim/init.vim"
 alias i3config="nvim ~/.config/i3/config"
 alias alacritty_config="nvim ~/.config/alacritty/alacritty.yml"
+alias kubectl='microk8s.kubectl'
+alias k=kubectl
 
 # Custom Aliases per machine
 [ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
@@ -222,3 +226,13 @@ eval "`fnm env`"
 # eval "$(starship init zsh)"
 _evalcache starship init zsh
 # <<< Starship <<<
+
+
+# >>> Starship >>>
+# eval "$(pyenv virtualenv-init -)"
+_evalcache pyenv virtualenv-init -
+# <<< Starship <<<
+
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
