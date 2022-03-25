@@ -66,6 +66,7 @@ let g:node_host_prog = expand("~/.fnm/node-versions/v14.15.4/installation/bin/ne
 " Plugins:
 call plug#begin(stdpath('data') . '/plugged')
 
+Plug 'nvim-lua/plenary.nvim'
 " Display Navigation:
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-airline/vim-airline'
@@ -87,7 +88,8 @@ Plug 'will133/vim-dirdiff'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }	" Fuzzy Finder
 Plug 'junegunn/fzf.vim'
 " Git:
-Plug 'mhinz/vim-signify'    "Git changes symbols
+" Plug 'mhinz/vim-signify'    "Git changes symbols
+Plug 'lewis6991/gitsigns.nvim' "Git changes symbols +
 Plug 'tpope/vim-fugitive'   "Git commands
 Plug 'tpope/vim-rhubarb'    "Git browser
 Plug 'junegunn/gv.vim'      "Git Commit Browser
@@ -113,6 +115,7 @@ Plug 'mattn/emmet-vim'
 Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
 
+" Others:
 Plug 'andres-lowrie/vim-sqlx'
 Plug 'rbgrouleff/bclose.vim'        "Buffer Close abreviation
 " Plug 'scrooloose/NERDTree'		" File Explorer
@@ -121,13 +124,17 @@ Plug 'rbgrouleff/bclose.vim'        "Buffer Close abreviation
 " Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
 " Plug 'cjrh/vim-conda'
 " Plug 'tpope/vim-obsession'
+
 "Colorschemes:
-Plug 'joshdick/onedark.vim'
+" Plug 'joshdick/onedark.vim'
+Plug 'projekt0n/github-nvim-theme'
 
 call plug#end()
 
 luafile $HOME/.config/nvim/lua/colorizer_config.lua
 luafile $HOME/.config/nvim/lua/treesitter_config.lua
+luafile $HOME/.config/nvim/lua/github_colorscheme_config.lua
+luafile $HOME/.config/nvim/lua/gitsigns_config.lua
 
 " Plugins to review
 " Plug 'tmhedberg/SimpylFold'
