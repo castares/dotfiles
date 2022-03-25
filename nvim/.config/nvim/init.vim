@@ -109,6 +109,11 @@ Plug 'psf/black', { 'branch': 'stable' }
 " JS TS HTML CSS:
 Plug 'mattn/emmet-vim'
 
+" Markdown:
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
+
+Plug 'andres-lowrie/vim-sqlx'
 Plug 'rbgrouleff/bclose.vim'        "Buffer Close abreviation
 " Plug 'scrooloose/NERDTree'		" File Explorer
 " Plug 'Xuyuanp/nerdtree-git-plugin'
