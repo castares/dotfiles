@@ -69,8 +69,11 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'nvim-lua/plenary.nvim'
 " Display Navigation:
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nvim-lualine/lualine.nvim'
+
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 " Extra Features:
 Plug 'liuchengxu/vim-which-key'     "Show all mappings in a list
@@ -135,6 +138,7 @@ luafile $HOME/.config/nvim/lua/colorizer_config.lua
 luafile $HOME/.config/nvim/lua/treesitter_config.lua
 luafile $HOME/.config/nvim/lua/github_colorscheme_config.lua
 luafile $HOME/.config/nvim/lua/gitsigns_config.lua
+luafile $HOME/.config/nvim/lua/lualine_config.lua
 
 " Plugins to review
 " Plug 'tmhedberg/SimpylFold'
