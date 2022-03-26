@@ -71,6 +71,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-lualine/lualine.nvim'
+Plug 'romgrk/barbar.nvim'
+Plug 'kyazdani42/nvim-tree.lua'
 
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
@@ -139,6 +141,7 @@ luafile $HOME/.config/nvim/lua/treesitter_config.lua
 luafile $HOME/.config/nvim/lua/github_colorscheme_config.lua
 luafile $HOME/.config/nvim/lua/gitsigns_config.lua
 luafile $HOME/.config/nvim/lua/lualine_config.lua
+luafile $HOME/.config/nvim/lua/nvim-tree_config.lua
 
 " Plugins to review
 " Plug 'tmhedberg/SimpylFold'
