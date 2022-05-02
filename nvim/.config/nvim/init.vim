@@ -59,9 +59,8 @@ endif
 let mapleader="\<Space>"
 
 " Paths:
-let g:python_host_prog = expand("~/.conda/envs/neovim_python2/bin/python")
-let g:python3_host_prog = expand("~/.conda/envs/neovim/bin/python3.8")
-let g:node_host_prog = expand("~/.fnm/node-versions/v14.15.4/installation/bin/neovim-node-host")
+let g:python3_host_prog = expand("~/.conda/envs/neovim/bin/python3.9")
+let g:node_host_prog = expand("~/.fnm/node-versions/v16.14.2/installation/bin/neovim-node-host")
 
 " Plugins:
 call plug#begin(stdpath('data') . '/plugged')
