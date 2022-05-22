@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 telescope.load_extension('media_files')
+telescope.load_extension('file_browser')
 
 local actions = require "telescope.actions"
 
@@ -94,7 +95,18 @@ telescope.setup {
         -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
         filetypes = {"png", "webp", "jpg", "jpeg"},
         find_cmd = "rg" -- find command (defaults to `fd`)
-      }
+      },
+    file_browser = {
+      --theme = "ivy",
+      mappings = {
+        ["i"] = {
+          -- your custom insert mode mappings
+        },
+        ["n"] = {
+          -- your custom normal mode mappings
+        },
+      },
+    },
     -- Your extension configuration goes here:
     -- extension_name = {
     --   extension_config_key = value,
@@ -102,3 +114,12 @@ telescope.setup {
     -- please take a look at the readme of the extension you want to configure
   },
 }
+
+-- Keymaps
+local keymap = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", opts)
+keymap("n", "<leader>s", "<cmd>Telescope live_grep<CR>", opts)
+keymap("n", "<leader>bb", "<cmd>Telescope buffers<CR>", opts)
+keymap("n", "<Leader>e", "<cmd>Telescope file_browser<CR>", opts)

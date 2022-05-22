@@ -52,11 +52,6 @@ keymap("n", "<Leader>v", ":vsplit<CR>", opts)
 keymap("n", "<Leader>h", ":split<CR>", opts)
 keymap("n", "<Leader>h", ":split<CR>", opts)
 
--- Open File Explorer
-keymap("n", "<Leader>e", ":Lexplore 30<CR>", opts)
-
-
-
 -- Command -- 
 -- Save and close with capital letters also
 -- keymap("c", "W", "w", opts)
@@ -90,8 +85,3 @@ keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
-
-
--- Telescope --
-keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files()<CR>", opts)
-keymap("n", "<leader>s", "<cmd>Telescope live_grep<CR>", opts)
