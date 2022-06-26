@@ -34,7 +34,8 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
-keymap("n", "<leader>bd", ":bdelete<CR>", opts)
+keymap("n", "<leader>bd", ":Bdelete<CR>", opts)
+keymap("n", "<leader>bq", ":bufdo :Bdelete<CR>", opts)
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>", opts)
@@ -52,7 +53,7 @@ keymap("n", "<Leader>v", ":vsplit<CR>", opts)
 keymap("n", "<Leader>h", ":split<CR>", opts)
 keymap("n", "<Leader>h", ":split<CR>", opts)
 
--- Command -- 
+-- Command --
 -- Save and close with capital letters also
 -- keymap("c", "W", "w", opts)
 -- keymap("c", "Q", "q", opts)
