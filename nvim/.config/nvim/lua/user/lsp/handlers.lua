@@ -89,7 +89,6 @@ M.on_attach = function(client, bufnr)
 	end
 	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
-	Format_on_saving(client, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

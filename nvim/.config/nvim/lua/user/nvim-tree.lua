@@ -25,7 +25,7 @@ nvim_tree.setup({
 	auto_reload_on_write = true,
 	create_in_closed_folder = false,
 	disable_netrw = false,
-	hijack_cursor = false,
+	hijack_cursor = true,
 	hijack_netrw = true,
 	hijack_unnamed_buffer_when_opening = false,
 	ignore_buffer_on_setup = false,
@@ -33,11 +33,11 @@ nvim_tree.setup({
 	open_on_setup_file = false,
 	open_on_tab = false,
 	sort_by = "name",
-	update_cwd = false,
+	update_cwd = true,
 	reload_on_bufenter = false,
 	respect_buf_cwd = false,
 	view = {
-		adaptive_size = false,
+		adaptive_size = true,
 		width = 35,
 		height = 35,
 		hide_root_folder = false,
@@ -118,7 +118,7 @@ nvim_tree.setup({
 		args = {},
 	},
 	diagnostics = {
-		enable = false,
+		enable = true,
 		show_on_dirs = false,
 		icons = {
 			hint = "",
@@ -134,7 +134,7 @@ nvim_tree.setup({
 	},
 	git = {
 		enable = true,
-		ignore = true,
+		ignore = false,
 		timeout = 400,
 	},
 	actions = {
@@ -148,7 +148,7 @@ nvim_tree.setup({
 			max_folder_discovery = 300,
 		},
 		open_file = {
-			quit_on_open = false,
+			quit_on_open = true,
 			resize_window = true,
 			window_picker = {
 				enable = true,
@@ -184,9 +184,3 @@ nvim_tree.setup({
 		},
 	},
 })
-
--- Keymaps
-local keymap = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
-
-keymap("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", opts)

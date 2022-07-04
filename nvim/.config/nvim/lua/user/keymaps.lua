@@ -32,10 +32,8 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
-keymap("n", "<leader>bd", ":Bdelete<CR>", opts)
-keymap("n", "<leader>bq", ":bufdo :Bdelete<CR>", opts)
+keymap("n", "<A-l>", ":bnext<CR>", opts)
+keymap("n", "<A-h>", ":bprevious<CR>", opts)
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>", opts)
@@ -51,13 +49,12 @@ keymap("n", "<C-n>", "<Esc>:nohl<CR>", opts)
 -- Open splits:
 keymap("n", "<Leader>v", ":vsplit<CR>", opts)
 keymap("n", "<Leader>h", ":split<CR>", opts)
-keymap("n", "<Leader>h", ":split<CR>", opts)
 
 -- Command --
 -- Save and close with capital letters also
--- keymap("c", "W", "w", opts)
--- keymap("c", "Q", "q", opts)
--- keymap("c", "X", "x", opts)
+keymap("c", "W", "w", opts)
+keymap("c", "Q", "q", opts)
+keymap("c", "X", "x", opts)
 
 -- Insert --
 -- Press jk fast to enter
@@ -69,14 +66,14 @@ keymap("v", ">", ">gv", opts)
 keymap("v", "<", "<gv", opts)
 
 -- Move text up and down
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
+keymap("v", "<A-u>", ":m .-2<CR>==", opts)
+keymap("v", "<A-d>", ":m .+1<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
