@@ -206,6 +206,7 @@ fi
 export FZF_DEFAULT_OPTS="--layout=reverse --info=inline --bind alt-j:down,alt-k:up"
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow"
 export FZF_CTRL_T_COMMAND="rg --files --hidden --follow --glob='!{.git,node_modules}/*'"
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 # <<< FZF <<<
 
 # >>> Pipx >>>
@@ -223,16 +224,26 @@ eval "`fnm env`"
 # <<< fnm <<<
 
 # >>> Starship >>>
-# eval "$(starship init zsh)"
-_evalcache starship init zsh
+eval "$(starship init zsh)"
+# _evalcache starship init zsh
 # <<< Starship <<<
 
 
-# >>> Starship >>>
-# eval "$(pyenv virtualenv-init -)"
-_evalcache pyenv virtualenv-init -
-# <<< Starship <<<
+# >>> Pyenv >>>
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+# _evalcache pyenv init -
+# _evalcache pyenv init --path
+# _evalcache pyenv virtualenv-init -
+# <<< Pyenv <<<
 
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/cesarcastanon/.google-cloud-sdk/path.zsh.inc' ]; then . '/home/cesarcastanon/.google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/cesarcastanon/.google-cloud-sdk/completion.zsh.inc' ]; then . '/home/cesarcastanon/.google-cloud-sdk/completion.zsh.inc'; fi
