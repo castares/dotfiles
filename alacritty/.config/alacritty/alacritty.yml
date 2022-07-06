@@ -86,15 +86,17 @@ selection:
 live_config_reload: true
 
 key_bindings:
-  - { key: V, mods: Control|Shift, action: Paste }
-  - { key: C, mods: Control|Shift, action: Copy }
-  - { key: Key0, mods: Control, action: ResetFontSize }
-  - { key: Equals, mods: Control, action: IncreaseFontSize }
-  # - { key: Add, mods: Control, action: IncreaseFontSize }
-  #  - { key: Subtract, mods: Control, action: DecreaseFontSize }
-  - { key: Minus, mods: Control, action: DecreaseFontSize }
-  - { key: Return, mods: Control|Shift, action: SpawnNewInstance }
-  - { key: Tab, mods: Control, chars: "\x1b[27;5;9~" }
-  - { key: Tab, mods: Control|Shift, chars: "\x1b[27;6;9~" }
-  - { key: V, mods: Control, action: Paste } # Optional
-  # - { key: C,        mods: Control, action: CopyDynamic      }
+  - { key: C,       mods: Control|Shift,  action: Copy }
+  - { key: V,       mods: Control|Shift,  action: Paste }
+  # - { key: C,       mods: Control,        action: Copy }
+  - { key: V,       mods: Control,        action: Paste } 
+  - { key: Key0,    mods: Control,        action: ResetFontSize }
+  - { key: Equals,  mods: Control,        action: IncreaseFontSize }
+  - { key: Minus,   mods: Control,        action: DecreaseFontSize }
+  - { key: Return,  mods: Control|Shift,  action: SpawnNewInstance }
+  - { key: Tab,     mods: Control,        chars: "\x1b[27;5;9~" }
+  - { key: Tab,     mods: Control|Shift,  chars: "\x1b[27;6;9~" }
+  - { key: H,         mods: Alt,        chars: "\x1bh"                       }
+  - { key: J,         mods: Alt,        chars: "\x1bj"                       }
+  - { key: K,         mods: Alt,        chars: "\x1bk"                       }
+  - { key: L,         mods: Alt,        chars: "\x1bl"                       }

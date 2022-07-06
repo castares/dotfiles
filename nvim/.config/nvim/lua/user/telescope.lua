@@ -21,11 +21,11 @@ telescope.setup({
 		},
 		mappings = {
 			i = {
-				["<A-n>"] = actions.cycle_history_next,
-				["<A-p>"] = actions.cycle_history_prev,
+				["<C-n>"] = actions.cycle_history_next,
+				["<C-p>"] = actions.cycle_history_prev,
 
-				["<A-j>"] = actions.move_selection_next,
-				["<A-k>"] = actions.move_selection_previous,
+				["<C-j>"] = actions.move_selection_next,
+				["<C-k>"] = actions.move_selection_previous,
 
 				["<C-c>"] = actions.close,
 
@@ -37,8 +37,8 @@ telescope.setup({
 				["<C-v>"] = actions.select_vertical,
 				["<C-t>"] = actions.select_tab,
 
-				["<A-u>"] = actions.preview_scrolling_up,
-				["<A-d>"] = actions.preview_scrolling_down,
+				["<C-e>"] = actions.preview_scrolling_up,
+				["<C-y>"] = actions.preview_scrolling_down,
 
 				["<PageUp>"] = actions.results_scrolling_up,
 				["<PageDown>"] = actions.results_scrolling_down,
@@ -74,8 +74,8 @@ telescope.setup({
 				["gg"] = actions.move_to_top,
 				["G"] = actions.move_to_bottom,
 
-				["<A-u>"] = actions.preview_scrolling_up,
-				["<A-d>"] = actions.preview_scrolling_down,
+				["<C-e>"] = actions.preview_scrolling_up,
+				["<C-y>"] = actions.preview_scrolling_down,
 
 				["<PageUp>"] = actions.results_scrolling_up,
 				["<PageDown>"] = actions.results_scrolling_down,

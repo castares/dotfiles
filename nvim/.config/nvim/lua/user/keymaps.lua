@@ -20,10 +20,14 @@ vim.g.maplocalleader = " "
 
 -- Normal --
 -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "<M-h>", ":TmuxNavigateLeft<cr>", opts)
+keymap("n", "<M-j>", ":TmuxNavigateDown<cr>", opts)
+keymap("n", "<M-k>", ":TmuxNavigateUp<cr>", opts)
+keymap("n", "<M-l>", ":TmuxNavigateRight<cr>", opts)
+-- keymap("n", "<C-h>", "<C-w>h", opts)
+-- keymap("n", "<C-j>", "<C-w>j", opts)
+-- keymap("n", "<C-k>", "<C-w>k", opts)
+-- keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -32,12 +36,12 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<A-l>", ":bnext<CR>", opts)
-keymap("n", "<A-h>", ":bprevious<CR>", opts)
+keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<S-l>", ":bnext<CR>", opts)
 
 -- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>", opts)
+-- keymap("n", "<A-j>", "<Esc>:m .+1<CR>", opts)
+-- keymap("n", "<A-k>", "<Esc>:m .-2<CR>", opts)
 
 -- Change 2 split windows from vert to horiz or horiz to vert
 keymap("n", "<Leader>tv", "<C-w>t<C-w>H", opts)
@@ -48,7 +52,7 @@ keymap("n", "<C-n>", "<Esc>:nohl<CR>", opts)
 
 -- Open splits:
 keymap("n", "<Leader>v", ":vsplit<CR>", opts)
-keymap("n", "<Leader>h", ":split<CR>", opts)
+keymap("n", "<Leader>o", ":split<CR>", opts)
 
 -- Command --
 -- Save and close with capital letters also

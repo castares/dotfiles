@@ -75,7 +75,6 @@ HIST_STAMPS="mm/dd/yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    evalcache
 	git
 	vi-mode
     docker
@@ -116,6 +115,7 @@ source $ZSH/oh-my-zsh.sh
 PATH="$PATH:/snap/bin"
 PATH="$PATH:$HOME/.local/bin"
 PATH="$PATH:$HOME/.cargo/bin"
+PATH="$PATH:/usr/local/go/bin"
 PATH="$PATH:$HOME/.pyenv/bin"
 
 # Aliases
@@ -203,7 +203,7 @@ then
     source /usr/share/fzf/completion.zsh
 fi
 
-export FZF_DEFAULT_OPTS="--layout=reverse --info=inline --bind alt-j:down,alt-k:up"
+export FZF_DEFAULT_OPTS="--layout=reverse --info=inline"
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow"
 export FZF_CTRL_T_COMMAND="rg --files --hidden --follow --glob='!{.git,node_modules}/*'"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
@@ -211,11 +211,10 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
 # >>> Pipx >>>
 # To activate completions for zsh you need to have bashcompinit enabled in zsh:
-autoload -U bashcompinit
-bashcompinit
+# autoload -U bashcompinit
+# bashcompinit
 # Afterwards you can enable completion for pipx:
-# eval "$(register-python-argcomplete pipx)"
-_evalcache register-python-argcomplete pipx
+eval "$(register-python-argcomplete pipx)"
 # <<< Pipx <<<
 
 # >>> fnm >>>
@@ -225,7 +224,6 @@ eval "`fnm env`"
 
 # >>> Starship >>>
 eval "$(starship init zsh)"
-# _evalcache starship init zsh
 # <<< Starship <<<
 
 
@@ -233,17 +231,13 @@ eval "$(starship init zsh)"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-# _evalcache pyenv init -
-# _evalcache pyenv init --path
-# _evalcache pyenv virtualenv-init -
 # <<< Pyenv <<<
 
 
-autoload -U +X bashcompinit && bashcompinit
+# autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/cesarcastanon/.google-cloud-sdk/path.zsh.inc' ]; then . '/home/cesarcastanon/.google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/cesarcastanon/.google-cloud-sdk/completion.zsh.inc' ]; then . '/home/cesarcastanon/.google-cloud-sdk/completion.zsh.inc'; fi
