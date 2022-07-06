@@ -5,8 +5,8 @@ end
 
 local setup = {
 	plugins = {
-		marks = true, -- shows a list of your marks on ' and `
-		registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+		marks = false, -- shows a list of your marks on ' and `
+		registers = false, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
 		spelling = {
 			enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
 			suggestions = 20, -- how many suggestions should be shown in the list?
@@ -156,7 +156,7 @@ local mappings = {
 			"Prev Diagnostic",
 		},
 		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-		q = { "<cmd>lua vim.diagnostic.set_loclist()<cr>", "Quickfix" },
+		q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
 		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 		S = {
@@ -175,7 +175,7 @@ local mappings = {
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
 		g = { "<cmd>lua require('telescope.builtin').grep_string()<cr>", "Grep String" },
-		f = { "<cmd>lua require('telescope.builtin')current_buffer_fuzzy_find()", "File Search" },
+		f = { "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>", "File Search" },
 	},
 
 	t = {
