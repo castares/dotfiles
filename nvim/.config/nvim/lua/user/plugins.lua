@@ -63,6 +63,10 @@ return packer.startup(function(use)
 	use("kyazdani42/nvim-web-devicons")
 	use("nvim-lualine/lualine.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
+	use({
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+	})
 
 	-- Colorschemes
 	use("EdenEast/nightfox.nvim")
