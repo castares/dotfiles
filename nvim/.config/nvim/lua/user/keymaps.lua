@@ -40,12 +40,12 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 
 -- Move text up and down
--- keymap("n", "<A-j>", "<Esc>:m .+1<CR>", opts)
--- keymap("n", "<A-k>", "<Esc>:m .-2<CR>", opts)
+keymap("n", "<A-J>", "<Esc>:m .+1<CR>", opts)
+keymap("n", "<A-K>", "<Esc>:m .-2<CR>", opts)
 
 -- Change 2 split windows from vert to horiz or horiz to vert
-keymap("n", "<Leader>tv", "<C-w>t<C-w>H", opts)
-keymap("n", "<Leader>th", "<C-w>t<C-w>K", opts)
+keymap("n", "<Leader>sv", "<C-w>t<C-w>H", opts)
+keymap("n", "<Leader>so", "<C-w>t<C-w>K", opts)
 
 -- Remove search highlighting with CTRL+n
 keymap("n", "<C-n>", "<Esc>:nohl<CR>", opts)

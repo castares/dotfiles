@@ -1,3 +1,4 @@
+vim.g.python3_host_prog = vim.fn.expand("~/.conda/envs/neovim/bin/python3.9")
 -- :help options
 vim.opt.backup = false -- creates a backup file
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
