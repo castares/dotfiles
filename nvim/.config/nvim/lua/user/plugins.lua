@@ -50,6 +50,7 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	use("numToStr/Comment.nvim") -- Easily comment stuff
 	use("moll/vim-bbye")
+	use("tpope/vim-repeat")
 	use("tpope/vim-eunuch") --Extra Commands
 	use("tpope/vim-surround") --Extra Motions
 	use("szw/vim-maximizer") -- Maximize Splits
@@ -112,6 +113,7 @@ return packer.startup(function(use)
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 	use("tpope/vim-fugitive")
+	use("tpope/vim-rhubarb")
 
 	-- DAP
 	use({ "mfussenegger/nvim-dap" })

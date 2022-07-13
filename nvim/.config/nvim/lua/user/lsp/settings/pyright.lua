@@ -1,22 +1,22 @@
 return {
-	handlers = {
-		["textDocument/publishDiagnostics"] = function(...) end,
-	},
+	-- handlers = {
+	-- 	["textDocument/publishDiagnostics"] = function(...) end,
+	-- },
 	settings = {
 		python = {
 			pyright = {
 				disableLanguageServices = false,
 			},
-			pythonPath = "python",
-			venvPath = vim.fn.expand("~/.conda/envs/"),
+			-- pythonPath = "python",
+			-- venvPath = vim.fn.expand("~/.conda/envs/"),
 			analysis = {
 				autoImportCompletions = true,
 				autoSearchPaths = true,
-				diagnosticMode = "workspace",
+				diagnosticMode = "openFilesOnly",
 				diagnosticSeverityOverrides = {},
 				extraPaths = { "src", "python" },
 				logLevel = "Warning",
-				stubPath = "typings",
+				stubPath = "",
 				typeCheckingMode = "off",
 				typeshedPaths = {},
 				useLibraryCodeForTypes = true,
