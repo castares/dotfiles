@@ -30,7 +30,7 @@ null_ls.setup({
 		diagnostics.eslint,
 		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
 		-- Python
-		formatting.black.with({ extra_args = { "--fast" } }),
+		formatting.black.with({ extra_args = { "--fast", "--line-length", "79", "-" } }),
 		diagnostics.flake8,
 		diagnostics.mypy,
 	},
