@@ -113,6 +113,11 @@ return packer.startup(function(use)
 	use("lewis6991/gitsigns.nvim")
 	use("tpope/vim-fugitive")
 
+	-- DAP
+	use({ "mfussenegger/nvim-dap" })
+	use({ "rcarriga/nvim-dap-ui" })
+	use({ "ravenxrz/DAPInstall.nvim" })
+
 	-- Filetype Plugins
 	use("andres-lowrie/vim-sqlx")
 
