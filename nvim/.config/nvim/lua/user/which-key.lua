@@ -135,9 +135,9 @@ local mappings = {
 
 	d = {
 		name = "Diagnostics",
-		d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document Diagnostics" },
-		w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace Diagnostics" },
-		f = { "<cmd>lua vim.diagnostic.open_float({ border = 'rounded' })<CR>", "Line Diagnostics" },
+		f = { "<cmd>Trouble document_diagnostics<cr>", "Document Diagnostics" },
+		w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
+		l = { "<cmd>lua vim.diagnostic.open_float({ border = 'rounded' })<CR>", "Line Diagnostics" },
 		j = {
 			"<cmd>lua vim.diagnostic.goto_next()<CR>",
 			"Next Diagnostic",
@@ -160,7 +160,7 @@ local mappings = {
 		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
 		q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
 		n = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-		r = { "<cmd>TroubleToggle lsp_references<CR>", "References" },
+		r = { "<cmd>Trouble lsp_references<CR>", "References" },
 		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 		S = {
 			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
