@@ -127,8 +127,8 @@ alias vim=nvim
 alias zshrc="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias cl=clear
-alias pip=pip3
-alias python=python3
+# alias pip=pip3
+# alias python=python3
 alias vimrc="nvim ~/.config/nvim/init.vim"
 alias i3config="nvim ~/.config/i3/config"
 alias alacritty_config="nvim ~/.config/alacritty/alacritty.yml"
@@ -230,7 +230,6 @@ eval "$(starship init zsh)"
 # >>> Pyenv >>>
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 # <<< Pyenv <<<
 
 
@@ -241,3 +240,4 @@ complete -o nospace -C /usr/bin/terraform terraform
 if [ -f '/home/cesarcastanon/.google-cloud-sdk/path.zsh.inc' ]; then . '/home/cesarcastanon/.google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
+
