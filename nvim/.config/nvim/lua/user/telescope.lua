@@ -18,6 +18,9 @@ telescope.setup({
 		file_ignore_patterns = {
 			".git/",
 			"node_modules/",
+			".mypy_cache/",
+			".pytest_cache/",
+			"__pycache__/",
 		},
 		mappings = {
 			i = {
