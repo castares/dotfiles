@@ -88,7 +88,7 @@ local mappings = {
 	["w"] = { "<cmd>w!<CR>", "Save" },
 	["q"] = { "<cmd>q!<CR>", "Quit" },
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+	-- ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
 	["f"] = {
 		"<cmd>lua require('telescope.builtin').find_files({hidden=true})<cr>",
 		"Find files",
@@ -148,6 +148,18 @@ local mappings = {
 		},
 	},
 
+	h = {
+		name = "Debugger",
+		b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+		c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+		i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
+		o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
+		O = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
+		r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle repl" },
+		l = { "<cmd>lua require'dap'.run_last()<cr>", "Run Last" },
+		u = { "<cmd>lua require'dapui'.toggle()<cr>", "Toggle UI" },
+		t = { "<cmd>lua require'dap'.terminate()<cr>", "Terminate" },
+	},
 	l = {
 		name = "LSP",
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -187,7 +199,7 @@ local mappings = {
 		t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
 		p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
 		f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
+		h = { "<cmd>ToggleTerm size=20 direction=horizontal<cr>", "Horizontal" },
 		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 	},
 }

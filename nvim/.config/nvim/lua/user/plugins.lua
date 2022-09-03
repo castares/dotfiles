@@ -54,6 +54,7 @@ return packer.startup(function(use)
 	use("tpope/vim-eunuch") --Extra Commands
 	use("tpope/vim-surround") --Extra Motions
 	use("szw/vim-maximizer") -- Maximize Splits
+	use("nvim-treesitter/nvim-treesitter-textobjects")
 
 	-- Navigation & TMUX
 	use("christoomey/vim-tmux-navigator")
@@ -72,6 +73,7 @@ return packer.startup(function(use)
 		"folke/trouble.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
 	})
+	use("norcalli/nvim-colorizer.lua")
 
 	-- Colorschemes
 	use("EdenEast/nightfox.nvim")
@@ -116,9 +118,9 @@ return packer.startup(function(use)
 	use("tpope/vim-rhubarb")
 
 	-- DAP
-	use({ "mfussenegger/nvim-dap" })
-	use({ "rcarriga/nvim-dap-ui" })
-	use({ "ravenxrz/DAPInstall.nvim" })
+	use("mfussenegger/nvim-dap")
+	use("rcarriga/nvim-dap-ui")
+	use("mfussenegger/nvim-dap-python")
 
 	-- Filetype Plugins
 	use("andres-lowrie/vim-sqlx")
