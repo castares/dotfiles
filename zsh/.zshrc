@@ -115,7 +115,7 @@ source $ZSH/oh-my-zsh.sh
 PATH="$PATH:/snap/bin"
 PATH="$PATH:$HOME/.local/bin"
 PATH="$PATH:$HOME/.cargo/bin"
-PATH="$PATH:/usr/local/go/bin"
+PATH="$PATH:$HOME/go/bin"
 PATH="$PATH:$HOME/.pyenv/bin"
 
 # Aliases
