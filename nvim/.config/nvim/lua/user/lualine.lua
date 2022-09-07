@@ -9,9 +9,18 @@ lualine.setup({
 		theme = "auto",
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
-		disabled_filetypes = {},
+		disabled_filetypes = {
+			winbar = {
+				"alpha",
+			},
+		},
 		always_divide_middle = false,
 		globalstatus = true,
+		refresh = {
+			statusline = 1000,
+			tabline = 1000,
+			winbar = 1000,
+		},
 	},
 	sections = {
 		lualine_a = { "mode" },
@@ -32,13 +41,27 @@ lualine.setup({
 		lualine_y = {},
 		lualine_z = {},
 	},
-	-- tabline = {
-	-- 	lualine_a = { "buffers" },
-	-- 	lualine_b = {},
-	-- 	lualine_c = {},
-	-- 	lualine_x = {},
-	-- 	lualine_y = {},
-	-- 	lualine_z = { "tabs" },
-	-- },
+	winbar = {
+		lualine_a = {},
+		lualine_b = { {
+			"filename",
+			path = 1,
+		} },
+		lualine_c = {},
+		lualine_x = {},
+		lualine_y = {},
+		lualine_z = {},
+	},
+	inactive_winbar = {
+		lualine_a = {},
+		lualine_b = {},
+		lualine_c = { {
+			"filename",
+			path = 1,
+		} },
+		lualine_x = {},
+		lualine_y = {},
+		lualine_z = {},
+	},
 	extensions = {},
 })
