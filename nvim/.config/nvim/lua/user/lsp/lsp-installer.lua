@@ -6,11 +6,13 @@ end
 local lspconfig = require("lspconfig")
 
 local servers = {
+	"vimls",
 	"jsonls",
 	"sumneko_lua",
 	"pyright",
 	"tsserver",
 	"clangd",
+	"rust_analyzer",
 }
 
 lsp_installer.setup({

@@ -33,6 +33,8 @@ null_ls.setup({
 		formatting.black.with({ extra_args = { "--fast", "--line-length", "79", "-" } }),
 		diagnostics.flake8,
 		diagnostics.mypy,
+		-- Rust
+		formatting.rustfmt,
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
