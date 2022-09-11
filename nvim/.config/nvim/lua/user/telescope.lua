@@ -12,8 +12,8 @@ local actions = require("telescope.actions")
 telescope.setup({
 	defaults = {
 
-		prompt_prefix = " ",
-		selection_caret = " ",
+		prompt_prefix = "  ",
+		selection_caret = " ",
 		path_display = { "smart" },
 		file_ignore_patterns = {
 			".git/",
@@ -21,6 +21,7 @@ telescope.setup({
 			".mypy_cache/",
 			".pytest_cache/",
 			"__pycache__/",
+			"target/",
 		},
 		mappings = {
 			i = {
@@ -89,7 +90,7 @@ telescope.setup({
 					local dir = vim.fn.fnamemodify(selection.path, ":p:h")
 					require("telescope.actions").close(prompt_bufnr)
 					-- Depending on what you want put `cd`, `lcd`, `tcd`
-					vim.cmd(string.format("silent lcd %s", dir))
+					vim.cmd(string.format("silent cd %s", dir))
 				end,
 			},
 		},
@@ -121,7 +122,7 @@ telescope.setup({
 			case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 			-- the default case_mode is "smart_case"
 		},
-		media_files = {
+		meia_files = {
 			-- filetypes whitelist
 			-- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
 			filetypes = { "png", "webp", "jpg", "jpeg" },

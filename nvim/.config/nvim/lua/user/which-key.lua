@@ -113,24 +113,19 @@ local mappings = {
 	g = {
 		name = "Git",
 		g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-		j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-		k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
+		o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+		--[[ s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" }, ]]
+		--[[ u = { ]]
+		--[[ 	"<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", ]]
+		--[[ 	"Undo Stage Hunk", ]]
+		--[[ }, ]]
+		--[[ r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" }, ]]
+		R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
+		b = { "<cmd>lua require 'gitsigns'.toggle_current_line_blame<CR>", "Current Line Blame" },
 		l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
 		p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-		r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-		R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-		s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-		u = {
-			"<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-			"Undo Stage Hunk",
-		},
-		o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-		d = {
-			"<cmd>Gitsigns diffthis HEAD<cr>",
-			"Diff",
-		},
+		d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff This HEAD" },
+		D = { "<cmd>Gitsigns toggle_deleted<CR>", "Toggle Deleted" },
 	},
 
 	d = {
@@ -182,15 +177,16 @@ local mappings = {
 	s = {
 		name = "Search",
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+		g = { "<cmd>lua require('telescope.builtin').grep_string()<cr>", "Grep String" },
+		f = { "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>", "File Search" },
 		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
 		R = { "<cmd>Telescope registers<cr>", "Registers" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
-		g = { "<cmd>lua require('telescope.builtin').grep_string()<cr>", "Grep String" },
-		f = { "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>", "File Search" },
+		t = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
 	},
 
 	t = {
@@ -198,6 +194,7 @@ local mappings = {
 		n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
 		t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
 		p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
+		g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
 		f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
 		h = { "<cmd>ToggleTerm size=20 direction=horizontal<cr>", "Horizontal" },
 		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },

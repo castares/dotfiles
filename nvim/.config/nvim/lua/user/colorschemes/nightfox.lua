@@ -30,6 +30,7 @@ nightfox.setup({
 			search = true,
 		},
 		modules = { -- List of various plugins and additional options
+			telescope = true,
 			-- ...
 		},
 	},
