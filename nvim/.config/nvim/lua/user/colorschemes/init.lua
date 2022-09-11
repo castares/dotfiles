@@ -1,4 +1,6 @@
 require("user.colorschemes.nightfox")
+require("user.colorschemes.catppuccin")
+require("user.colorschemes.gruvbox")
 
 local colorscheme = "nightfox"
 

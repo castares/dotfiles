@@ -77,6 +77,8 @@ return packer.startup(function(use)
 
 	-- Colorschemes
 	use("EdenEast/nightfox.nvim")
+	use({ "catppuccin/nvim", as = "catppuccin" })
+	use("ellisonleao/gruvbox.nvim")
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin

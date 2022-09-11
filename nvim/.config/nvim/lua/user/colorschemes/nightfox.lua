@@ -1,4 +1,3 @@
--- Default options
 local status_ok, nightfox = pcall(require, "nightfox")
 if not status_ok then
 	vim.notify("plugin " .. nightfox .. " not found!")
@@ -10,7 +9,7 @@ nightfox.setup({
 		-- Compiled file's destination location
 		compile_path = vim.fn.stdpath("cache") .. "/nightfox",
 		compile_file_suffix = "_compiled", -- Compiled file suffix
-		transparent = true, -- Disable setting background
+		transparent = false, -- Disable setting background
 		terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
 		dim_inactive = true, -- Non focused panes set to alternative background
 		styles = { -- Style to be applied to different syntax groups
@@ -26,9 +25,9 @@ nightfox.setup({
 			variables = "NONE",
 		},
 		inverse = { -- Inverse highlight for different types
-			match_paren = false,
+			match_paren = true,
 			visual = true,
-			search = false,
+			search = true,
 		},
 		modules = { -- List of various plugins and additional options
 			-- ...
