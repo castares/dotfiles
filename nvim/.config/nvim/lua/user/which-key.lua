@@ -114,18 +114,21 @@ local mappings = {
 		name = "Git",
 		g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
 		o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-		--[[ s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" }, ]]
-		--[[ u = { ]]
-		--[[ 	"<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", ]]
-		--[[ 	"Undo Stage Hunk", ]]
-		--[[ }, ]]
-		--[[ r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" }, ]]
 		R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-		b = { "<cmd>lua require 'gitsigns'.toggle_current_line_blame<CR>", "Current Line Blame" },
+		b = { "<cmd>lua require 'gitsigns'.toggle_current_line_blame()<CR>", "Current Line Blame" },
 		l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
-		p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-		d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff This HEAD" },
+		d = { "<cmd>lua require 'gitsigns'.diffthis()<CR>", "Diffthis" },
 		D = { "<cmd>Gitsigns toggle_deleted<CR>", "Toggle Deleted" },
+	},
+
+	h = {
+		name = "Git Hunk Operations",
+		j = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
+		k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Previous Hunk" },
+		s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+		u = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Undo Stage Hunk" },
+		r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
+		p = { "<cmd>lua require 'gitsigns'.preview_hunk()<CR>", "Preview Hunk" },
 	},
 
 	d = {
@@ -143,7 +146,7 @@ local mappings = {
 		},
 	},
 
-	h = {
+	r = {
 		name = "Debugger",
 		b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
 		c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
@@ -168,11 +171,6 @@ local mappings = {
 		q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
 		n = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
 		r = { "<cmd>Trouble lsp_references<CR>", "References" },
-		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-		S = {
-			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-			"Workspace Symbols",
-		},
 	},
 	s = {
 		name = "Search",
@@ -182,6 +180,11 @@ local mappings = {
 		f = { "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>", "File Search" },
 		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
 		R = { "<cmd>Telescope registers<cr>", "Registers" },
+		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+		w = {
+			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+			"Workspace Symbols",
+		},
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
 		t = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
