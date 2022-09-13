@@ -13,16 +13,25 @@ dashboard.section.header.val = {
 	[[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
 }
 dashboard.section.buttons.val = {
-	dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
-	dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
+	dashboard.button("<CR>", "  Load Directory Session", "<cmd>lua require('persistence').load()<cr>"),
+	dashboard.button("f", "  Find File", ":Telescope find_files <CR>"),
+	dashboard.button("e", "  Explore Files", ":Telescope file_browser <CR>"),
+	dashboard.button("s", "  Sessions List", ":Telescope sessions_picker <CR>"),
+	dashboard.button("n", "  New file", ":ene <BAR> startinsert <CR>"),
+	dashboard.button("t", "  Find text", ":Telescope live_grep <CR>"),
 	dashboard.button("p", "  Find project", ":Telescope projects <CR>"),
 	dashboard.button("r", "  Recently used files", ":Telescope oldfiles <CR>"),
-	dashboard.button("t", "  Find text", ":Telescope live_grep <CR>"),
 	dashboard.button("c", "  Configuration", ":e ~/.config/nvim/init.lua <CR>"),
 	dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
 }
 
-dashboard.section.footer.val = require("alpha.fortune")
+local handle = io.popen("fortune")
+local fortune = handle:read("*a")
+handle:close()
+dashboard.section.footer.val = fortune
+
+dashboard.config.opts.noautocmd = true
+dashboard.section.footer.val = fortune --require("alpha.fortune")
 dashboard.section.footer.opts.hl = "Type"
 dashboard.section.header.opts.hl = "Include"
 dashboard.section.buttons.opts.hl = "Keyword"

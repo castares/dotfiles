@@ -139,6 +139,10 @@ telescope.setup({
 				},
 			},
 		},
+		sessions_picker = {
+			sessions_dir = vim.fn.stdpath("data") .. "/sessions/", -- same as '/home/user/.local/share/nvim/session'
+		},
+		-- other tele extensions configs
 		-- Your extension configuration goes here:
 		-- extension_name = {
 		--   extension_config_key = value,
@@ -150,3 +154,4 @@ telescope.setup({
 telescope.load_extension("media_files")
 telescope.load_extension("file_browser")
 telescope.load_extension("fzf")
+telescope.load_extension("sessions_picker")

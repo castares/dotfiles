@@ -74,6 +74,17 @@ return packer.startup(function(use)
 		requires = "kyazdani42/nvim-web-devicons",
 	})
 	use("norcalli/nvim-colorizer.lua")
+	use({
+		"folke/persistence.nvim",
+		event = "BufReadPre", -- this will only start session saving when an actual file was opened
+		module = "persistence",
+		config = function()
+			require("persistence").setup({
+				dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/"), -- directory where session files are saved
+				options = { "buffers", "curdir", "tabpages", "winsize" }, -- sessionoptions used for saving
+			})
+		end,
+	})
 
 	-- Colorschemes
 	use("EdenEast/nightfox.nvim")
@@ -101,10 +112,13 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 
 	-- Telescope
-	use("nvim-telescope/telescope.nvim")
-	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-	use("nvim-telescope/telescope-media-files.nvim")
-	use("nvim-telescope/telescope-file-browser.nvim")
+	use({
+		"nvim-telescope/telescope.nvim",
+		{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+		"nvim-telescope/telescope-media-files.nvim",
+		"nvim-telescope/telescope-file-browser.nvim",
+		"JoseConseco/telescope_sessions_picker.nvim",
+	})
 
 	-- Treesitter
 	use({
