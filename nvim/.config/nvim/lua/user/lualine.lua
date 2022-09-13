@@ -3,6 +3,16 @@ if not status_ok then
 	return
 end
 
+local trouble = {
+	filetypes = { "Trouble" },
+	sections = {
+		lualine_a = { "filetype" },
+	},
+	inactive_sections = {},
+	winbar = {},
+	inactive_winbar = {},
+}
+
 lualine.setup({
 	options = {
 		icons_enabled = true,
@@ -63,5 +73,5 @@ lualine.setup({
 		lualine_y = {},
 		lualine_z = {},
 	},
-	extensions = {},
+	extensions = { "toggleterm", trouble },
 })

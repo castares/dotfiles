@@ -26,7 +26,7 @@ nvim_tree.setup({
 	create_in_closed_folder = false,
 	disable_netrw = false,
 	hijack_cursor = true,
-	hijack_netrw = true,
+	hijack_netrw = false,
 	hijack_unnamed_buffer_when_opening = false,
 	ignore_buffer_on_setup = false,
 	open_on_setup = false,

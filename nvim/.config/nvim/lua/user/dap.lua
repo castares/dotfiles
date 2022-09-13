@@ -7,7 +7,9 @@ vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignErro
 vim.fn.sign_define("DapBreakpointRejected", { text = "🟦", texthl = "", linehl = "", numhl = "" })
 vim.fn.sign_define("DapStopped", { text = "⭐️", texthl = "", linehl = "", numhl = "" })
 
-require("dap-python").setup("/home/castares/.conda/envs/debugpy/bin/python")
+local home = os.getenv("HOME")
+
+require("dap-python").setup(home .. "/.conda/envs/debugpy/bin/python")
 
 local dap_ui_status_ok, dapui = pcall(require, "dapui")
 if not dap_ui_status_ok then

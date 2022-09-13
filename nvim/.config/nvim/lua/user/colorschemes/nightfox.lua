@@ -16,7 +16,7 @@ nightfox.setup({
 			comments = "italic", -- Value is any valid attr-list value `:help attr-list`
 			conditionals = "NONE",
 			constants = "NONE",
-			functions = "bold",
+			functions = "NONE",
 			keywords = "NONE",
 			numbers = "NONE",
 			operators = "NONE",
@@ -25,12 +25,11 @@ nightfox.setup({
 			variables = "NONE",
 		},
 		inverse = { -- Inverse highlight for different types
-			match_paren = true,
-			visual = true,
+			match_paren = false,
+			visual = false,
 			search = true,
 		},
 		modules = { -- List of various plugins and additional options
-			telescope = true,
 			-- ...
 		},
 	},

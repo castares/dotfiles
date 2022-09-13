@@ -3,10 +3,6 @@ if not status_ok then
 	return
 end
 
-telescope.load_extension("media_files")
-telescope.load_extension("file_browser")
-telescope.load_extension("fzf")
-
 local actions = require("telescope.actions")
 
 telescope.setup({
@@ -122,7 +118,7 @@ telescope.setup({
 			case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 			-- the default case_mode is "smart_case"
 		},
-		meia_files = {
+		media_files = {
 			-- filetypes whitelist
 			-- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
 			filetypes = { "png", "webp", "jpg", "jpeg" },
@@ -130,6 +126,10 @@ telescope.setup({
 		},
 		file_browser = {
 			--theme = "ivy",
+			hidden = true,
+			--cwd_to_path = true, -- Create keybinding for this leader-e-p
+			hijack_netrw = true,
+			--depth = false,
 			mappings = {
 				["i"] = {
 					-- your custom insert mode mappings
@@ -146,3 +146,7 @@ telescope.setup({
 		-- please take a look at the readme of the extension you want to configure
 	},
 })
+
+telescope.load_extension("media_files")
+telescope.load_extension("file_browser")
+telescope.load_extension("fzf")
