@@ -116,7 +116,7 @@ PATH="$PATH:/snap/bin"
 PATH="$PATH:$HOME/.local/bin"
 PATH="$PATH:$HOME/.cargo/bin"
 PATH="$PATH:$HOME/go/bin"
-PATH="$PATH:$HOME/.pyenv/bin"
+# PATH="$PATH:$HOME/.pyenv/bin"
 
 # Aliases
 alias mv="mv -iv"
@@ -127,9 +127,9 @@ alias vim=nvim
 alias zshrc="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias cl=clear
-# alias pip=pip3
-# alias python=python3
-alias vimrc="nvim ~/.config/nvim/init.vim"
+alias pip=pip3
+alias python=python3
+alias vimrc="nvim ~/.config/nvim/"
 alias i3config="nvim ~/.config/i3/config"
 alias alacritty_config="nvim ~/.config/alacritty/alacritty.yml"
 alias kubectl='microk8s.kubectl'
@@ -228,16 +228,9 @@ eval "$(starship init zsh)"
 
 
 # >>> Pyenv >>>
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
+# eval "$(pyenv init --path)"
+# eval "$(pyenv init -)"
 # <<< Pyenv <<<
 
 
-# autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/cesarcastanon/.google-cloud-sdk/path.zsh.inc' ]; then . '/home/cesarcastanon/.google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-
