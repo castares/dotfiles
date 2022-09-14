@@ -129,6 +129,7 @@ telescope.setup({
 			hidden = true,
 			--cwd_to_path = true, -- Create keybinding for this leader-e-p
 			hijack_netrw = true,
+			respect_gitignore = false,
 			--depth = false,
 			mappings = {
 				["i"] = {
