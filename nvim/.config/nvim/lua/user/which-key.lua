@@ -84,7 +84,7 @@ local mappings = {
 		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 		"Buffers",
 	},
-	["e"] = { "<cmd>Telescope file_browser<cr>", "File Manager" },
+	--[[ ["e"] = { "<cmd>Telescope file_browser<cr>", "File Manager" }, ]]
 	["w"] = { "<cmd>w!<CR>", "Save" },
 	["q"] = { "<cmd>q!<CR>", "Quit" },
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
@@ -100,6 +100,11 @@ local mappings = {
 	["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 	["m"] = { "<cmd>MaximizerToggle<cr>", "Maximmize Split" },
 
+	e = {
+		name = "File Browser",
+		e = { "<cmd>Telescope file_browser files=false<cr>", "File Manager" },
+		f = { "<cmd>Telescope file_browser path=%:p:h cwd_to_path=true<cr>", "File Manager" },
+	},
 	p = {
 		name = "Packer/Projects",
 		c = { "<cmd>PackerCompile<cr>", "Compile" },

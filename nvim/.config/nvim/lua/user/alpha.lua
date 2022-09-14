@@ -28,13 +28,10 @@ dashboard.section.buttons.val = {
 local handle = io.popen("fortune")
 local fortune = handle:read("*a")
 handle:close()
-dashboard.section.footer.val = fortune
 
-dashboard.config.opts.noautocmd = true
 dashboard.section.footer.val = fortune --require("alpha.fortune")
 dashboard.section.footer.opts.hl = "Type"
 dashboard.section.header.opts.hl = "Include"
 dashboard.section.buttons.opts.hl = "Keyword"
 
-dashboard.opts.opts.noautocmd = true
 alpha.setup(dashboard.opts)
