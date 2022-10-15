@@ -103,8 +103,8 @@ local mappings = {
 
 	e = {
 		name = "File Browser",
-		e = { "<cmd>Telescope file_browser files=false<cr>", "File Manager" },
-		f = { "<cmd>Telescope file_browser path=%:p:h cwd_to_path=true<cr>", "File Manager" },
+		e = { "<cmd>Telescope file_browser files=false<cr>", "Folder Browser" },
+		f = { "<cmd>Telescope file_browser path=%:p:h cwd_to_path=true<cr>", "File Browser" },
 	},
 	p = {
 		name = "Packer/Projects",
