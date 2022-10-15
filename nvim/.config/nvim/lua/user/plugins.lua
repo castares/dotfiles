@@ -65,7 +65,6 @@ return packer.startup(function(use)
 	-- Display & Helpers
 	use("kyazdani42/nvim-web-devicons")
 	use("goolord/alpha-nvim")
-	use("kyazdani42/nvim-tree.lua")
 	use("folke/which-key.nvim")
 	use("nvim-lualine/lualine.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
