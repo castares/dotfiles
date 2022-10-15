@@ -98,6 +98,7 @@ local mappings = {
 		"Find files",
 	},
 	["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+	["S"] = { "<cmd>lua require('session-lens').search_session()<cr>", "Sessions" },
 	["m"] = { "<cmd>MaximizerToggle<cr>", "Maximmize Split" },
 
 	e = {
