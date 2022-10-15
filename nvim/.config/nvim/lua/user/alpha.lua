@@ -13,13 +13,12 @@ dashboard.section.header.val = {
 	[[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
 }
 dashboard.section.buttons.val = {
-	dashboard.button("<CR>", "  Load Directory Session", "<cmd>lua require('persistence').load()<cr>"),
-	dashboard.button("f", "  Find File", ":Telescope find_files <CR>"),
-	dashboard.button("e", "  Explore Files", ":Telescope file_browser <CR>"),
-	dashboard.button("s", "  Sessions List", ":Telescope sessions_picker <CR>"),
-	dashboard.button("n", "  New file", ":ene <BAR> startinsert <CR>"),
-	dashboard.button("t", "  Find text", ":Telescope live_grep <CR>"),
+	dashboard.button("f", "  Find File", ":Telescope find_files hidden=true<CR>"),
+	dashboard.button("e", "  Folder Browser", ":Telescope file_browser files=false<CR>"),
+	dashboard.button("s", "  Sessions List", ":Telescope session-lens search_session<CR>"),
 	dashboard.button("p", "  Find project", ":Telescope projects <CR>"),
+	dashboard.button("n", "  New file", ":ene <BAR> startinsert <CR>"),
+	dashboard.button("t", "  Find text", ":Telescope live_grep hidden=true<CR>"),
 	dashboard.button("r", "  Recently used files", ":Telescope oldfiles <CR>"),
 	dashboard.button("c", "  Configuration", ":e ~/.config/nvim/init.lua <CR>"),
 	dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
