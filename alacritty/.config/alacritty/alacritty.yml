@@ -57,7 +57,7 @@ font:
 window:
   opacity: 1.0
   padding:
-    x: 1
+    x: 0
     y: 0
 
 dinamic_padding: true
