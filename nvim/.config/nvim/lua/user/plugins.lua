@@ -79,6 +79,7 @@ return packer.startup(function(use)
 			require("auto-session").setup({
 				log_level = "error",
 				auto_session_suppress_dirs = { "~/", "~/Projects", "~/code", "~/Downloads", "~/Documents", "/" },
+				auto_session_create_enabled = false,
 			})
 		end,
 	})
