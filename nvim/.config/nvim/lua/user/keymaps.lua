@@ -20,14 +20,10 @@ vim.g.maplocalleader = " "
 
 -- Normal --
 -- Better window navigation
-keymap("n", "<M-h>", ":TmuxNavigateLeft<cr>", opts)
-keymap("n", "<M-j>", ":TmuxNavigateDown<cr>", opts)
-keymap("n", "<M-k>", ":TmuxNavigateUp<cr>", opts)
-keymap("n", "<M-l>", ":TmuxNavigateRight<cr>", opts)
--- keymap("n", "<C-h>", "<C-w>h", opts)
--- keymap("n", "<C-j>", "<C-w>j", opts)
--- keymap("n", "<C-k>", "<C-w>k", opts)
--- keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "<M-h>", ":KittyNavigateLeft<cr>", opts)
+keymap("n", "<M-j>", ":KittyNavigateDown<cr>", opts)
+keymap("n", "<M-k>", ":KittyNavigateUp<cr>", opts)
+keymap("n", "<M-l>", ":KittyNavigateRight<cr>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)

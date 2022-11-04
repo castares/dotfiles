@@ -56,8 +56,8 @@ return packer.startup(function(use)
 	use("szw/vim-maximizer") -- Maximize Splits
 	use("nvim-treesitter/nvim-treesitter-textobjects")
 
-	-- Navigation & TMUX
-	use("christoomey/vim-tmux-navigator")
+	-- Navigation & Kitty
+	use({ "knubie/vim-kitty-navigator", run = "cp ./*.py ~/.config/kitty/" })
 
 	-- IDE Tools
 	use("akinsho/toggleterm.nvim")
