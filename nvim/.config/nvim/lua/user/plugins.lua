@@ -139,6 +139,7 @@ return packer.startup(function(use)
 
 	-- Filetype Plugins
 	use("andres-lowrie/vim-sqlx")
+	use("fladson/vim-kitty")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
