@@ -19,7 +19,8 @@ vim.g.maplocalleader = " "
 --   command_mode = "c",
 
 -- Normal --
--- Better window navigation
+-- knubie/vim-kitty-navigator
+vim.g.kitty_navigator_no_mappings = 1
 keymap("n", "<M-h>", ":KittyNavigateLeft<cr>", opts)
 keymap("n", "<M-j>", ":KittyNavigateDown<cr>", opts)
 keymap("n", "<M-k>", ":KittyNavigateUp<cr>", opts)
