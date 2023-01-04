@@ -33,6 +33,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define GUI_SCLN RGUI_T(KC_SCLN)
 #define ALTGR_M RALT_T(KC_M)
 
+// Layers 
+# define LY_NUM_TAB LT(1, KC_TAB)
+# define LY_SYM_BSPC LT(2, KC_BSPC)
+# define LY_FN_ESC LT(3, KC_ESC)
+# define LY_EXT_DEL LT(4, KC_DEL)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
@@ -72,11 +78,11 @@ LCTL_T(KC_ESC),   GUI_A,    ALT_S,  CTL_D,   SFT_F,   KC_G,                     
 
   [3] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-KC_CAPS,   KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_BSPC,
+      KC_CAPS,  KC_F1,   KC_F2,   KC_F3,   KC_F4,    XXXXXXX,                     KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_F1,    KC_F2,   KC_F3, KC_F4,   KC_F5,   KC_F6,                        KC_F7,   KC_F8,     KC_F9,  KC_F10, KC_F11,     KC_F12,
+      XXXXXXX,  KC_F5,   KC_F6,   KC_F7,   KC_F8,  XXXXXXX,                     XXXXXXX,  KC_F7,   KC_F8,  XXXXXXX, XXXXXXX,  XXXXXXX,     
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      KC_LSFT, KC_F9,  KC_F10,   KC_F11,   KC_F12, XXXXXXX,                      XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                     KC_LGUI, XXXXXXX, LALT_T(KC_ENT),   KC_SPC, XXXXXXX, RALT_T(KC_DEL)
                                       //`--------------------------'  `--------------------------'
