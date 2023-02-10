@@ -38,17 +38,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 # define LY_SYM_BSPC LT(2, KC_BSPC)
 # define LY_FN_ESC LT(3, KC_ESC)
 # define LY_EXT_DEL LT(4, KC_DEL)
+# define LY_MEDIA_CAPS LT(5, KC_CAPS)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-LT(4, KC_CAPS), KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,     KC_BSPC,
+LY_MEDIA_CAPS, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,     KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
 LCTL_T(KC_ESC),   GUI_A,    ALT_S,  CTL_D,   SFT_F,   KC_G,                     KC_H,    SFT_F,    CTL_K,    ALT_L,     GUI_SCLN, KC_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT, KC_Z,    KC_X,    KC_C,    ALTGR_M,    KC_B,                         KC_N,    ALTGR_M, KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                            LT(3, KC_ESC), LT(1, KC_TAB), LALT_T(KC_ENT),     KC_SPC, LT(2, KC_BSPC), LT(4, KC_DEL)
+                            LY_FN_ESC, LY_NUM_TAB, LALT_T(KC_ENT),     KC_SPC, LY_SYM_BSPC, LY_EXT_DEL
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -89,6 +90,19 @@ LCTL_T(KC_ESC),   GUI_A,    ALT_S,  CTL_D,   SFT_F,   KC_G,                     
   ),
 
   [4] = LAYOUT_split_3x6_3(
+  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+      KC_CAPS, KC_EXLM, KC_AT,  KC_HASH,  KC_DLR, KC_PERC,                       KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+ LCTL_T(KC_ESC), KC_MINUS, KC_UNDS, KC_PLUS, KC_EQUAL, KC_TILDE,                KC_LEFT,  KC_DOWN, KC_UP, KC_RIGHT, KC_LCBR, KC_RCBR,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+     KC_LSFT,  KC_GRAVE, KC_PIPE, KC_BACKSLASH, KC_LPRN, KC_RPRN,                KC_LBRC, KC_RBRC, KC_LABK, KC_RABK, KC_QUES, KC_RSFT,  
+  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+                                    KC_LGUI, MO(3), LALT_T(KC_ENT),     KC_SPC, XXXXXXX, RALT_T(KC_BSPC)
+                                      //`--------------------------'  `--------------------------'
+  ),
+
+
+  [5] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
      XXXXXXX, RGB_TOG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_PSCR, KC_BRID, KC_BRIU, KC_PGDN, KC_PGUP, XXXXXXX, 
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
