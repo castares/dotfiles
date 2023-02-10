@@ -1,5 +1,4 @@
 local opts = { noremap = true, silent = true }
-
 local term_opts = { silent = true }
 
 -- Shorten function name
@@ -72,6 +71,8 @@ keymap("v", "<A-d>", ":m .+1<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
+-- Remap Enter mode
+keymap("n", "<A-v>", "<C-v>", opts)
 -- Move text up and down
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
