@@ -79,14 +79,16 @@ configs.setup({
 			goto_next_start = {
 				["gj"] = "@function.outer",
 				["gJ"] = "@class.outer",
+				["gd"] = "@block.outer",
 			},
 			goto_next_end = {
-				["[j"] = "@function.outer",
-				["[J"] = "@class.outer",
+				["]j"] = "@function.outer",
+				["]J"] = "@class.outer",
 			},
 			goto_previous_start = {
 				["gk"] = "@function.outer",
 				["gK"] = "@class.outer",
+				["gu"] = "@block.outer",
 			},
 			goto_previous_end = {
 				["[k"] = "@function.outer",
