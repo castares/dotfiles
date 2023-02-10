@@ -79,7 +79,6 @@ plugins=(
 	vi-mode
     docker
     docker-compose
-    tmux
     gcloud
     conda-zsh-completion
     poetry
@@ -228,9 +227,9 @@ eval "$(starship init zsh)"
 
 
 # >>> Pyenv >>>
-# eval "$(pyenv init --path)"
-# eval "$(pyenv init -)"
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
 # <<< Pyenv <<<
-
 
 complete -o nospace -C /usr/bin/terraform terraform
