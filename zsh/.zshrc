@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -15,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -70,6 +63,12 @@ HIST_STAMPS="mm/dd/yyyy"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# NVM Lazy Loading
+# export NVM_DIR="$HOME/.nvm"
+# export NVM_LAZY_LOAD=true
+# export NVM_COMPLETION=true
+# export NVM_LAZY_LOAD_EXTRA_COMMANDS=('nvim')
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -80,6 +79,10 @@ plugins=(
 	vi-mode
     docker
     docker-compose
+    gcloud
+    conda-zsh-completion
+    poetry
+    kubectl
 	)
 
 source $ZSH/oh-my-zsh.sh
@@ -110,6 +113,9 @@ source $ZSH/oh-my-zsh.sh
 #PATH
 PATH="$PATH:/snap/bin"
 PATH="$PATH:$HOME/.local/bin"
+PATH="$PATH:$HOME/.cargo/bin"
+PATH="$PATH:$HOME/go/bin"
+# PATH="$PATH:$HOME/.pyenv/bin"
 
 # Aliases
 alias mv="mv -iv"
@@ -122,9 +128,11 @@ alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias cl=clear
 alias pip=pip3
 alias python=python3
-alias vimrc="nvim ~/.config/nvim/init.vim"
+alias vimrc="nvim ~/.config/nvim/"
 alias i3config="nvim ~/.config/i3/config"
 alias alacritty_config="nvim ~/.config/alacritty/alacritty.yml"
+alias kubectl='microk8s.kubectl'
+alias k=kubectl
 
 # Custom Aliases per machine
 [ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
@@ -144,17 +152,14 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # >>> From LukeSmithxyz https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52 >>>
- 
+
 # Basic auto/tab complete:
-autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)		# Include hidden files.
+# autoload -U compinit
+# zstyle ':completion:*' menu select
+# zmodload zsh/complist
+# compinit
+_comp_options+=(globdots) # Include hidden files.
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
@@ -185,38 +190,46 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-# <<< From LukeSmithxyz https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52 <<< 
+# <<< From LukeSmithxyz https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52 <<<
 
 # >>> FZF >>>
 # Initialize https://github.com/junegunn/fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # Source fzf keybindings and completion when installing from pacman.
 if [ -e /usr/share/fzf/key-bindings.zsh ] && [ -e /usr/share/fzf/completion.zsh ];
-then 
+then
     source /usr/share/fzf/key-bindings.zsh
     source /usr/share/fzf/completion.zsh
 fi
 
-export FZF_DEFAULT_OPTS="--layout=reverse --info=inline --bind alt-j:down,alt-k:up"
+export FZF_DEFAULT_OPTS="--layout=reverse --info=inline"
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow"
 export FZF_CTRL_T_COMMAND="rg --files --hidden --follow --glob='!{.git,node_modules}/*'"
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 # <<< FZF <<<
- 
+
 # >>> Pipx >>>
 # To activate completions for zsh you need to have bashcompinit enabled in zsh:
-autoload -U bashcompinit
-bashcompinit
+# autoload -U bashcompinit
+# bashcompinit
 # Afterwards you can enable completion for pipx:
 eval "$(register-python-argcomplete pipx)"
-
-if [ -e /usr/share/nvm/init-nvm.sh ]
-then
-  source /usr/share/nvm/init-nvm.sh 
-fi
 # <<< Pipx <<<
 
-# >>> NVM >>>
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# <<< NVM <<<
+# >>> fnm >>>
+export PATH=$HOME/.fnm:$PATH
+eval "`fnm env`"
+# <<< fnm <<<
+
+# >>> Starship >>>
+eval "$(starship init zsh)"
+# <<< Starship <<<
+
+
+# >>> Pyenv >>>
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
+# <<< Pyenv <<<
+
+complete -o nospace -C /usr/bin/terraform terraform

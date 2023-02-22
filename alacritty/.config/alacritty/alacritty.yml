@@ -1,33 +1,34 @@
+# Nightfox Alacritty Colors
+# Style: nightfox
+# Upstream: https://github.com/edeneast/nightfox.nvim/raw/main/extra/nightfox/nightfox_alacritty.yml
 colors:
   # Default colors
   primary:
-    background: "#1e2127"
-    # background: "#2E3440"
-    foreground: "#D8DEE9"
-
+    background: '0x192330'
+    foreground: '0xcdcecf'
   # Normal colors
   normal:
-    black: "#3B4252"
-    red: "#BF616A"
-    green: "#A3BE8C"
-    yellow: "#EBCB8B"
-    blue: "#81A1C1"
-    magenta: "#B48EAD"
-    cyan: "#88C0D0"
-    white: "#abb2bf"
-
+    black:   '0x393b44'
+    red:     '0xc94f6d'
+    green:   '0x81b29a'
+    yellow:  '0xdbc074'
+    blue:    '0x719cd6'
+    magenta: '0x9d79d6'
+    cyan:    '0x63cdcf'
+    white:   '0xdfdfe0'
   # Bright colors
   bright:
-    black: "#5c6370"
-    red: "#e06c75"
-    green: "#98c379"
-    yellow: "#d19a66"
-    blue: "#61afef"
-    magenta: "#c678dd"
-    cyan: "#56b6c2"
-    white: "#ECEFF4"
-
-background_opacity: 1.0
+    black:   '0x575860'
+    red:     '0xd16983'
+    green:   '0x8ebaa4'
+    yellow:  '0xe0c989'
+    blue:    '0x86abdc'
+    magenta: '0xbaa1e2'
+    cyan:    '0x7ad4d6'
+    white:   '0xe4e4e5'
+  indexed_colors:
+    - { index: 16, color: '0xf4a261' }
+    - { index: 17, color: '0xd67ad2' }
 
 font:
   normal:
@@ -54,11 +55,17 @@ font:
     y: 0
 
 window:
+  opacity: 1.0
   padding:
     x: 0
     y: 0
 
 dinamic_padding: true
+
+shell:
+  program: /bin/zsh
+  args:
+    - --login
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -79,15 +86,17 @@ selection:
 live_config_reload: true
 
 key_bindings:
-  - { key: V, mods: Control|Shift, action: Paste }
-  - { key: C, mods: Control|Shift, action: Copy }
-  - { key: Key0, mods: Control, action: ResetFontSize }
-  - { key: Equals, mods: Control, action: IncreaseFontSize }
-  # - { key: Add, mods: Control, action: IncreaseFontSize }
-  #  - { key: Subtract, mods: Control, action: DecreaseFontSize }
-  - { key: Minus, mods: Control, action: DecreaseFontSize }
-  - { key: Return, mods: Control|Shift, action: SpawnNewInstance }
-  - { key: Tab, mods: Control, chars: "\x1b[27;5;9~" }
-  - { key: Tab, mods: Control|Shift, chars: "\x1b[27;6;9~" }
-  - { key: V, mods: Control, action: Paste } # Optional
-  # - { key: C,        mods: Control, action: CopyDynamic      }
+  - { key: C,       mods: Control|Shift,  action: Copy }
+  - { key: V,       mods: Control|Shift,  action: Paste }
+  # - { key: C,       mods: Control,        action: Copy }
+  - { key: V,       mods: Control,        action: Paste } 
+  - { key: Key0,    mods: Control,        action: ResetFontSize }
+  - { key: Equals,  mods: Control,        action: IncreaseFontSize }
+  - { key: Minus,   mods: Control,        action: DecreaseFontSize }
+  - { key: Return,  mods: Control|Shift,  action: SpawnNewInstance }
+  - { key: Tab,     mods: Control,        chars: "\x1b[27;5;9~" }
+  - { key: Tab,     mods: Control|Shift,  chars: "\x1b[27;6;9~" }
+  - { key: H,         mods: Alt,        chars: "\x1bh"                       }
+  - { key: J,         mods: Alt,        chars: "\x1bj"                       }
+  - { key: K,         mods: Alt,        chars: "\x1bk"                       }
+  - { key: L,         mods: Alt,        chars: "\x1bl"                       }
