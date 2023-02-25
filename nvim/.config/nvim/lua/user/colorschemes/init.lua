@@ -3,7 +3,7 @@ require("user.colorschemes.catppuccin")
 require("user.colorschemes.gruvbox")
 require("user.colorschemes.tokyonight")
 
-local colorscheme = "nightfox"
+local colorscheme = "catppuccin"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then

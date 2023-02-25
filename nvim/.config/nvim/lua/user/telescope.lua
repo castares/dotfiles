@@ -7,9 +7,31 @@ local actions = require("telescope.actions")
 
 telescope.setup({
 	defaults = {
-
-		prompt_prefix = "  ",
+		prompt_prefix = "   ",
 		selection_caret = " ",
+		entry_prefix = "  ",
+		initial_mode = "insert",
+		selection_strategy = "reset",
+		sorting_strategy = "ascending",
+		layout_strategy = "horizontal",
+		layout_config = {
+			horizontal = {
+				prompt_position = "top",
+				preview_width = 0.55,
+				results_width = 0.8,
+			},
+			vertical = {
+				mirror = false,
+			},
+			width = 0.9,
+			height = 0.9,
+			preview_cutoff = 120,
+		},
+		winblend = 0,
+		border = true,
+		borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+		color_devicons = true,
+		set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
 		path_display = { "smart" },
 		file_ignore_patterns = {
 			".git/",
@@ -49,6 +71,8 @@ telescope.setup({
 				["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 				["<C-l>"] = actions.complete_tag,
 				["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
+
+				["<C-d>"] = actions.delete_buffer + actions.move_to_top,
 			},
 
 			n = {
@@ -79,6 +103,8 @@ telescope.setup({
 
 				["<PageUp>"] = actions.results_scrolling_up,
 				["<PageDown>"] = actions.results_scrolling_down,
+
+				["<C-d>"] = actions.delete_buffer + actions.move_to_top,
 
 				["?"] = actions.which_key,
 				["cd"] = function(prompt_bufnr)
