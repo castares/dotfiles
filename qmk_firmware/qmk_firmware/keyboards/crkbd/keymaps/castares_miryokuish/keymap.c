@@ -46,9 +46,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       XXXXXXX , KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,     XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-  LY_MEDIA_ESC, CTL_A,    ALT_S,  GUI_D,   SFT_F,   KC_G,                      KC_H,   SFT_F,   GUI_K,   ALT_L,   CTL_SCLN, LY_FN_QUOT,
+  LY_MEDIA_ESC, CTL_A,    ALT_S,  GUI_D,   SFT_F,   KC_G,                      KC_H,   SFT_J,   GUI_K,   ALT_L,   CTL_SCLN, LY_FN_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_Z,    KC_X,    KC_C,    ALTGR_M,    KC_B,                     KC_N,  ALTGR_M, KC_COMM,  KC_DOT,   KC_SLSH,  XXXXXXX,
+      XXXXXXX, KC_Z,    KC_X,    KC_C,    ALTGR_V,    KC_B,                     KC_N,   ALTGR_M, KC_COMM,  KC_DOT,   KC_SLSH,  XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                     KC_LGUI, LY_NUM_TAB, LY_NAV_ENT,   MEH_T(KC_SPC), LY_SYM_BSPC, LY_SYM2_DEL
                                       //`--------------------------'  `--------------------------'
@@ -68,11 +68,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [2] = LAYOUT_split_3x6_3( //Symbols 1 - BSPC
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, KC_EXLM, KC_AT,  KC_HASH,  KC_DLR, KC_PERC,                       XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,
+      XXXXXXX, KC_EXLM, KC_AT,  KC_HASH,  KC_DLR, KC_PERC,                       XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
- LCTL_T(KC_ESC), KC_MINUS, KC_UNDS, KC_PLUS, KC_EQUAL, KC_TILDE,                XXXXXXX,  KC_RSFT, KC_RGUI, KC_LALT, KC_RCTL, XXXXXXX,
+      KC_ESC, KC_MINUS, KC_UNDS, KC_PLUS, KC_EQUAL, KC_TILDE,                    XXXXXXX,  KC_RSFT, KC_RGUI, KC_LALT, KC_RCTL, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, KC_BACKSLASH, KC_PIPE,                  KC_CAPS,  KC_RALT,  XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BACKSLASH, KC_PIPE,                  KC_CAPS,  KC_RALT,  XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                     KC_LGUI, KC_TAB , KC_ENT,           MEH_T(KC_SPC), XXXXXXX, KC_BSPC
                                       //`--------------------------'  `--------------------------'
@@ -120,7 +120,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      XXXXXXX, RGB_TOG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_PSCR, KC_BRID, KC_BRIU, XXXXXXX, XXXXXXX, XXXXXXX, 
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      XXXXXXX, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX,                      KC_MPLY, KC_VOLD, KC_VOLU, KC_MPRV, KC_MNXT, KC_AUDIO_MUTE,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      XXXXXXX, RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, QK_BOOT,                     DT_PRNT, DT_DOWN, DT_UP, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, XXXXXXX, XXXXXXX,   MEH_T(KC_SPC), KC_BSPC, KC_DEL
