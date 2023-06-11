@@ -12,6 +12,7 @@ vim.opt.cursorline = true -- highlight the current line
 vim.opt.relativenumber = true -- set relative numbered lines
 vim.opt.wrap = true -- display lines as one long line
 vim.opt.showcmd = true -- Show input in normal mode
+vim.opt.fileformat='unix'
 vim.opt.guifont = "Hack:h12" -- the font used in graphical neovim applications
 
 vim.opt.matchpairs:append("<:>")

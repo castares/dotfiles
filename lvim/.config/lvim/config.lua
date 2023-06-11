@@ -7,3 +7,4 @@ reload("user.lualine")
 reload("user.telescope")
 reload("user.treesitter")
 reload("user.colorizer")
+

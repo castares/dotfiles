@@ -1,20 +1,20 @@
 lvim.builtin.which_key.setup.plugins = {
-    marks = true,         -- shows a list of your marks on ' and `
-    registers = true,     -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+    marks = true,     -- shows a list of your marks on ' and `
+    registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
     spelling = {
         enabled = true,
         suggestions = 20,
-    },     -- use which-key for spelling hints
+    }, -- use which-key for spelling hints
     -- the presets plugin, adds help for a bunch of default keybindings in Neovim
     -- No actual key bindings are created
     presets = {
-        operators = true,      -- adds help for operators like d, y, ...
-        motions = true,        -- adds help for motions
-        text_objects = true,   -- help for text objects triggered after entering an operator
-        windows = false,        -- default bindings on <c-w>
-        nav = true,            -- misc bindings to work with windows
-        z = true,              -- bindings for folds, spelling and others prefixed with z
-        g = true,              -- bindings for prefixed with g
+        operators = true,    -- adds help for operators like d, y, ...
+        motions = true,      -- adds help for motions
+        text_objects = true, -- help for text objects triggered after entering an operator
+        windows = false,     -- default bindings on <c-w>
+        nav = true,          -- misc bindings to work with windows
+        z = true,            -- bindings for folds, spelling and others prefixed with z
+        g = true,            -- bindings for prefixed with g
     },
 }
 
@@ -29,7 +29,14 @@ lvim.builtin.which_key.mappings["f"] = {
     "Find Files",
 }
 
-lvim.builtin.which_key.mappings["ss"] = {
+lvim.builtin.which_key.mappings["F"] = {
+    function()
+        require("telescope.builtin").live_grep()
+    end,
+    "Live Grep",
+}
+
+lvim.builtin.which_key.mappings["S"] = {
     function()
         require("telescope.builtin").live_grep()
     end,
@@ -44,12 +51,14 @@ lvim.builtin.which_key.mappings["b"] = {
 }
 
 
-lvim.builtin.which_key.mappings["S"] = {
+lvim.builtin.which_key.mappings["ss"] = {
     function()
         require('auto-session.session-lens').search_session()
     end,
     "Select Session",
 }
+
+lvim.builtin.which_key.mappings["se"] = { "<cmd>lua require('swenv.api').pick_venv()<cr>", "Swicth Env" }
 
 lvim.builtin.which_key.mappings["P"] = {
     function()
@@ -80,17 +89,16 @@ lvim.builtin.which_key.mappings["w"] = {
 
 lvim.builtin.which_key.mappings["e"] = {
     name = "File Browser",
-    e = { "<cmd>Telescope file_browser files=false<cr>", "Folder Browser" },
-    f = { "<cmd>Telescope file_browser path=%:p:h cwd_to_path=true<cr>", "File Browser" },
+    e = { "<cmd>Telescope file_browser files=false hidden=true<cr>", "Folder Browser" },
+    f = { "<cmd>Telescope file_browser path=%:p:h cwd_to_path=true hidden=true<cr>", "File Browser" },
+    t = { "<cmd>NvimTreeToggle<CR>", "Tree Explorer" }
 }
 
-lvim.builtin.which_key.mappings["E"] = { "<cmd>NvimTreeToggle<CR>", "Tree Explorer" }
-
-lvim.builtin.which_key.mappings["G"] = { "<cmd>:G<cr>", "Fugitive" }
+lvim.builtin.which_key.mappings["gg"] = { "<cmd>:G<cr>", "Fugitive" }
 lvim.builtin.which_key.mappings["gs"] = { "<cmd>Telescope git_status<CR>", "Git Status" }
 lvim.builtin.which_key.mappings["go"] = nil
-lvim.builtin.which_key.mappings["gb"] = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" }
-lvim.builtin.which_key.mappings["gB"] = nil --pending: Toggle buffer blame.
+lvim.builtin.which_key.mappings["gb"] = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Line Blame" }
+lvim.builtin.which_key.mappings["gB"] = { "<cmd>:Git blame<cr>", "Git Blame" }
 lvim.builtin.which_key.mappings["gc"] = nil
 
 lvim.builtin.which_key.mappings["sc"] = { "<cmd>Telescope git_commits<cr>", "Checkout Commit" }

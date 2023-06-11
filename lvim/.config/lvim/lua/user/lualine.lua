@@ -4,7 +4,7 @@ local session_icon = {
     function()
         return "" .. lvim.icons.ui.Project .. ""
     end,
-    padding = { left = 1, right = 0 },
+    padding = { left = 1, right = 1 },
     color = {},
     cond = nil
 }
@@ -20,5 +20,5 @@ local trouble = {
 }
 
 lvim.builtin.lualine.sections.lualine_a = { components.mode , "mode" }
-lvim.builtin.lualine.sections.lualine_y = { session_icon, require('auto-session.lib').current_session_name }
+lvim.builtin.lualine.sections.lualine_y = {session_icon, require('auto-session.lib').current_session_name  }
 lvim.builtin.lualine.sections.lualine_z = { components.location }
