@@ -1,5 +1,12 @@
-# Vim Folder
+# Vim 
 plugin
+lazy-lock.json
+
+# Node
+node_modules/
+package-lock.json
+package.json
+
 
 # Files from knubie/vim-kitty-navigator 
 neighboring_window.py
