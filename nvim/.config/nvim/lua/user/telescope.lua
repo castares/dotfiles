@@ -39,7 +39,7 @@ telescope.setup({
 			".mypy_cache/",
 			".pytest_cache/",
 			"__pycache__/",
-			"target/",
+			-- "target/",
 		},
 		mappings = {
 			i = {
@@ -72,7 +72,6 @@ telescope.setup({
 				["<C-l>"] = actions.complete_tag,
 				["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
 
-				["<C-d>"] = actions.delete_buffer + actions.move_to_top,
 			},
 
 			n = {
@@ -104,7 +103,7 @@ telescope.setup({
 				["<PageUp>"] = actions.results_scrolling_up,
 				["<PageDown>"] = actions.results_scrolling_down,
 
-				["<C-d>"] = actions.delete_buffer + actions.move_to_top,
+				["dd"] = actions.delete_buffer + actions.move_to_top,
 
 				["?"] = actions.which_key,
 				["cd"] = function(prompt_bufnr)

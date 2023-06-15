@@ -37,7 +37,7 @@ lualine.setup({
 		lualine_b = { "branch", "diff", "diagnostics" },
 		lualine_c = {},
 		lualine_x = {},
-		lualine_y = { require("auto-session-library").current_session_name, "filetype" },
+		lualine_y = { require("auto-session.lib").current_session_name, "fileformat", "filetype" },
 		lualine_z = { "location" },
 	},
 	inactive_sections = {

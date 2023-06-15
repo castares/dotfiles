@@ -8,7 +8,6 @@ local lspconfig = require("lspconfig")
 local servers = {
 	"vimls",
 	"jsonls",
-	"sumneko_lua",
 	"pyright",
 	"tsserver",
 	"clangd",

@@ -24,6 +24,9 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
 	debug = true,
 	sources = {
+    -- JSON
+		diagnostics.jsonlint,
+		formatting.jq,
 		-- Lua
 		formatting.stylua,
 		-- Javascript
@@ -35,6 +38,7 @@ null_ls.setup({
 		diagnostics.mypy,
 		-- Rust
 		formatting.rustfmt,
+
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
