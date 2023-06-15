@@ -96,9 +96,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vi'
+   export EDITOR='vim'
  else
-   export EDITOR='nvim'
+   export EDITOR='lvim'
  fi
 
 # Compilation flags
@@ -121,8 +121,9 @@ PATH="$PATH:$HOME/go/bin"
 alias mv="mv -iv"
 alias cp="cp -riv"
 alias mkdir="mkdir -vp"
-alias vi=nvim
-alias vim=nvim
+alias vi=lvim
+alias vim=lvim
+alias nvim=lvim
 alias zshrc="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias cl=clear
