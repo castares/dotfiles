@@ -47,16 +47,16 @@ lvim.plugins = {
       require("fidget").setup()
     end,
   },
-  {
-    "rmagatti/auto-session",
-    config = function()
-      require("auto-session").setup({
-        log_level = "error",
-        auto_session_suppress_dirs = { "~/", "~/projects", "~/code", "~/Downloads", "~/Documents", "/" },
-        auto_session_create_enabled = false,
-      })
-    end,
-  },
+  -- {
+  --   "rmagatti/auto-session",
+  --   config = function()
+  --     require("auto-session").setup({
+  --       log_level = "error",
+  --       auto_session_suppress_dirs = { "~/", "~/projects", "~/code", "~/Downloads", "~/Documents", "/" },
+  --       auto_session_create_enabled = false,
+  --     })
+  --   end,
+  -- },
 
 
 
@@ -87,10 +87,18 @@ lvim.plugins = {
   -- Git
   { "tpope/vim-fugitive" },
   { "tpope/vim-rhubarb" },
+  {
+    "TimUntersberger/neogit",
+    opts = {
+      integrations = { diffview = true }
+    }
+  },
+  { "sindrets/diffview.nvim" },
 
   -- DAP
   { "theHamsta/nvim-dap-virtual-text" },
   { "mfussenegger/nvim-dap-python" },
+  { "mxsdev/nvim-dap-vscode-js" },
 
   -- Neotest
   { "nvim-neotest/neotest" },
@@ -124,6 +132,7 @@ lvim.plugins = {
       }
     end,
   },
+  { "jose-elias-alvarez/typescript.nvim" }
   -- {
   --   "PedramNavid/dbtpal",
   --   config = function()
