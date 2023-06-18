@@ -12,6 +12,8 @@ lvim.builtin.treesitter.ensure_installed = {
     "json"
 }
 
+lvim.builtin.treesitter.autotag.enable = true
+
 lvim.builtin.treesitter.textobjects = {
     select = {
         enable = true,
@@ -88,3 +90,22 @@ lvim.builtin.treesitter.textobjects = {
         },
     },
 }
+
+lvim.builtin.treesitter.rainbow = {
+  enable = true,
+  query = {
+    "rainbow-parens",
+  },
+  strategy = require("ts-rainbow").strategy.global,
+  hlgroups = {
+    -- "TSRainbowRed",
+    "TSRainbowBlue",
+    -- "TSRainbowOrange",
+    -- "TSRainbowCoral",
+    -- "TSRainbowPink",
+    "TSRainbowYellow",
+    -- "TSRainbowViolet",
+    "TSRainbowGreen",
+  },
+}
+

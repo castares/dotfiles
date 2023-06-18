@@ -1,6 +1,7 @@
 -- Install your plugins here
 lvim.builtin.lir.active = false
 lvim.builtin.bufferline.active = false
+lvim.builtin.project.manual_mode = true
 
 lvim.builtin.which_key.setup.plugins = {
   marks = true,     -- shows a list of your marks on ' and `
@@ -29,7 +30,6 @@ lvim.plugins = {
   { "tpope/vim-eunuch" },   --Extra Commands
   { "tpope/vim-surround" }, --Extra Motions
   { "szw/vim-maximizer" },  -- Maximize Splits
-  { "nvim-treesitter/nvim-treesitter-textobjects" },
 
   -- Navigation & Kitty
   {
@@ -42,15 +42,23 @@ lvim.plugins = {
   { "norcalli/nvim-colorizer.lua" },
   { "stevearc/dressing.nvim" },
   {
+    "j-hui/fidget.nvim",
+    config = function()
+      require("fidget").setup()
+    end,
+  },
+  {
     "rmagatti/auto-session",
     config = function()
       require("auto-session").setup({
         log_level = "error",
         auto_session_suppress_dirs = { "~/", "~/projects", "~/code", "~/Downloads", "~/Documents", "/" },
-        auto_session_create_enabled = true,
+        auto_session_create_enabled = false,
       })
     end,
   },
+
+
 
   -- Colorschemes
   { "EdenEast/nightfox.nvim" },
@@ -73,14 +81,20 @@ lvim.plugins = {
   },
 
   -- Treesitter
-  { "p00f/nvim-ts-rainbow" },
+  { "nvim-treesitter/nvim-treesitter-textobjects" },
+  { "HiPhish/nvim-ts-rainbow2" },
 
   -- Git
   { "tpope/vim-fugitive" },
   { "tpope/vim-rhubarb" },
 
   -- DAP
+  { "theHamsta/nvim-dap-virtual-text" },
   { "mfussenegger/nvim-dap-python" },
+
+  -- Neotest
+  { "nvim-neotest/neotest" },
+  { "nvim-neotest/neotest-python" },
 
   -- Filetype Plugins
   { "andres-lowrie/vim-sqlx" },
@@ -93,26 +107,43 @@ lvim.plugins = {
       end
     }
   },
+  { "simrat39/rust-tools.nvim" },
   {
-    "PedramNavid/dbtpal",
+    "saecki/crates.nvim",
+    version = "v0.3.0",
+    dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
-      local dbt = require("dbtpal")
+      require("crates").setup {
+        null_ls = {
+          enabled = true,
+          name = "crates.nvim",
+        },
+        popup = {
+          border = "rounded",
+        },
+      }
+    end,
+  },
+  -- {
+  --   "PedramNavid/dbtpal",
+  --   config = function()
+  --     local dbt = require("dbtpal")
 
-      dbt.setup({
-        -- Path to the dbt executable
-        path_to_dbt = "dbt",
-        -- Path to the dbt project, if blank, will auto-detect
-        -- using currently open buffer for all sql,yml, and md files
-        path_to_dbt_project = ".",
-        -- Path to dbt profiles directory
-        path_to_dbt_profiles_dir = vim.fn.expand "~/.dbt",
-        -- Search for ref/source files in macros and models folders
-        extended_path_search = true,
-        -- Prevent modifying sql files in target/(compiled|run) folders
-        protect_compiled_files = true
-      })
-      require('telescope').load_extension('dbtpal')
-    end
-  }
+  --     dbt.setup({
+  --       -- Path to the dbt executable
+  --       path_to_dbt = "dbt",
+  --       -- Path to the dbt project, if blank, will auto-detect
+  --       -- using currently open buffer for all sql,yml, and md files
+  --       path_to_dbt_project = ".",
+  --       -- Path to dbt profiles directory
+  --       path_to_dbt_profiles_dir = vim.fn.expand "~/.dbt",
+  --       -- Search for ref/source files in macros and models folders
+  --       extended_path_search = true,
+  --       -- Prevent modifying sql files in target/(compiled|run) folders
+  --       protect_compiled_files = true
+  --     })
+  --     require('telescope').load_extension('dbtpal')
+  --   end
+  -- }
 
 }

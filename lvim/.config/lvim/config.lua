@@ -7,4 +7,6 @@ reload("user.lualine")
 reload("user.telescope")
 reload("user.treesitter")
 reload("user.colorizer")
+reload("user.rust-tools")
+reload("user.js-ts-tools")
 
