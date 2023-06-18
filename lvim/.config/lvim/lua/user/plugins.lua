@@ -27,9 +27,8 @@ lvim.plugins = {
 
   -- Text Objects and Motions
   { "tpope/vim-repeat" },
-  { "tpope/vim-eunuch" },   --Extra Commands
   { "tpope/vim-surround" }, --Extra Motions
-  { "szw/vim-maximizer" },  -- Maximize Splits
+
 
   -- Navigation & Kitty
   {
@@ -47,18 +46,21 @@ lvim.plugins = {
       require("fidget").setup()
     end,
   },
-  -- {
-  --   "rmagatti/auto-session",
-  --   config = function()
-  --     require("auto-session").setup({
-  --       log_level = "error",
-  --       auto_session_suppress_dirs = { "~/", "~/projects", "~/code", "~/Downloads", "~/Documents", "/" },
-  --       auto_session_create_enabled = false,
-  --     })
-  --   end,
-  -- },
-
-
+  {
+    'declancm/maximize.nvim',
+    config = function() require('maximize').setup() end
+  },
+  {
+    "rmagatti/auto-session",
+    config = function()
+      require("auto-session").setup({
+        log_level = "error",
+        auto_session_enabled = false,
+        auto_session_create_enabled = true,
+        auto_session_suppress_dirs = { "~/", "~/projects", "~/code", "~/Downloads", "~/Documents", "/" },
+      })
+    end,
+  },
 
   -- Colorschemes
   { "EdenEast/nightfox.nvim" },

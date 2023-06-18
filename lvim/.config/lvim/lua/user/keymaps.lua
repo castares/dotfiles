@@ -33,7 +33,7 @@ n_keymap["<C-k>"] = "<C-u>zz"
 n_keymap["<C-n>"] = "<Esc>:nohl<CR>"
 
 -- Open splits:
-n_keymap["<Leader>|"] = ":vsplit<CR>"
+n_keymap["<Leader>v"] = ":vsplit<CR>"
 n_keymap["<Leader>-"] = ":split<CR>"
 
 -- Command --

@@ -1,20 +1,20 @@
 lvim.builtin.which_key.setup.plugins = {
-  marks = true,       -- shows a list of your marks on ' and `
-  registers = true,   -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+  marks = true,     -- shows a list of your marks on ' and `
+  registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
   spelling = {
     enabled = true,
     suggestions = 20,
-  },   -- use which-key for spelling hints
+  }, -- use which-key for spelling hints
   -- the presets plugin, adds help for a bunch of default keybindings in Neovim
   -- No actual key bindings are created
   presets = {
-    operators = true,        -- adds help for operators like d, y, ...
-    motions = true,          -- adds help for motions
-    text_objects = true,     -- help for text objects triggered after entering an operator
-    windows = false,         -- default bindings on <c-w>
-    nav = true,              -- misc bindings to work with windows
-    z = true,                -- bindings for folds, spelling and others prefixed with z
-    g = true,                -- bindings for prefixed with g
+    operators = true,    -- adds help for operators like d, y, ...
+    motions = true,      -- adds help for motions
+    text_objects = true, -- help for text objects triggered after entering an operator
+    windows = false,     -- default bindings on <c-w>
+    nav = true,          -- misc bindings to work with windows
+    z = true,            -- bindings for folds, spelling and others prefixed with z
+    g = true,            -- bindings for prefixed with g
   },
 }
 
@@ -36,29 +36,12 @@ lvim.builtin.which_key.mappings["F"] = {
   "Live Grep",
 }
 
-lvim.builtin.which_key.mappings["S"] = {
-  function()
-    require("telescope.builtin").live_grep()
-  end,
-  "Live Grep",
-}
-
 lvim.builtin.which_key.mappings["b"] = {
   function()
     require("telescope.builtin").buffers()
   end,
   "Find Buffers",
 }
-
-
-lvim.builtin.which_key.mappings["ss"] = {
-  function()
-    require('auto-session.session-lens').search_session()
-  end,
-  "Select Session",
-}
-
-lvim.builtin.which_key.mappings["se"] = { "<cmd>lua require('swenv.api').pick_venv()<cr>", "Swicth Env" }
 
 lvim.builtin.which_key.mappings["P"] = {
   function()
@@ -67,7 +50,9 @@ lvim.builtin.which_key.mappings["P"] = {
   "Select Project",
 }
 
-lvim.builtin.which_key.mappings["m"] = { "<cmd>MaximizerToggle<cr>", "Maximmize Split" }
+lvim.builtin.which_key.mappings["o"] = { "<cmd>SymbolsOutline<cr>", "Outline" }
+
+lvim.builtin.which_key.mappings["z"] = { "<cmd>lua require('maximize').toggle()<CR>", "Maximize Split" }
 
 lvim.builtin.which_key.mappings["x"] = {
   name = "Save and Quit",
@@ -77,7 +62,7 @@ lvim.builtin.which_key.mappings["x"] = {
 
 lvim.builtin.which_key.mappings["q"] = {
   name = "Quit",
-  a = { "<cmd>qa<CR>", "Quit All" },
+  a = { "<cmd>lua require('user.functions').smart_quit()<cr>", "Quit All" },
   q = { "<cmd>q<CR>", "Quit Buffer" }
 }
 
@@ -94,18 +79,39 @@ lvim.builtin.which_key.mappings["e"] = {
   t = { "<cmd>NvimTreeToggle<CR>", "Tree Explorer" }
 }
 
-lvim.builtin.which_key.mappings["gg"] = { "<cmd>:G<cr>", "Fugitive" }
+-- Git
+lvim.builtin.which_key.mappings["gg"] = { "<cmd>:Neogit<cr>", "Neogit" }
 lvim.builtin.which_key.mappings["gs"] = { "<cmd>Telescope git_status<CR>", "Git Status" }
 lvim.builtin.which_key.mappings["go"] = nil
 lvim.builtin.which_key.mappings["gb"] = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Line Blame" }
 lvim.builtin.which_key.mappings["gB"] = { "<cmd>:Git blame<cr>", "Git Blame" }
 lvim.builtin.which_key.mappings["gc"] = nil
 
+-- Search
 lvim.builtin.which_key.mappings["sc"] = { "<cmd>Telescope git_commits<cr>", "Checkout Commit" }
 lvim.builtin.which_key.mappings["sk"] = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" }
 lvim.builtin.which_key.mappings["sd"] = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" }
 lvim.builtin.which_key.mappings["sw"] = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" }
 lvim.builtin.which_key.mappings["sg"] = { "<cmd>lua require('telescope.builtin').grep_string()<cr>", "Grep String" }
+lvim.builtin.which_key.mappings["se"] = { "<cmd>lua require('swenv.api').pick_venv()<cr>", "Swicth Env" }
+lvim.builtin.which_key.mappings["ss"] = {
+  function()
+    require('auto-session.session-lens').search_session()
+  end,
+  "Select Session",
+}
+
+-- Sessions
+lvim.builtin.which_key.mappings["S"] = {
+  name="Sessions",
+  s = { "<cmd>:SessionSave<cr>", "Session Save" },
+  r = { "<cmd>:SessionRestore<cr>", "Session Restore" },
+  d = { "<cmd>:SessionDelete<CR>", "Session Delete" },
+}
+
+-- LSP
+lvim.builtin.which_key.mappings["lF"] = { "<cmd>LspToggleAutoFormat<cr>", "Toggle Autoformat" }
+
 
 lvim.builtin.which_key.mappings["d"] = {
   name = "Diagnostics",
@@ -154,4 +160,15 @@ lvim.builtin.which_key.mappings["y"] = {
   l = { "<cmd>lua require'dap'.run_last()<cr>", "Last" },
   u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
   x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
+}
+
+
+lvim.builtin.which_key.mappings["u"] = {
+  name = "UI",
+  v = { "<cmd>lua vim.diagnostic.config({virtual_text=not vim.diagnostic.config().virtual_text})<CR>", "Toggle Virtual Text" },
+  d = { '<cmd>lua require("user.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
+  n = {
+    '<cmd>lua require("user.functions").toggle_option("number")<cr><cmd>lua require("user.functions").toggle_option("relativenumber")<cr>',
+    "Toggle Numbers" },
+  r = { '<cmd>lua require("user.functions").toggle_option("relativenumber")<cr>', "Toggle Numbers" },
 }
