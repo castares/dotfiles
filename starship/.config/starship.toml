@@ -81,7 +81,7 @@ diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 behind = "⇣${count}"
 
 [python]
-symbol = " "
+symbol = "󰌠 "
 
 [gcloud]
 symbol = " "
@@ -96,3 +96,5 @@ disabled = false
 "kind-kind" = "kind-default"
 "gke_.*_(?P<cluster>[\\w-]+)" = "gke-$cluster"
 
+[rust]
+symbol ="  "
