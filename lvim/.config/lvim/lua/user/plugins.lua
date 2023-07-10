@@ -3,6 +3,10 @@ lvim.builtin.lir.active = false
 lvim.builtin.bufferline.active = false
 lvim.builtin.project.manual_mode = true
 
+-- Apply sql commentstring to dbt filetype
+local ft = require("Comment.ft")
+ft({'dbt'}, ft.get('sql'))
+
 lvim.builtin.which_key.setup.plugins = {
   marks = true,     -- shows a list of your marks on ' and `
   registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
@@ -71,6 +75,7 @@ lvim.plugins = {
   { "catppuccin/nvim",         name = "catppuccin" },
   { "ellisonleao/gruvbox.nvim" },
   { "folke/tokyonight.nvim" },
+  { "rmehri01/onenord.nvim"},
 
   -- Telescope
   {
