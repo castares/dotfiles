@@ -10,3 +10,4 @@ reload("user.colorizer")
 reload("user.rust-tools")
 reload("user.js-ts-tools")
 
+lvim.colorscheme = "onenord"
