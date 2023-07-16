@@ -48,8 +48,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 # define PASTE LCTL(KC_V) 
 # define CTRL_B LCTL(KC_B) 
 
-// TODO: fix this composition
-# define S_ALL LGUI_T(LCTL(KC_A)) 
+// TODO: fix this composition. Create Macros
+# define S_ALL LGUI_T(SS_LCTL(KC_A)) 
 # define SAVE LALT_T(LCTL(KC_S))
 # define GUI_D LCTL_T(LGUI(KC_D))
 # define FIND LSFT_T(LCTL(KC_F))
@@ -61,17 +61,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 # define RELOAD LCTL(KC_R) 
 # define NEW_TAB LCTL(KC_T) 
 
-// Tap Dance declarations
-enum {
-    TD_A,
-    TD_E,
-    TD_I,
-    TD_O,
-    TD_U,
-    TD_N,
-};
+// // Tap Dance declarations
+// enum tap_dance_actions {
+//     TD_A,
+//     TD_E,
+//     TD_I,
+//     TD_O,
+//     TD_U,
+//     TD_N,
+// };
 
-// TODO: only works with basic keycodes. Find another way
+// // TODO: only works with basic keycodes. Find another way
 // // Tap Dance definitions
 // tap_dance_action_t tap_dance_actions[] = {
 //     // Tap once for letters with tilde in spanish 
@@ -100,9 +100,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       XXXXXXX, LGUI(KC_6), LGUI(KC_7),  LGUI(KC_8), LGUI(KC_9),LGUI(KC_0),       KC_ASTR,    KC_7,     KC_8,    KC_9, KC_COMM, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, LGUI(KC_5), LGUI(KC_4), LGUI(KC_3), LGUI(KC_2), LGUI(KC_1),       KC_PLUS,  KC_4,    KC_5,   KC_6,   KC_DOT ,  XXXXXXX, 
+      XXXXXXX, KC_LGUI, KC_LALT,  KC_LCTL, KC_RSFT,  KC_RALT,       KC_PLUS,  KC_4,    KC_5,   KC_6,   KC_DOT ,  XXXXXXX, 
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX,  KC_LGUI, KC_LALT,  KC_LCTL, KC_RSFT,  KC_RALT,                   KC_MINUS,  KC_1,    KC_2,   KC_3,   KC_SLSH,  XXXXXXX, 
+      XXXXXXX,  LGUI(KC_5), LGUI(KC_4), LGUI(KC_3), LGUI(KC_2), LGUI(KC_1),      KC_MINUS,  KC_1,    KC_2,   KC_3,   KC_SLSH,  XXXXXXX, 
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                     KC_ESC, XXXXXXX, KC_ENT,           MEH_T(KC_SPC),   KC_BSPC,   KC_0
                                       //`--------------------------'  `--------------------------'

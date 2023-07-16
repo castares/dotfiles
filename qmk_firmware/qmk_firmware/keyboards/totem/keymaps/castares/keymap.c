@@ -325,14 +325,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case OS_SWAP: 
             if (record->event.pressed) {
-                if (!is_os_switched) {
-                  is_os_switched = true;  // ─── MAC
-                }
-                else {
-                  is_os_switched = false; // ─── WIN
-                }
+              if (!is_os_switched) {
+                is_os_switched = true;
+              }
+              else {
+                is_os_switched = false;
+                 }
+            }
             return false;
-          }
 
         case OS_SHORTCUT_KEY:
             if (record->event.pressed) {
@@ -342,7 +342,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
               else {
                 register_code(KC_LCTL);
                 }
-        }
+            }
+            else {
+              if (!is_os_switched) {
+                unregister_code(KC_LGUI);
+                }
+              else {
+                unregister_code(KC_LCTL);
+                }
+            }
+            return false;
 
 // ┌─────────────────────────────────────────────────┐
 // │ Swap base l a y e r                             │
