@@ -5,7 +5,7 @@ lvim.builtin.project.manual_mode = true
 
 -- Apply sql commentstring to dbt filetype
 local ft = require("Comment.ft")
-ft({'dbt'}, ft.get('sql'))
+ft({ 'dbt' }, ft.get('sql'))
 
 lvim.builtin.which_key.setup.plugins = {
   marks = true,     -- shows a list of your marks on ' and `
@@ -49,6 +49,7 @@ lvim.plugins = {
     config = function()
       require("fidget").setup()
     end,
+    branch = "legacy"
   },
   {
     'declancm/maximize.nvim',
@@ -75,7 +76,7 @@ lvim.plugins = {
   { "catppuccin/nvim",         name = "catppuccin" },
   { "ellisonleao/gruvbox.nvim" },
   { "folke/tokyonight.nvim" },
-  { "rmehri01/onenord.nvim"},
+  { "rmehri01/onenord.nvim" },
 
   -- Telescope
   {
@@ -164,6 +165,6 @@ lvim.plugins = {
       })
       require('telescope').load_extension('dbtpal')
     end
-  }
+  },
 
 }
