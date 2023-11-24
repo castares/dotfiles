@@ -52,14 +52,20 @@ x_keymap["<A-u>"] = ":m .-2<CR>=="
 x_keymap["<A-d>"] = ":m .+1<CR>=="
 x_keymap["p"] = '"_dP'
 
--- Visual Block --
--- Remap Enter mode
-n_keymap["<M-v>"] = "<C-v>"
+-- Better Up/Down
+v_keymap["<C-j>"] = "<C-d>zz"
+v_keymap["<C-k>"] = "<C-u>zz"
+
+
 -- Move text up and down
 v_keymap["K"] = ":move '<-2<CR>gv-gv"
 v_keymap["J"] = ":move '>+1<CR>gv-gv"
 v_keymap["<A-j>"] = ":move '>+1<CR>gv-gv"
 v_keymap["<A-k>"] = ":move '<-2<CR>gv-gv"
+
+-- Visual Block --
+-- Remap Enter mode
+n_keymap["<M-v>"] = "<C-v>"
 
 -- Terminal --
 -- Better terminal navigation

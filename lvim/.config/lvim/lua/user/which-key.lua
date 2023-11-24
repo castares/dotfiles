@@ -80,6 +80,7 @@ lvim.builtin.which_key.mappings["e"] = {
 }
 
 -- Git
+lvim.builtin.which_key.mappings["gg"] = nil
 lvim.builtin.which_key.mappings["gg"] = { "<cmd>:Neogit<cr>", "Neogit" }
 lvim.builtin.which_key.mappings["gs"] = { "<cmd>Telescope git_status<CR>", "Git Status" }
 lvim.builtin.which_key.mappings["go"] = nil
@@ -170,5 +171,5 @@ lvim.builtin.which_key.mappings["u"] = {
   n = {
     '<cmd>lua require("user.functions").toggle_option("number")<cr><cmd>lua require("user.functions").toggle_option("relativenumber")<cr>',
     "Toggle Numbers" },
-  r = { '<cmd>lua require("user.functions").toggle_option("relativenumber")<cr>', "Toggle Numbers" },
+  r = { '<cmd>lua require("user.functions").toggle_option("relativenumber")<cr>', "Toggle Relative Numbers" },
 }

@@ -32,7 +32,32 @@ lvim.plugins = {
   -- Text Objects and Motions
   { "tpope/vim-repeat" },
   { "tpope/vim-surround" }, --Extra Motions
-
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    ---@type Flash.Config
+    opts = {},
+    -- stylua: ignore
+    keys = {
+      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end,       desc = "Flash" },
+      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+      { "r", mode = "o",               function() require("flash").remote() end,     desc = "Remote Flash" },
+      {
+        "R",
+        mode = { "o", "x" },
+        function() require("flash").treesitter_search() end,
+        desc =
+        "Treesitter Search"
+      },
+      {
+        "<c-s>",
+        mode = { "c" },
+        function() require("flash").toggle() end,
+        desc =
+        "Toggle Flash Search"
+      },
+    },
+  },
 
   -- Navigation & Kitty
   {
@@ -100,7 +125,7 @@ lvim.plugins = {
   { "tpope/vim-fugitive" },
   { "tpope/vim-rhubarb" },
   {
-    "TimUntersberger/neogit",
+    "NeogitOrg/neogit",
     opts = {
       integrations = { diffview = true }
     }
@@ -147,23 +172,25 @@ lvim.plugins = {
   { "jose-elias-alvarez/typescript.nvim" },
   {
     "PedramNavid/dbtpal",
-    config = function()
-      local dbt = require("dbtpal")
-
-      dbt.setup({
+    init = function()
+      require("dbtpal").setup({
         -- Path to the dbt executable
         path_to_dbt = "dbt",
-        -- Path to the dbt project, if blank, will auto-detect
-        -- using currently open buffer for all sql,yml, and md files
-        path_to_dbt_project = ".",
-        -- Path to dbt profiles directory
-        path_to_dbt_profiles_dir = vim.fn.expand "~/.dbt",
-        -- Search for ref/source files in macros and models folders
+        path_to_dbt_project = "",
+
+        -- NOTE: You may need to change this if your course has a custom profiles.yml in the project directory.
+        path_to_dbt_profiles_dir = vim.fn.expand("~/.dbt"),
+
         extended_path_search = true,
-        -- Prevent modifying sql files in target/(compiled|run) folders
-        protect_compiled_files = true
+        protect_compiled_files = true,
       })
-      require('telescope').load_extension('dbtpal')
+
+      vim.keymap.set("n", "<leader>drf", require('dbtpal').run)
+      vim.keymap.set("n", "<leader>drp", require('dbtpal').run_all)
+      vim.keymap.set("n", "<leader>dtf", require('dbtpal').test)
+      vim.keymap.set("n", "<leader>dm", require("dbtpal.telescope").dbt_picker)
+
+      require("telescope").load_extension("dbtpal")
     end
   },
 
