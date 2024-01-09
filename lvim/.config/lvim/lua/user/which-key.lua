@@ -80,8 +80,8 @@ lvim.builtin.which_key.mappings["e"] = {
 }
 
 -- Git
-lvim.builtin.which_key.mappings["gg"] = nil
-lvim.builtin.which_key.mappings["gg"] = { "<cmd>:Neogit<cr>", "Neogit" }
+lvim.builtin.which_key.mappings["g"]["g"] = nil
+lvim.builtin.which_key.mappings["g"]["g"] = { "<cmd>:Neogit<cr>", "Neogit" }
 lvim.builtin.which_key.mappings["gs"] = { "<cmd>Telescope git_status<CR>", "Git Status" }
 lvim.builtin.which_key.mappings["go"] = nil
 lvim.builtin.which_key.mappings["gb"] = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Line Blame" }
@@ -94,7 +94,7 @@ lvim.builtin.which_key.mappings["sk"] = { "<cmd>Telescope colorscheme<cr>", "Col
 lvim.builtin.which_key.mappings["sd"] = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" }
 lvim.builtin.which_key.mappings["sw"] = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" }
 lvim.builtin.which_key.mappings["sg"] = { "<cmd>lua require('telescope.builtin').grep_string()<cr>", "Grep String" }
-lvim.builtin.which_key.mappings["se"] = { "<cmd>lua require('swenv.api').pick_venv()<cr>", "Swicth Env" }
+lvim.builtin.which_key.mappings["se"] = { "<cmd>lua require('swenv.api').pick_venv()<cr>", "Switch Env" }
 lvim.builtin.which_key.mappings["ss"] = {
   function()
     require('auto-session.session-lens').search_session()
@@ -104,7 +104,7 @@ lvim.builtin.which_key.mappings["ss"] = {
 
 -- Sessions
 lvim.builtin.which_key.mappings["S"] = {
-  name="Sessions",
+  name = "Sessions",
   s = { "<cmd>:SessionSave<cr>", "Session Save" },
   r = { "<cmd>:SessionRestore<cr>", "Session Restore" },
   d = { "<cmd>:SessionDelete<CR>", "Session Delete" },
@@ -166,7 +166,8 @@ lvim.builtin.which_key.mappings["y"] = {
 
 lvim.builtin.which_key.mappings["u"] = {
   name = "UI",
-  v = { "<cmd>lua vim.diagnostic.config({virtual_text=not vim.diagnostic.config().virtual_text})<CR>", "Toggle Virtual Text" },
+  v = { "<cmd>lua vim.diagnostic.config({virtual_text=not vim.diagnostic.config().virtual_text})<CR>",
+    "Toggle Virtual Text" },
   d = { '<cmd>lua require("user.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
   n = {
     '<cmd>lua require("user.functions").toggle_option("number")<cr><cmd>lua require("user.functions").toggle_option("relativenumber")<cr>',
