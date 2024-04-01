@@ -82,6 +82,7 @@ behind = "⇣${count}"
 
 [python]
 symbol = "󰌠 "
+pyenv_version_name = true
 
 [gcloud]
 symbol = " "
@@ -90,7 +91,7 @@ format = "[$symbol$project]($style) "
 [kubernetes]
 symbol = "ﴱ "
 format = '[$symbol$context( \($namespace\)) ]($style)'
-disabled = false
+disabled = true
 [kubernetes.context_aliases]
 "dev.local.cluster.k8s" = "k8s"
 "kind-kind" = "kind-default"

@@ -77,13 +77,14 @@ HIST_STAMPS="mm/dd/yyyy"
 plugins=(
 	git
 	vi-mode
-    docker
-    docker-compose
-    gcloud
-    conda-zsh-completion
-    poetry
-    kubectl
-	)
+  docker
+  docker-compose
+  gcloud
+  conda-zsh-completion
+  poetry
+  kubectl
+  zoxide
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -134,6 +135,7 @@ alias i3config="nvim ~/.config/i3/config"
 alias alacritty_config="nvim ~/.config/alacritty/alacritty.yml"
 alias kubectl='microk8s.kubectl'
 alias k=kubectl
+alias ls=lsd
 
 # Custom Aliases per machine
 [ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
@@ -229,14 +231,14 @@ eval "$(starship init zsh)"
 
 # >>> Pyenv >>>
 export PYENV_ROOT="$HOME/.pyenv"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 # <<< Pyenv <<<
 
-# >>> Zoxide >>>
-eval "$(zoxide init zsh)"
-# <<< Zoxide <<<
-
 # >>> Terraform >>>
 complete -o nospace -C /usr/bin/terraform terraform
 # <<< Terraform <<<
+
+autoload -Uz compinit
+fpath+=~/.zfunc
