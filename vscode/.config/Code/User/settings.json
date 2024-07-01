@@ -36,57 +36,6 @@
     "window.zoomLevel": 0,
     "diffEditor.ignoreTrimWhitespace": false,
     "keyboard.dispatch": "keyCode",
-    "vim.vimrc.enable": false,
-    "vim.argumentObjectClosingDelimiters": [
-        ")",
-        "]",
-        "}"
-    ],
-    "vim.argumentObjectOpeningDelimiters": [
-        "(",
-        "[",
-        "{"
-    ],
-    "vim.cursorStylePerMode.replace": "underline",
-    "vim.cursorStylePerMode.insert": "line-thin",
-    "vim.cursorStylePerMode.normal": "block",
-    "vim.cursorStylePerMode.visualblock": "block",
-    "vim.easymotion": true,
-    "vim.enableNeovim": true,
-    "vim.history": 1000,
-    "vim.leader": "<space>",
-    "vim.useCtrlKeys": true,
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "u"
-            ],
-            "commands": [
-                "undo"
-            ]
-        },
-        {
-            "before": [
-                "<C-r>"
-            ],
-            "commands": [
-                "redo"
-            ]
-        },
-    ],
-    "vim.handleKeys": {
-        "<C-c>": false,
-        "<C-v>": false,
-        "<C-x>": false,
-        "<C-f>": false,
-        "<C-b>": false,
-        "<C-S-f>": false,
-        "<C-S-e>": false,
-        "<C-a>": false,
-        "<C-k>": false,
-        "<C-SHIFT-/>": false,
-        "<C- ` >": false,
-    },
     "editor.rulers": [
         79
     ],
