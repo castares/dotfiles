@@ -99,7 +99,7 @@ source $ZSH/oh-my-zsh.sh
  if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
  else
-   export EDITOR='lvim'
+   export EDITOR='nvim'
  fi
 
 # Compilation flags
@@ -124,7 +124,6 @@ alias cp="cp -riv"
 alias mkdir="mkdir -vp"
 alias vi=lvim
 alias vim=lvim
-alias nvim=lvim
 alias zshrc="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias cl=clear
@@ -210,14 +209,6 @@ export FZF_DEFAULT_COMMAND="rg --files --hidden --follow"
 export FZF_CTRL_T_COMMAND="rg --files --hidden --follow --glob='!{.git,node_modules}/*'"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 # <<< FZF <<<
-
-# >>> Pipx >>>
-# To activate completions for zsh you need to have bashcompinit enabled in zsh:
-# autoload -U bashcompinit
-# bashcompinit
-# Afterwards you can enable completion for pipx:
-eval "$(register-python-argcomplete pipx)"
-# <<< Pipx <<<
 
 # >>> fnm >>>
 export PATH=$HOME/.fnm:$PATH
