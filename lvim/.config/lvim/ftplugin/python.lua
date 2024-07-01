@@ -28,8 +28,8 @@ require("lvim.lsp.manager").setup("pyright", pyright_opts)
 -- null-ls configuration
 local formatters = require "lvim.lsp.null-ls.formatters"
 local linterns = require "lvim.lsp.null-ls.linters"
-formatters.setup { { name = "black" } }
-linterns.setup { { name = "ruff" } }
+formatters.setup { { name = "black", args = { "--config", "pyproject.py.toml" },  }, }
+linterns.setup { { name = "flake8", args = { "--config", "pyproject.py.toml" }, } }
 
 -- setup debug adapter
 lvim.builtin.dap.active = true
@@ -39,20 +39,20 @@ pcall(function()
 end)
 
 -- setup testing
-require("neotest").setup({
-  adapters = {
-    require("neotest-python")({
-      -- Extra arguments for nvim-dap configuration
-      -- See https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for values
-      dap = {
-        justMyCode = false,
-        console = "integratedTerminal",
-      },
-      args = { "--log-level", "DEBUG", "--quiet" },
-      runner = "pytest",
-    })
-  }
-})
+-- require("neotest").setup({
+--   adapters = {
+--     require("neotest-python")({
+--       -- Extra arguments for nvim-dap configuration
+--       -- See https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for values
+--       dap = {
+--         justMyCode = false,
+--         console = "integratedTerminal",
+--       },
+--       args = { "--log-level", "DEBUG", "--quiet" },
+--       runner = "pytest",
+--     })
+--   }
+-- })
 
 
 -- Filetype Mappings

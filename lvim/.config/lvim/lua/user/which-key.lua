@@ -82,11 +82,24 @@ lvim.builtin.which_key.mappings["e"] = {
 -- Git
 lvim.builtin.which_key.mappings["g"]["g"] = nil
 lvim.builtin.which_key.mappings["g"]["g"] = { "<cmd>:Neogit<cr>", "Neogit" }
-lvim.builtin.which_key.mappings["gs"] = { "<cmd>Telescope git_status<CR>", "Git Status" }
+-- lvim.builtin.which_key.mappings["gs"] = { "<cmd>Telescope git_status<CR>", "Git Status" }
 lvim.builtin.which_key.mappings["go"] = nil
 lvim.builtin.which_key.mappings["gb"] = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Line Blame" }
 lvim.builtin.which_key.mappings["gB"] = { "<cmd>:Git blame<cr>", "Git Blame" }
-lvim.builtin.which_key.mappings["gc"] = nil
+-- lvim.builtin.which_key.mappings["gc"] = nil
+
+DiffviewToggle = function()
+  local lib = require("diffview.lib")
+  local view = lib.get_current_view()
+  if view then
+    -- Current tabpage is a Diffview; close it
+    vim.cmd.DiffviewClose()
+  else
+    -- No open Diffview exists: open a new one
+    vim.cmd.DiffviewOpen()
+  end
+end
+lvim.builtin.which_key.mappings["g"]["d"] = { "<cmd>lua DiffviewToggle()<cr>", "DiffView Toggle" }
 
 -- Search
 lvim.builtin.which_key.mappings["sc"] = { "<cmd>Telescope git_commits<cr>", "Checkout Commit" }
