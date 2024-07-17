@@ -22,8 +22,6 @@ map("n", "<M-K>", "<Esc>:m .-2<CR>", { desc = "Move line up", remap = true })
 
 map("n", "<C-n>", "<C-d>zz", { desc = "Move cursor down half-page", remap = true })
 map("n", "<C-p>", "<C-u>zz", { desc = "Move cursor up half-page", remap = true })
-map("n", "<leader>n", "<Esc>:nohl<CR>", { desc = "Remove Highligted Content", remap = true })
-map("n", "<Leader>v", ":vsplit<CR>", { desc = "Split Window Right", remap = true })
 map("x", "p", '"_dP', { desc = "Replace without losing the pasted content" })
 map("n", "<M-v>", "<C-v>", { desc = "Enter Visual Block Mode" })
 map("t", "<C-h>", "<C-\\><C-N><C-w>h", { desc = "Go to Left Window from Terminal" })
@@ -40,7 +38,7 @@ map("n", "<leader>qa", ":qa<CR>", { desc = "Close All" })
 map("n", "<leader>z", "<cmd>lua require('maximize').toggle()<CR>", { desc = "Maximize Window" })
 
 -- Diagnostics
-map("n", "<leader>cj", "<cmd>lua vim.diagnostic.goto_next()<CR>", { desc = "Next Diagnostic" })
-map("n", "<leader>ck", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { desc = "Prev Diagnostic" })
+map("n", "<leader>xj", "<cmd>lua vim.diagnostic.goto_next()<CR>", { desc = "Next Diagnostic" })
+map("n", "<leader>xk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { desc = "Prev Diagnostic" })
 
-map("n", "<leader>ut", "<cmd>:Gitsigns toggle_current_line_blame<CR>", { desc = "Toggle inline blame" })
+map("n", "<leader>uB", "<cmd>:Gitsigns toggle_current_line_blame<CR>", { desc = "Toggle inline blame" })

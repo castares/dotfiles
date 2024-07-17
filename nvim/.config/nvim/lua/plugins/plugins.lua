@@ -10,12 +10,8 @@ if true then
       "knubie/vim-kitty-navigator",
       build = "cp ./*.py ~/.config/kitty/",
     },
-    -- Text Objects and Motions
-    { "tpope/vim-repeat" },
-    { "tpope/vim-surround" }, --Extra Motions
 
     -- UI
-    { "norcalli/nvim-colorizer.lua" },
     {
       "declancm/maximize.nvim",
       config = function()
