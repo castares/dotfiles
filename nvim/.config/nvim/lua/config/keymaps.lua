@@ -4,21 +4,11 @@
 --
 local map = LazyVim.safe_keymap_set
 
--- Move to window using the <ctrl> hjkl keys
--- vim.keymap.del("n", "<C-h>")
--- vim.keymap.del("n", "<C-j>")
--- vim.keymap.del("n", "<C-k>")
--- vim.keymap.del("n", "<C-l>")
-
 vim.g.kitty_navigator_no_mappings = 1
-
--- TODO: remove and use LazyVim defaults
-map("n", "<M-h>", ":KittyNavigateLeft<cr>", { desc = "Go to Left Window", remap = true })
-map("n", "<M-j>", ":KittyNavigateDown<cr>", { desc = "Go to Lower Window", remap = true })
-map("n", "<M-k>", ":KittyNavigateUp<cr>", { desc = "Go to Upper Window", remap = true })
-map("n", "<M-l>", ":KittyNavigateRight<cr>", { desc = "Go to Right Window", remap = true })
-map("n", "<M-J>", "<Esc>:m .+1<CR>", { desc = "Move line down", remap = true })
-map("n", "<M-K>", "<Esc>:m .-2<CR>", { desc = "Move line up", remap = true })
+map("n", "<C-h>", ":KittyNavigateLeft<cr>", { desc = "Go to Left Window", remap = true })
+map("n", "<C-j>", ":KittyNavigateDown<cr>", { desc = "Go to Lower Window", remap = true })
+map("n", "<C-k>", ":KittyNavigateUp<cr>", { desc = "Go to Upper Window", remap = true })
+map("n", "<C-l>", ":KittyNavigateRight<cr>", { desc = "Go to Right Window", remap = true })
 
 map("n", "<C-n>", "<C-d>zz", { desc = "Move cursor down half-page", remap = true })
 map("n", "<C-p>", "<C-u>zz", { desc = "Move cursor up half-page", remap = true })
