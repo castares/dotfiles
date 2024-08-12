@@ -46,7 +46,6 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.test.core" },
     -- UI
     { import = "lazyvim.plugins.extras.ui.treesitter-context" },
-    { import = "lazyvim.plugins.extras.ui.edgy" },
     -- util
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
     -- import/override with your plugins
