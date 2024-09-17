@@ -231,5 +231,4 @@ eval "$(pyenv init -)"
 complete -o nospace -C /usr/bin/terraform terraform
 # <<< Terraform <<<
 
-autoload -Uz compinit
-fpath+=~/.zfunc
+eval $(thefuck --alias)
