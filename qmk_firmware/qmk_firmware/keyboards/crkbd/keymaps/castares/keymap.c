@@ -36,9 +36,9 @@ LCTL_T(KC_ESC),   KC_A,     KC_S,     KC_D,   KC_F,   KC_G,                     
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       KC_TAB, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                          KC_6,    KC_7,     KC_8,    KC_9,   KC_0,    KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
- LCTL_T(KC_ESC), LGUI(KC_1), LGUI(KC_2), LGUI(KC_3), LGUI(KC_4), LGUI(KC_5),     KC_PLUS,  KC_4,    KC_5,   KC_6,   KC_DOT , KC_ASTR, 
+ LCTL_T(KC_ESC), LGUI(KC_1), LGUI(KC_2), LGUI(KC_3), LGUI(KC_4), LGUI(KC_5),     KC_PLUS,  KC_4,    KC_5,   KC_6,   KC_DOT , KC_ASTR,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-    KC_LSFT,  LGUI(KC_6), LGUI(KC_7),  LGUI(KC_8), LGUI(KC_9),LGUI(KC_0),        KC_MINUS,  KC_1,    KC_2,   KC_3,    KC_COMM, KC_SLSH, 
+    KC_LSFT,  LGUI(KC_6), LGUI(KC_7),  LGUI(KC_8), LGUI(KC_9),LGUI(KC_0),        KC_MINUS,  KC_1,    KC_2,   KC_3,    KC_COMM, KC_SLSH,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                     KC_LGUI, XXXXXXX, LALT_T(KC_ENT),   RALT_T(KC_SPC),   MO(3),   KC_0
                                       //`--------------------------'  `--------------------------'
@@ -50,7 +50,7 @@ LCTL_T(KC_ESC),   KC_A,     KC_S,     KC_D,   KC_F,   KC_G,                     
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
  LCTL_T(KC_ESC), KC_MINUS, KC_UNDS, KC_PLUS, KC_EQUAL, KC_TILDE,                KC_LEFT,  KC_DOWN, KC_UP, KC_RIGHT, KC_LCBR, KC_RCBR,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     KC_LSFT,  KC_GRAVE, KC_PIPE, KC_BACKSLASH, KC_LPRN, KC_RPRN,                KC_LBRC, KC_RBRC, KC_LABK, KC_RABK, KC_QUES, KC_RSFT,  
+     KC_LSFT,  KC_GRAVE, KC_PIPE, KC_BACKSLASH, KC_LPRN, KC_RPRN,                KC_LBRC, KC_RBRC, KC_LABK, KC_RABK, KC_QUES, KC_RSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                     KC_LGUI, MO(3), LALT_T(KC_ENT),     KC_SPC, XXXXXXX, RALT_T(KC_BSPC)
                                       //`--------------------------'  `--------------------------'
@@ -70,11 +70,11 @@ LCTL_T(KC_ESC),   KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                     
 
   [4] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-     XXXXXXX, RGB_TOG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_PSCR, KC_BRID, KC_BRIU, KC_PGDN, KC_PGUP, XXXXXXX, 
+     XXXXXXX, RGB_TOG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_PSCR, KC_BRID, KC_BRIU, KC_PGDN, KC_PGUP, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      XXXXXXX, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX,                      KC_MPLY, KC_VOLD, KC_VOLU, KC_MPRV, KC_MNXT, KC_AUDIO_MUTE,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     XXXXXXX, RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, RESET,                       DT_PRNT, DT_DOWN, DT_UP, XXXXXXX, XXXXXXX, XXXXXXX,
+     XXXXXXX, RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX,                       DT_PRNT, DT_DOWN, DT_UP, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                     KC_LGUI, XXXXXXX, LALT_T(KC_ENT),   KC_SPC, XXXXXXX, RALT_T(KC_BSPC)
                                       //`--------------------------'  `--------------------------'

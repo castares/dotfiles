@@ -16,159 +16,393 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+
 #include QMK_KEYBOARD_H
 #include <stdio.h>
 
-// Left-hand home row mods
-#define GUI_A LGUI_T(KC_A)
-#define ALT_S LALT_T(KC_S)
-#define CTL_D LCTL_T(KC_D)
-#define SFT_F LSFT_T(KC_F)
-#define ALTGR_V RALT_T(KC_V)
+// ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+// │ D E F I N I T I O N S                                                                                                  │
+// └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+// ▝▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▘
 
-// Right-hand home row mods
-#define SFT_J RSFT_T(KC_J)
-#define CTL_K CTL_T(KC_K)
-#define ALT_L LALT_T(KC_L)
-#define GUI_SCLN RGUI_T(KC_SCLN)
-#define ALTGR_M RALT_T(KC_M)
+// ┌─────────────────────────────────────────────────┐
+// │ d e f i n e   l a y e r s                       │
+// └─────────────────────────────────────────────────┘
 
-// Layers 
-# define LY_NUM_TAB LT(1, KC_TAB)
-# define LY_NAV_ESC LT(2, KC_ESC)
-# define LY_SYM_BSPC LT(3, KC_BSPC)
-# define LY_SYM2_DEL LT(4, KC_DEL)
-# define LY_FN_P LT(5, KC_P)
-# define LY_MEDIA_ESC LT(6, KC_ESC)
+enum layers {
+    _QWERTY,
+    _QWERTY_MAC,
+    _COLEMAK,
+    _NAVIGATION,
+    _NUMBERS,
+    _SYMBOLS,
+    _FUNCTION_KEYS,
+    _SYSTEM_CONFIG,
+};
 
-// LY_NAV One hand keys
-# define UNDO LCTL(KC_Z) 
-# define CUT LCTL(KC_X) 
-# define COPY LCTL(KC_C) 
-# define PASTE LCTL(KC_V) 
-# define CTRL_B LCTL(KC_B) 
+// ┌─────────────────────────────────────────────────┐
+// │ d e f i n e   k e y c o d e s                   │
+// └─────────────────────────────────────────────────┘
 
-// TODO: fix this composition. Create Macros
-# define S_ALL LGUI_T(SS_LCTL(KC_A)) 
-# define SAVE LALT_T(LCTL(KC_S))
-# define GUI_D LCTL_T(LGUI(KC_D))
-# define FIND LSFT_T(LCTL(KC_F))
+enum custom_keycodes {
+    COLEMAK = SAFE_RANGE,
+    QWERTY,
+    LTHUMB_2,
+    RTHUMB2,
+    ADJUST,
+    OS_SWAP,
+    MAKE_H,
+    SNAP,
+    MAC,
+    LINUX
+};
 
-# define FIND_NEXT LCTL(KC_G) 
-# define GUI_Q LGUI(KC_Q)
-# define GUI_W LGUI(KC_W)
-# define GUI_E LGUI(KC_E)
-# define RELOAD LCTL(KC_R) 
-# define NEW_TAB LCTL(KC_T) 
 
-// // Tap Dance declarations
-// enum tap_dance_actions {
-//     TD_A,
-//     TD_E,
-//     TD_I,
-//     TD_O,
-//     TD_U,
-//     TD_N,
-// };
+// ┌─────────────────────────────────────────────────┐
+// │ d e f i n e   m a c r o n a m e s               │
+// └─────────────────────────────────────────────────┘
 
-// // TODO: only works with basic keycodes. Find another way
-// // Tap Dance definitions
-// tap_dance_action_t tap_dance_actions[] = {
-//     // Tap once for letters with tilde in spanish 
-//     [TD_A] = ACTION_TAP_DANCE_DOUBLE(KC_A, UC(0x00E1)),
-//     [TD_E] = ACTION_TAP_DANCE_DOUBLE(KC_E, UC(0x00E9)),
-//     [TD_I] = ACTION_TAP_DANCE_DOUBLE(KC_I, UC(0x00ED)),
-//     [TD_O] = ACTION_TAP_DANCE_DOUBLE(KC_O, UC(0x00F3)),
-//     [TD_U] = ACTION_TAP_DANCE_DOUBLE(KC_U, UC(0x00FA)),
-//     [TD_N] = ACTION_TAP_DANCE_DOUBLE(KC_N, UC(0x00F1)),
-// };
+// LEFT HAND HOME ROW MODS QWERTY ├──────────────────┐
+
+#define GUI_A MT(MOD_LGUI, KC_A)
+#define ALT_S MT(MOD_LALT, KC_S)
+#define CTL_D MT(MOD_LCTL, KC_D)
+#define SHT_F MT(MOD_LSFT, KC_F)
+#define ALTGR_V MT(MOD_RALT, KC_V)
+
+// RIGHT HAND HOME ROW MODS QWERTY ├─────────────────┐
+
+#define SHT_J MT(MOD_RSFT, KC_J)
+#define CTL_K MT(MOD_LCTL, KC_K)
+#define ALT_L MT(MOD_LALT, KC_L)
+#define GUI_S MT(MOD_LGUI, KC_SCLN)
+#define ALTGR_M MT(MOD_RALT, KC_M)
+
+
+// LEFT HAND HOME ROW MODS COLEMAK ├─────────────────┐
+
+#define GUI_A MT(MOD_LGUI, KC_A)
+#define ALT_R MT(MOD_LALT, KC_R)
+#define CTL_S MT(MOD_LCTL, KC_S)
+#define SHT_T MT(MOD_LSFT, KC_T)
+
+// RIGHT HAND HOME ROW MODS COLEMAK ├────────────────┐
+
+#define SHT_N MT(MOD_RSFT, KC_N)
+#define CTL_E MT(MOD_LCTL, KC_E)
+#define ALT_I MT(MOD_LALT, KC_I)
+#define GUI_O MT(MOD_LGUI, KC_O)
+
+// Thumb Keys
+#define LPINKY LT(_SYSTEM_CONFIG, XXXXXXX) // TODO: Add Repeat key
+#define RPINKY CW_TOGG
+
+#define LTHUMB1 LT(_NAVIGATION, KC_ENT)
+#define LTHUMB2 LT(_NUMBERS, KC_TAB)
+#define LTHUMB3 MT(MOD_LCTL, KC_ESC)
+#define LTHUMB3_MAC MT(MOD_LGUI, KC_ESC)
+
+#define RTHUMB1 MEH_T(KC_SPC)
+#define RTHUMB2 LT(_SYMBOLS, KC_BSPC)
+#define RTHUMB3 LT(_FUNCTION_KEYS, KC_DEL)
+
+// Switch to workspace keys
+#define WKS1 LGUI(KC_1)
+#define WKS2 LGUI(KC_2)
+#define WKS3 LGUI(KC_3)
+#define WKS4 LGUI(KC_4)
+#define WKS5 LGUI(KC_5)
+#define WKS6 LGUI(KC_6)
+#define WKS7 LGUI(KC_7)
+#define WKS8 LGUI(KC_8)
+#define WKS9 LGUI(KC_9)
+#define WKS0 LGUI(KC_0)
+
+// ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+// │ K E Y M A P S                                                                                                          │
+// └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+// ▝▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▘
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [0] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX , KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                        KC_Y,    KC_U,    KC_I,    KC_O,   LY_FN_P, XXXXXXX,    
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-  LY_MEDIA_ESC, GUI_A,    ALT_S,  CTL_D,   SFT_F,   KC_G,                        KC_H,   SFT_J,   CTL_K,   ALT_L,   GUI_SCLN, CW_TOGG,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_Z,    KC_X,    KC_C,    ALTGR_V,  KC_B,                        KC_N,   ALTGR_M, KC_COMM,  KC_DOT,   KC_SLSH,  XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                    LY_NAV_ESC, LY_NUM_TAB, KC_ENT,   MEH_T(KC_SPC), LY_SYM_BSPC, LY_SYM2_DEL
-                                      //`--------------------------'  `--------------------------'
-  ),
 
-  [1] = LAYOUT_split_3x6_3( 
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, LGUI(KC_6), LGUI(KC_7),  LGUI(KC_8), LGUI(KC_9),LGUI(KC_0),       KC_ASTR,    KC_7,     KC_8,    KC_9, KC_COMM, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_LGUI, KC_LALT,  KC_LCTL, KC_RSFT,  KC_RALT,       KC_PLUS,  KC_4,    KC_5,   KC_6,   KC_DOT ,  XXXXXXX, 
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX,  LGUI(KC_5), LGUI(KC_4), LGUI(KC_3), LGUI(KC_2), LGUI(KC_1),      KC_MINUS,  KC_1,    KC_2,   KC_3,   KC_SLSH,  XXXXXXX, 
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                    KC_ESC, XXXXXXX, KC_ENT,           MEH_T(KC_SPC),   KC_BSPC,   KC_0
-                                      //`--------------------------'  `--------------------------'
-  ),
+ /*
+   ┌─────────────────────────────────────────────────┐
+   │ q w e r t y                                     │      ╭╮╭╮╭╮╭╮
+   └─────────────────────────────────────────────────┘      │╰╯╰╯╰╯│
+             ┌─────────┬─────────┬─────────┬─────────┬──────╨──┐┌──╨──────┬─────────┬─────────┬─────────┬─────────┐
+     ╌┄┈┈───═╡    Q    │    W    │    E    │    R    │    T    ││    Y    │    U    │    I    │    O    │    P    │
+             ├─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┤
+             │    A    │    S    │    D    │    F    │    G    ││    H    │    J    │    K    │    L    │    ;    │
+   ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
+   │ OS SFT  │    Z    │    X    │    C    │    V    │    B    ││    N    │    M    │    ,    │    .    │    /    │CAPS WORD│
+   └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
+                                 │CTRL/CMD │ NAV/TAB │NUM/SPC  ││ MEH/ENT │SYM/BSPC │SYST/DEL │
+                                 └─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┘*/
 
-  [2] = LAYOUT_split_3x6_3( // Navigation
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, GUI_Q,  GUI_W, GUI_E, RELOAD,     NEW_TAB,                      KC_HOME, KC_PAGE_DOWN, KC_PAGE_UP, KC_END, KC_INSERT, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, KC_RSFT, FIND_NEXT,                    KC_LEFT,  KC_DOWN,   KC_UP,  KC_RIGHT, XXXXXXX,  XXXXXXX,     
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, UNDO,    CUT,    COPY,   PASTE,      CTRL_B,                      KC_PSCR, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                    XXXXXXX, KC_TAB, KC_ENT,           MEH_T(KC_SPC), KC_BSPC, KC_DEL
-                                      //`--------------------------'  `--------------------------'
-  ),
+   [_QWERTY] = LAYOUT(
+ //╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷
+    KC_CAPS,  KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,      KC_Y,     KC_U,     KC_I,     KC_O,     KC_P, XXXXXXX,
+    LPINKY,  GUI_A,    ALT_S,    CTL_D,    SHT_F,    KC_G,      KC_H,     SHT_J,    CTL_K,    ALT_L,    GUI_S, RPINKY,
+    XXXXXXX,   KC_Z,     KC_X,     KC_C,     ALTGR_V,  KC_B,      KC_N,     ALTGR_M,  KC_COMM,  KC_DOT,   KC_SLSH,  XXXXXXX,
+                                  LTHUMB3,  LTHUMB2, LTHUMB1,   RTHUMB1,   RTHUMB2,    RTHUMB3
+ ),
+/*
 
-  [3] = LAYOUT_split_3x6_3( //Symbols 1 - BSPC
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, KC_EXLM, KC_AT,  KC_CIRC,  KC_DLR, KC_PERC,                       XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_MINUS, KC_UNDS, KC_QUOT, KC_DQT, KC_TILDE,                     XXXXXXX,  KC_RSFT, KC_RCTL, KC_LALT, KC_RCTL, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_GRAVE, KC_PLUS, KC_EQUAL, KC_BSLS, KC_PIPE,               XXXXXXX,  KC_RALT,  XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                    KC_ESC, KC_TAB , KC_ENT,           MEH_T(KC_SPC), XXXXXXX, KC_BSPC
-                                      //`--------------------------'  `--------------------------'
-  ),
+   ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
 
-  [4] = LAYOUT_split_3x6_3( // Symbols 2 - DEL
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, KC_AMPR, KC_HASH, KC_LCBR, KC_RCBR, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_LBRC, KC_RBRC, KC_LPRN, KC_RPRN, KC_ASTR,                     XXXXXXX, KC_RSFT, KC_RCTL, KC_LALT, KC_RCTL, XXXXXXX,  
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, KC_LABK, KC_RABK,XXXXXXX,                     XXXXXXX, KC_RALT, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,  
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                    KC_ESC, KC_TAB, KC_ENT,             MEH_T(KC_SPC), KC_BSPC, XXXXXXX
-                                      //`--------------------------'  `--------------------------'
-  ),
+   ┌─────────────────────────────────────────────────┐
+   │ c o l e m a k                                   │      ╭╮╭╮╭╮╭╮
+   └─────────────────────────────────────────────────┘      │╰╯╰╯╰╯│
+             ┌─────────┬─────────┬─────────┬─────────┬──────╨──┐┌──╨──────┬─────────┬─────────┬─────────┬─────────┐
+     ╌┄┈┈───═╡    Q    │    W    │    F    │    P    │    G    ││    J    │    L    │    U    │    Y    │    ;    │
+             ├─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┤
+             │    A    │    R    │    S    │    T    │    D    ││    H    │    N    │    E    │    I    │    O    │
+   ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
+   │ OS SFT  │    Z    │    X    │    C    │    V    │    B    ││    K    │    M    │    ,    │    .    │    /    │CAPS WORD│
+   └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
+                                 │CTRL/CMD │ NAV/TAB │NUM/SPC  ││ MEH/ENT │SYM/BSPC │SYST/DEL │
+                                 └─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┘*/
+   [_QWERTY_MAC] = LAYOUT(
+ //╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷
+    KC_CAPS,  KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,      KC_Y,     KC_U,     KC_I,     KC_O,     KC_P, XXXXXXX,
+    LPINKY,  GUI_A,    ALT_S,    CTL_D,    SHT_F,    KC_G,      KC_H,     SHT_J,    CTL_K,    ALT_L,    GUI_S, RPINKY,
+    XXXXXXX,   KC_Z,     KC_X,     KC_C,     ALTGR_V,  KC_B,      KC_N,     ALTGR_M,  KC_COMM,  KC_DOT,   KC_SLSH,  XXXXXXX,
+                                  LTHUMB3_MAC,  LTHUMB2, LTHUMB1,   RTHUMB1,   RTHUMB2,    RTHUMB3
+ ),
+/*
 
+   ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
 
-  [5] = LAYOUT_split_3x6_3( // Functions
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX,  KC_F1,   KC_F2,   KC_F3,   KC_F4,    XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX,  KC_F5,   KC_F6,   KC_F7,   KC_F8,  XXXXXXX,                     XXXXXXX, KC_RSFT, KC_RCTL, KC_LALT, KC_RCTL, XXXXXXX,     
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_F9,  KC_F10,   KC_F11,   KC_F12, XXXXXXX,                     XXXXXXX, KC_RALT,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX, XXXXXXX,   MEH_T(KC_SPC), KC_BSPC, KC_DEL
-                                      //`--------------------------'  `--------------------------'
-  ),
+   ┌─────────────────────────────────────────────────┐
+   │ c o l e m a k                                   │      ╭╮╭╮╭╮╭╮
+   └─────────────────────────────────────────────────┘      │╰╯╰╯╰╯│
+             ┌─────────┬─────────┬─────────┬─────────┬──────╨──┐┌──╨──────┬─────────┬─────────┬─────────┬─────────┐
+     ╌┄┈┈───═╡    Q    │    W    │    F    │    P    │    G    ││    J    │    L    │    U    │    Y    │    ;    │
+             ├─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┤
+             │    A    │    R    │    S    │    T    │    D    ││    H    │    N    │    E    │    I    │    O    │
+   ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
+   │ OS SFT  │    Z    │    X    │    C    │    V    │    B    ││    K    │    M    │    ,    │    .    │    /    │CAPS WORD│
+   └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
+                                 │CTRL/CMD │ NAV/TAB │NUM/SPC  ││ MEH/ENT │SYM/BSPC │SYST/DEL │
+                                 └─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┘*/
 
-  [6] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RGB_TOG,                     KC_PSCR, KC_BRID, KC_BRIU, XXXXXXX, XXXXXXX, XXXXXXX, 
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     XXXXXXX, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX,                      KC_MPLY, KC_VOLD, KC_VOLU, KC_MPRV, KC_MNXT, KC_AUDIO_MUTE,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     XXXXXXX, RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, QK_BOOT,                     DT_PRNT, DT_DOWN, DT_UP, XXXXXXX, XXXXXXX, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX, XXXXXXX,   MEH_T(KC_SPC), KC_BSPC, KC_DEL
-                                      //`--------------------------'  `--------------------------'
-  )
+   [_COLEMAK] = LAYOUT(
+ //╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷
+    XXXXXXX,  KC_Q,     KC_W,     KC_F,     KC_P,     KC_G,      KC_J,     KC_L,     KC_U,     KC_Y,     KC_SCLN, XXXXXXX,
+    LPINKY,  GUI_A,    ALT_R,    CTL_S,    SHT_T,    KC_D,      KC_H,     SHT_N,    CTL_E,    ALT_I,    GUI_O, RPINKY,
+    XXXXXXX,   KC_Z,     KC_X,     KC_C,     ALTGR_V,  KC_B,      KC_K,     ALTGR_M,  KC_COMM,  KC_DOT,   KC_SLSH,  XXXXXXX,
+                                  LTHUMB3,  LTHUMB2, LTHUMB1,   RTHUMB1,   RTHUMB2,    RTHUMB3
+ ),
+ /*
+   ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
+
+   ┌─────────────────────────────────────────────────┐
+   │ NUMBERS                                         │      ╭╮╭╮╭╮╭╮
+   └─────────────────────────────────────────────────┘      │╰╯╰╯╰╯│
+             ┌─────────┬─────────┬─────────┬─────────┬──────╨──┐┌──╨──────┬─────────┬─────────┬─────────┬─────────┐
+     ╌┄┈┈───═╡         │         │         │         │         ││    *    │    7    │    8    │    9    │    ,    │
+             ├─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┤
+             │   GUI   │   ALT   │  CTRL   │  SHIFT  │         ││    +    │    4    │    5    │    6    │    .    │
+   ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
+   │         │         │         │         │  RALT   │         ││    +    │    1    │    2    │    3    │    /    │         │
+   └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
+                                 │  _____  │  _____  │  _____  ││   SPC   │  BSPC   │    0    │
+                                 └─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┘ */
+
+   [_NUMBERS] = LAYOUT(
+ //╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷
+    XXXXXXX,  WKS6,     WKS7,     WKS8,     WKS9,     WKS0,     KC_ASTR,    KC_7,      KC_8,    KC_9,    KC_COMM, XXXXXXX,
+    XXXXXXX,  KC_LGUI,  KC_LALT,  KC_LCTL,  KC_RSFT,  KC_RALT,   KC_PLUS,    KC_4,      KC_5,    KC_6,    KC_DOT , XXXXXXX,
+    XXXXXXX,    WKS5,     WKS4,     WKS3,     WKS2,     WKS1,     KC_MINUS,   KC_1,      KC_2,    KC_3,    KC_SLSH,  XXXXXXX,
+                                   KC_ESC,   XXXXXXX,   KC_ENT,   KC_SPC,     KC_BSPC,   KC_0
+ ),
+ /*
+   ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
+
+   ┌─────────────────────────────────────────────────┐
+   │ NAVIGATION                                      │      ╭╮╭╮╭╮╭╮
+   └─────────────────────────────────────────────────┘      │╰╯╰╯╰╯│
+             ┌─────────┬─────────┬─────────┬─────────┬──────╨──┐┌──╨──────┬─────────┬─────────┬─────────┬─────────┐
+     ╌┄┈┈───═╡  WKS6   │  WKS7   │   WKS8  │   WKS9  │  WKS0   ││    #    │    ^    │    $    │    *    │    %    │
+             ├─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┤
+             │   GUI   │   ALT   │  CTRL   │  SHIFT  │  RALT   ││    ←    │    ↓    │    ↑    │    →    │    :    │
+   ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
+   │         │  WKS5   │  WKS4   │   WKS3  │   WKS2  │  WKS1   ││   ~     │    `    │    \    │    |    │    ?    │         │
+   └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
+                                 │  _____  │  _____  │  _____  ││   SPC   │  DEL    │  BSPC   │
+                                 └─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┘ */
+
+   [_NAVIGATION] = LAYOUT(
+ //╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷
+    XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX,
+    XXXXXXX,  KC_LGUI,  KC_LALT,   KC_LCTL,  KC_RSFT,  XXXXXXX,   KC_LEFT,  KC_DOWN,  KC_UP,   KC_RIGHT, KC_COLON, XXXXXXX,
+    XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  KC_RALT,  XXXXXXX,   XXXXXXX,  XXXXXXX,  KC_LABK, KC_RABK,  KC_QUESTION, XXXXXXX,
+                                   KC_ESC,   KC_TAB,   XXXXXXX,   KC_SPC,   KC_DEL,   XXXXXXX
+ ),
+ /*
+   ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
+
+   ┌─────────────────────────────────────────────────┐
+   │ SYMBOLS                                         │      ╭╮╭╮╭╮╭╮
+   └─────────────────────────────────────────────────┘      │╰╯╰╯╰╯│
+             ┌─────────┬─────────┬─────────┬─────────┬──────╨──┐┌──╨──────┬─────────┬─────────┬─────────┬─────────┐
+     ╌┄┈┈───═╡    !    │    @    │    '    │    {    │    }    ││         │         │         │         │         │
+             ├─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┤
+             │    -    │    _    │    "    │    (    │    )    ││         │  SHIFT  │   CTRL  │   ALT   │   GUI   │
+   ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
+   │         │    &    │    +    │    =    │   [     │    ]    ││         │  RALT   │         │         │         │         │
+   └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
+                                 │   ESC   │   TAB   │  ENTER  ││   SPC   │  _____  │   DEL   │
+                                 └─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┘ */
+
+   [_SYMBOLS] = LAYOUT(
+ //╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷
+    XXXXXXX,  KC_EXLM,  KC_AT,    KC_QUOT,  KC_LCBR,  KC_RCBR,   KC_PERC,  KC_ASTR,  XXXXXXX,   XXXXXXX,  XXXXXXX, XXXXXXX,
+    XXXXXXX,  KC_MINUS, KC_UNDS,  KC_DQT,   KC_LPRN,  KC_RPRN,   KC_HASH,  KC_RSFT,  KC_RCTL,  KC_LALT,  KC_RGUI, XXXXXXX,
+    XXXXXXX,  KC_AMPR,  KC_PLUS,  KC_EQUAL, KC_LBRC,  KC_RBRC,   KC_CIRC,  KC_DLR,   KC_GRAVE,  XXXXXXX, XXXXXXX,  XXXXXXX,
+                                  KC_TILDE, KC_BSLS,  KC_PIPE,   KC_SPC,  XXXXXXX,  KC_DEL
+ ),
+ /*
+   ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
+
+   ┌─────────────────────────────────────────────────┐
+   │ FUNCTION KEYS                                   │      ╭╮╭╮╭╮╭╮
+   └─────────────────────────────────────────────────┘      │╰╯╰╯╰╯│
+             ┌─────────┬─────────┬─────────┬─────────┬──────╨──┐┌──╨──────┬─────────┬─────────┬─────────┬─────────┐
+     ╌┄┈┈───═╡  RESET  │         │         │         │         ││         │   F7    │   F8    │   F9    │   F12   │
+             ├─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┤
+             │ DEBUG   │ QWERTY  │         │         │         ││         │   F4    │   F5    │   F6    │   F11   │
+   ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
+   │  MAKE   │ OS SWAP │ COLEMAK │         │         │         ││         │   F1    │   F2    │   F3    │   F10   │   F13   │
+   └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
+                                 │    ▼    │    ▼    │    ▼    ││    ▼    │    ▼    │    ▼    │
+                                 └─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┘ */
+
+   [_FUNCTION_KEYS] = LAYOUT(
+ //╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷
+      XXXXXXX,  KC_F1,   KC_F2,   KC_F3,   KC_F4,    XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX,  KC_F5,   KC_F6,   KC_F7,   KC_F8,    XXXXXXX,      XXXXXXX, KC_RSFT, KC_RCTL, KC_LALT, KC_RCTL, XXXXXXX,
+      XXXXXXX,  KC_F9,  KC_F10,   KC_F11,   KC_F12, XXXXXXX,      XXXXXXX, KC_RALT,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                                  KC_ESC,  KC_TAB,  KC_ENT,   KC_SPC,  KC_BSPC,  XXXXXXX
+ ),
+ /*
+   ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
+
+   ┌─────────────────────────────────────────────────┐
+   │ a d j u s t                                     │      ╭╮╭╮╭╮╭╮
+   └─────────────────────────────────────────────────┘      │╰╯╰╯╰╯│
+             ┌─────────┬─────────┬─────────┬─────────┬──────╨──┐┌──╨──────┬─────────┬─────────┬─────────┬─────────┐
+     ╌┄┈┈───═╡  RESET  │         │         │         │         ││         │   F7    │   F8    │   F9    │   F12   │
+             ├─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┤
+             │ DEBUG   │ QWERTY  │         │         │         ││         │   F4    │   F5    │   F6    │   F11   │
+   ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
+   │  MAKE   │ OS SWAP │ COLEMAK │         │         │         ││         │   F1    │   F2    │   F3    │   F10   │   F13   │
+   └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
+                                 │    ▼    │    ▼    │    ▼    ││    ▼    │    ▼    │    ▼    │
+                                 └─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┘ */
+
+   [_SYSTEM_CONFIG] = LAYOUT(
+ //╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷
+    XXXXXXX,  RGB_TOG,   XXXXXXX,  XXXXXXX,  XXXXXXX,  QK_BOOT,   KC_PSCR,  KC_BRID,  KC_BRIU,  XXXXXXX,  XXXXXXX, XXXXXXX,
+    XXXXXXX,  RGB_MOD,  RGB_HUI,  RGB_SAI,  RGB_VAI,  DB_TOGG,   KC_MPLY,  KC_VOLD,  KC_VOLU,  KC_MPRV,  KC_MNXT, XXXXXXX,
+    XXXXXXX,  RGB_RMOD, RGB_HUD,  RGB_SAD,  RGB_VAD,  MAKE_H,    KC_AUDIO_MUTE, XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,
+                                  XXXXXXX,  MAC,      LINUX,     XXXXXXX,  XXXXXXX,  XXXXXXX
+ )
+
+/*
+   ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
+
+   ┌─────────────────────────────────────────────────┐
+   │ t e m p l a t e                                 │      ╭╮╭╮╭╮╭╮
+   └─────────────────────────────────────────────────┘      │╰╯╰╯╰╯│
+             ┌─────────┬─────────┬─────────┬─────────┬──────╨──┐┌──╨──────┬─────────┬─────────┬─────────┬─────────┐
+     ╌┄┈┈───═╡         │         │         │         │         ││         │         │         │         │         │
+             ├─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┤
+             │         │         │         │         │         ││         │         │         │         │         │
+   ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
+   │         │         │         │         │         │         ││         │         │         │         │         │         │
+   └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
+                                 │         │         │         ││         │         │         │
+                                 └─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┘
+
+   [_TEMPLATE] = LAYOUT(
+ //╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷
+              XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,
+              XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,
+    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX, XXXXXXX,
+                                  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+ ),
+*/
 };
+
+
+
+// ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+// │ M A C R O S                                                                                                            │
+// └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+// ▝▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▘
+
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+
+// ┌─────────────────────────────────────────────────┐
+// │ Swap OS l a y e r                             │
+// └─────────────────────────────────────────────────┘
+        case MAC:
+            if (record->event.pressed) {
+                set_single_persistent_default_layer(_QWERTY_MAC);
+            }
+            return false;
+        case LINUX:
+            if (record->event.pressed) {
+                set_single_persistent_default_layer(_QWERTY);
+            }
+            return false;
+
+// ┌─────────────────────────────────────────────────┐
+// │ Swap base l a y e r                             │
+// └─────────────────────────────────────────────────┘
+
+        case COLEMAK:
+            if (record->event.pressed) {
+                set_single_persistent_default_layer(_COLEMAK);
+            }
+            return false;
+        case QWERTY:
+            if (record->event.pressed) {
+                set_single_persistent_default_layer(_QWERTY);
+            }
+            return false;
+
+// ┌─────────────────────────────────────────────────┐
+// │ q m k                                           │
+// └─────────────────────────────────────────────────┘
+
+        case MAKE_H:
+          if (record->event.pressed) {
+            SEND_STRING ("qmk compile -kb totem -km castares");
+            tap_code(KC_ENTER);
+          }
+          break;
+
+// ┌─────────────────────────────────────────────────┐
+// │ p r o d u c t i v i t y                         │
+// └─────────────────────────────────────────────────┘
+
+      case SNAP:
+          if (record->event.pressed) {
+            if (keymap_config.swap_lctl_lgui) {
+              SEND_STRING(SS_LSFT(SS_LCMD(SS_LCTL("4"))));  //MAC
+            } else {
+              SEND_STRING(SS_LSFT(SS_LWIN("S")));           //WIN
+            }
+          }
+          break;
+    }
+    return true;
+}
+
 
 #ifdef OLED_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
@@ -179,39 +413,40 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 }
 
 #define L_BASE 0
-#define L_NUM_TAB 2
-#define L_NAV_ENT 4
-#define L_SYM_BSPC 8
-#define L_SYM2_DEL 16
-#define L_FN_QUOT 32
-#define L_MEDIA_ESC 64
+#define L_NUMBERS 2
+#define L_SYMBOLS 4
+#define L_FUNCTIONS 8
+#define L_CONFIG 16
 
 void oled_render_layer_state(void) {
-  oled_write_P(PSTR("Layer: "), false);
-  switch (layer_state) {
-  case L_BASE:
-    oled_write_ln_P(PSTR("Qwerty"), false);
-    break;
-  case L_NUM_TAB:
-    oled_write_ln_P(PSTR("Numbers"), false);
-    break;
-  case L_SYM_BSPC:
-    oled_write_ln_P(PSTR("Symbols 1"), false);
-    break;
-  case L_SYM2_DEL:
-    oled_write_ln_P(PSTR("Symbols 2"), false);
-    break;
-  case L_NAV_ENT:
-    oled_write_ln_P(PSTR("Navigation"), false);
-    break;
-  case L_FN_QUOT:
-    oled_write_ln_P(PSTR("Functions"), false);
-    break;
-  case L_MEDIA_ESC:
-    oled_write_ln_P(PSTR("Media"), false);
-    break;
-  }
+    oled_write_P(PSTR("Layer: "), false);
+    switch (layer_state) {
+        case L_BASE:
+            oled_write_ln_P(PSTR("Base"), false);
+            break;
+        case L_NUMBERS:
+            oled_write_ln_P(PSTR("Numbers"), false);
+            break;
+        case L_SYMBOLS:
+            oled_write_ln_P(PSTR("Symbols"), false);
+            break;
+        case L_FUNCTIONS:
+            oled_write_ln_P(PSTR("Functions"), false);
+            break;
+        case L_CONFIG:
+            oled_write_ln_P(PSTR("Config"), false);
+            break;
+    }
 }
+
+//KEY_OVERRIDE_ENABLE
+const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
+
+// This globally defines all key overrides to be used
+const key_override_t **key_overrides = (const key_override_t *[]){
+    &delete_key_override,
+    NULL // Null terminate the array of overrides!
+};
 
 // OLED CONFIG
 
@@ -275,12 +510,5 @@ bool oled_task_user(void) {
         oled_render_logo();
     }
     return false;
-}
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (record->event.pressed) {
-    set_keylog(keycode, record);
-  }
-  return true;
 }
 #endif // OLED_ENABLE
