@@ -19,8 +19,9 @@ map("t", "<C-j>", "<C-\\><C-N><C-w>j", { desc = "Go to Left Window from Terminal
 map("t", "<C-k>", "<C-\\><C-N><C-w>k", { desc = "Go to Left Window from Terminal" })
 map("t", "<C-l>", "<C-\\><C-N><C-w>l", { desc = "Go to Left Window from Terminal" })
 
-map("n", "<leader>ww", ":w<CR>", { desc = "Save File" })
-map("n", "<leader>wa", ":wa<CR>", { desc = "Save All" })
+-- TODO: Sometimes it mixes with the <C-w>w and instead of saving, moves the cursor to the left split
+-- map("n", "<leader>ww", ":w<CR>", { desc = "Save File" })
+-- map("n", "<leader>wa", ":wa<CR>", { desc = "Save All" })
 
 map("n", "<leader>qq", ":q<CR>", { desc = "Close Window" })
 map("n", "<leader>qa", ":qa<CR>", { desc = "Close All" })
