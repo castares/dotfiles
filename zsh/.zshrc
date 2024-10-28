@@ -80,7 +80,6 @@ plugins=(
   docker
   docker-compose
   gcloud
-  conda-zsh-completion
   poetry
   kubectl
   zoxide
@@ -112,11 +111,9 @@ source $ZSH/oh-my-zsh.sh
 #
 
 #PATH
-PATH="$PATH:/snap/bin"
 PATH="$PATH:$HOME/.local/bin"
 PATH="$PATH:$HOME/.cargo/bin"
 PATH="$PATH:$HOME/go/bin"
-# PATH="$PATH:$HOME/.pyenv/bin"
 
 # Aliases
 alias mv="mv -iv"
@@ -127,32 +124,11 @@ alias vim=nvim
 alias zshrc="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias cl=clear
-alias pip=pip3
-alias python=python3
 alias vimrc="nvim ~/.config/nvim/"
-alias i3config="nvim ~/.config/i3/config"
-alias alacritty_config="nvim ~/.config/alacritty/alacritty.yml"
-alias kubectl='microk8s.kubectl'
-alias k=kubectl
 alias ls=lsd
 
 # Custom Aliases per machine
 [ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('$HOME/.conda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "$HOME/.conda/etc/profile.d/conda.sh" ]; then
-        . "$HOME/.conda/etc/profile.d/conda.sh"
-    else
-        export PATH="$HOME/.conda/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 # >>> From LukeSmithxyz https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52 >>>
 
@@ -196,13 +172,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # >>> FZF >>>
 # Initialize https://github.com/junegunn/fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# Source fzf keybindings and completion when installing from pacman.
-if [ -e /usr/share/fzf/key-bindings.zsh ] && [ -e /usr/share/fzf/completion.zsh ];
-then
-    source /usr/share/fzf/key-bindings.zsh
-    source /usr/share/fzf/completion.zsh
-fi
+source <(fzf --zsh)
 
 export FZF_DEFAULT_OPTS="--layout=reverse --info=inline"
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow"
@@ -219,12 +189,12 @@ eval "`fnm env`"
 eval "$(starship init zsh)"
 # <<< Starship <<<
 
-
 # >>> Pyenv >>>
 export PYENV_ROOT="$HOME/.pyenv"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 # <<< Pyenv <<<
 
 # >>> Terraform >>>
