@@ -66,6 +66,11 @@ return {
   { "fladson/vim-kitty" },
   {
     "PedramNavid/dbtpal",
+    ft = {
+      "sql",
+      "md",
+      "yaml",
+    },
     config = function()
       require("dbtpal").setup({
         path_to_dbt = "dbt",

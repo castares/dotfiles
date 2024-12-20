@@ -83,6 +83,7 @@ plugins=(
   poetry
   kubectl
   zoxide
+  direnv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -144,8 +145,8 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
-
+# bindkey -v '^?' backward-delete-char
+#
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] ||
@@ -159,13 +160,13 @@ function zle-keymap-select {
   fi
 }
 zle -N zle-keymap-select
-
-zle-line-init() {
-    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-    echo -ne "\e[5 q"
-}
-zle -N zle-line-init
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
+#
+# zle-line-init() {
+#     zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+#     echo -ne "\e[5 q"
+# }
+# zle -N zle-line-init
+# echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # <<< From LukeSmithxyz https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52 <<<
@@ -201,4 +202,10 @@ eval "$(pyenv virtualenv-init -)"
 complete -o nospace -C /usr/bin/terraform terraform
 # <<< Terraform <<<
 
-eval $(thefuck --alias)
+# >>> gcloud >>>
+# the next line updates path for the google cloud sdk.
+if [ -f '/users/cesarcastanon/google-cloud-sdk/path.zsh.inc' ]; then . '/users/cesarcastanon/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/cesarcastanon/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/cesarcastanon/google-cloud-sdk/completion.zsh.inc'; fi
+# <<< gcloud <<<

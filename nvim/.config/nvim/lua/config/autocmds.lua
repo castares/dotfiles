@@ -5,11 +5,10 @@
 -- Function to set custom commentstring for dbt filetype
 
 -- Create an autocmd to set the commentstring for dbt files
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "dbt",
+vim.api.nvim_create_autocmd({ "BufReadPre", "BufEnter" }, {
+  pattern = "*.sql",
   callback = function()
-    if vim.bo.filetype == "dbt" then
-      vim.bo.commentstring = "-- %s"
-    end
+    vim.bo.filetype = "dbt"
+    vim.bo.commentstring = "-- %s"
   end,
 })
