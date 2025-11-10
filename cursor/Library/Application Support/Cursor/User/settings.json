@@ -1,0 +1,100 @@
+{
+    "window.zoomLevel": 1,
+    "extensions.autoUpdate": "onlyEnabledExtensions",
+    "workbench.colorTheme": "Catppuccin Frappé",
+    "workbench.editor.tabSizing": "shrink",
+    "workbench.settings.editor": "json",
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "editor.fontSize": 14,
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.guides.bracketPairs": "active",
+    "editor.guides.bracketPairsHorizontal": "active",
+    "editor.wordWrap": "on",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.fontFamily": "JetBrainsMono Nerd Font, Menlo, Monaco, 'Courier New', monospace",
+    "editor.renderWhitespace": "trailing",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "always",
+        "source.fixAll": "always"
+    },
+    "files.autoSave": "onFocusChange",
+    "files.trimTrailingWhitespace": true,
+    "terminal.external.osxExec": "kitty",
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+    "terminal.integrated.fontLigatures.enabled": true,
+    "terminal.integrated.tabs.enabled": true,
+    "terminal.integrated.tabs.location": "right",
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.commandsToSkipShell": [
+        "workbench.action.focusActiveEditorGroup",
+        "workbench.action.focusPanel",
+        "workbench.action.focusAuxiliaryBar",
+        "workbench.action.focusSideBar",
+        "workbench.action.toggleSidebarVisibility",
+        "workbench.action.toggleAuxiliaryBar"
+    ],
+    "git.autofetch": true,
+    "cursor.composer.shouldChimeAfterChatFinishes": true,
+    "ruff.importStrategy": "fromEnvironment",
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "python.terminal.activateEnvironment": true,
+    "python.languageServer": "None",
+    "cursorpyright.analysis.typeCheckingMode": "off",
+    "cursorpyright.analysis.autoImportCompletions": true,
+    "cursorpyright.analysis.autoSearchPaths": true,
+    "cursorpyright.analysis.diagnosticMode": "workspace",
+    "redhat.telemetry.enabled": false,
+    "cursor.cpp.enablePartialAccepts": true,
+    "yaml.format.enable": true,
+    "markdown-mermaid.lightModeTheme": "base",
+    "markdown-mermaid.darkModeTheme": "forest",
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "[sql]": {
+        "editor.defaultFormatter": "innoverio.vscode-dbt-power-user"
+    },
+    "[jinja-sql]": {
+        "editor.defaultFormatter": "innoverio.vscode-dbt-power-user"
+    },
+    "[jinja-yaml]": {
+        "editor.defaultFormatter": "innoverio.vscode-dbt-power-user"
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[github-actions-workflow]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "workbench.iconTheme": "helium-icon-theme",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "[dockercompose]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true
+        },
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "githubPullRequests.pullBranch": "never",
+    "cursor.enable_git_worktrees_setting": true,
+    "git.confirmSync": false,
+}
