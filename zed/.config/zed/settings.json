@@ -1,0 +1,122 @@
+{
+  // === Core Editor Settings ===
+  "vim_mode": true,
+  "vim": {
+    "use_system_clipboard": "always",
+    "use_smartcase_find": true,
+  },
+
+  // Font: Hack at 12pt (from opt.guifont)
+  "buffer_font_family": "JetBrainsMono Nerd Font Propo",
+  "buffer_font_size": 14,
+  "ui_font_family": ".ZedSans",
+  "ui_font_size": 15,
+
+  // Text wrapping (from opt.wrap = true)
+  "soft_wrap": "editor_width",
+
+  // Theme: tokyonight
+  "theme": "Catppuccin Macchiato",
+
+  // Line numbers - relative for vim muscle memory
+  "relative_line_numbers": "enabled",
+
+  // Tab settings (LazyVim defaults)
+  "tab_size": 2,
+  "hard_tabs": false,
+
+  // Auto-trim whitespace (replacing trim.nvim)
+  "remove_trailing_whitespace_on_save": true,
+  "ensure_final_newline_on_save": true,
+
+  // Format on save
+  "format_on_save": "on",
+
+  // Tab bar (from opt.showtabline = 1)
+  "tabs": {
+    "git_status": true,
+    "show_close_button": "hover",
+  },
+  "tab_bar": {
+    "show_nav_history_buttons": false,
+  },
+
+  // Hide whitespace characters (from opt.list = false)
+  "show_whitespaces": "none",
+
+  // Autosave
+  "autosave": "on_focus_change",
+
+  // Cursor
+  "cursor_blink": false,
+
+  // Scrolloff (vim-like)
+  "vertical_scroll_margin": 8,
+
+  // Git integration
+  "git": {
+    "git_gutter": "tracked_files",
+    "inline_blame": {
+      "enabled": false,
+      "delay_ms": 500,
+    },
+  },
+
+  // Terminal settings
+  "terminal": {
+    "dock": "bottom",
+    "shell": "system",
+    "copy_on_select": true,
+    "detect_venv": {
+      "on": {
+        "directories": [".env", ".venv", "venv"],
+      },
+    },
+    "env": {
+      "EDITOR": "zed --wait",
+    },
+  },
+
+  // Project panel (replacing neo-tree)
+  "project_panel": {
+    "button": true,
+    "dock": "left",
+    "default_width": 240,
+    "git_status": true,
+    "auto_reveal_entries": true,
+    "auto_fold_dirs": true,
+    "file_icons": true,
+    "folder_icons": true,
+    "indent_size": 20,
+  },
+
+  // Outline panel
+  "outline_panel": {
+    "dock": "right",
+    "button": true,
+  },
+
+  // Indent guides
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "fixed",
+  },
+
+  // Completion
+  "show_completions_on_input": true,
+
+  // === Language-Specific Configurations ===
+  "languages": {
+    // SQL/dbt - sqlfmt formatter
+    "SQL": {
+      "tab_size": 2,
+      "formatter": {
+        "external": {
+          "command": "sqlfmt",
+          "arguments": ["-"],
+        },
+      },
+      "format_on_save": "on",
+    },
+  },
+}

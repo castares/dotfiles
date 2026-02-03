@@ -1,0 +1,188 @@
+[
+  // ============================================================
+  // PANE/WINDOW NAVIGATION (replacing vim-kitty-navigator)
+  // ============================================================
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-h": "workspace::ActivatePaneLeft",
+      "alt-j": "workspace::ActivatePaneDown",
+      "alt-k": "workspace::ActivatePaneUp",
+      "alt-l": "workspace::ActivatePaneRight",
+    },
+  },
+
+  // ============================================================
+  // VIM CONTROL MODE (Normal & Visual)
+  // ============================================================
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      // Half-page navigation: Ctrl+n/p instead of Ctrl+d/u
+      "ctrl-n": "vim::ScrollDown",
+      "ctrl-p": "vim::ScrollUp",
+
+      // Visual block mode with Alt+v (instead of Ctrl+v)
+      "alt-v": "vim::ToggleVisualBlock",
+
+      // Function navigation (replacing tresitter gj/gk)
+      "g j": "vim::NextMethodStart",
+      "g k": "vim::PreviousMethodStart",
+    },
+  },
+
+  // ============================================================
+  // NORMAL MODE - Leader Key Bindings
+  // ============================================================
+  {
+    "context": "vim_mode == normal && !menu",
+    "bindings": {
+      // === Window/Quit Commands ===
+      "space q q": "pane::CloseActiveItem",
+      "space q a": "workspace::CloseAllItemsAndPanes",
+
+      // === Window Management ===
+      "space z": "workspace::ToggleZoom",
+      "space w v": "pane::SplitRight",
+      "space w s": "pane::SplitDown",
+      "space w q": "pane::CloseActiveItem",
+
+      // === Diagnostics Navigation ===
+      "space x j": "editor::GoToDiagnostic",
+
+      // === Git Operations ===
+      "space u shift-b": "editor::ToggleGitBlameInline",
+      "space g n": "git_panel::ToggleFocus",
+      "space g d": "editor::ToggleSelectedDiffHunks",
+      "space g h": "editor::ToggleSelectedDiffHunks",
+      "space g b": "git::Blame",
+
+      // === File Explorer ===
+      "space shift-e": "project_panel::ToggleFocus",
+      "space e": "project_panel::ToggleFocus",
+
+      // === Clipboard/Path Operations ===
+      "space shift-c": "workspace::CopyPath",
+      "space y": "workspace::CopyRelativePath",
+
+      // === File Navigation ===
+      "space space": "file_finder::Toggle",
+      "space f f": "file_finder::Toggle",
+      "space f r": "file_finder::Toggle",
+
+      // === Search ===
+      "space /": "workspace::NewSearch",
+      "space s g": "workspace::NewSearch",
+      "space s b": "buffer_search::Deploy",
+      "space s r": "projects::OpenRecent",
+
+      // === Buffer Navigation ===
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
+
+      // === LSP Commands ===
+      "g d": "editor::GoToDefinition",
+      "g shift-d": "editor::GoToDeclaration",
+      "g r": "editor::FindAllReferences",
+      "g i": "editor::GoToImplementation",
+      "g t": "editor::GoToTypeDefinition",
+      "space c r": "editor::Rename",
+      "space r n": "editor::Rename",
+      "space c a": "editor::ToggleCodeActions",
+      "space .": "editor::ToggleCodeActions",
+      "shift-k": "editor::Hover",
+      "space c f": "editor::Format",
+
+      // === Command Palette ===
+      "space p": "command_palette::Toggle",
+
+      // === Terminal ===
+      "space t": "terminal_panel::ToggleFocus",
+
+      // === Outline (symbols) ===
+      "space o": "outline::Toggle",
+      "space s s": "outline::Toggle",
+    },
+  },
+
+  // ============================================================
+  // VISUAL MODE
+  // ============================================================
+  {
+    "context": "vim_mode == visual && !menu",
+    "bindings": {
+      // Expand/shrink selection semantically
+      "space v": "editor::SelectLargerSyntaxNode",
+      "space shift-v": "editor::SelectSmallerSyntaxNode",
+    },
+  },
+
+  // ============================================================
+  // INSERT MODE
+  // ============================================================
+  {
+    "context": "vim_mode == insert && !menu",
+    "bindings": {
+      "j k": "vim::NormalBefore",
+      "j j": "vim::NormalBefore",
+    },
+  },
+
+  // ============================================================
+  // EDITOR CONTEXT (all modes)
+  // ============================================================
+  {
+    "context": "Editor && !menu",
+    "bindings": {
+      "ctrl-s": "workspace::Save",
+    },
+  },
+
+  // ============================================================
+  // PROJECT PANEL (File Explorer)
+  // ============================================================
+  {
+    "context": "ProjectPanel && !menu",
+    "bindings": {
+      "j": "menu::SelectNext",
+      "k": "menu::SelectPrevious",
+      "l": "project_panel::Open",
+      "h": "project_panel::CollapseSelectedEntry",
+      "enter": "project_panel::Open",
+      "a": "project_panel::NewFile",
+      "shift-a": "project_panel::NewDirectory",
+      "r": "project_panel::Rename",
+      "d": "project_panel::Delete",
+      "y": "project_panel::Copy",
+      "p": "project_panel::Paste",
+      "x": "project_panel::Cut",
+      "shift-g": "project_panel::ToggleHideGitIgnore",
+      "shift-h": "project_panel::ToggleHideHidden",
+    },
+  },
+
+  // ============================================================
+  // TERMINAL
+  // ============================================================
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-\\": "workspace::ToggleBottomDock",
+    },
+  },
+
+  // ============================================================
+  // EMPTY PANE
+  // ============================================================
+  {
+    "context": "EmptyPane",
+    "bindings": {
+      "space f": "file_finder::Toggle",
+      "space e": "project_panel::ToggleFocus",
+    },
+  },
+]
