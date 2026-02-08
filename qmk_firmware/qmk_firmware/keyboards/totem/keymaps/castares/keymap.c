@@ -23,9 +23,7 @@
 // └─────────────────────────────────────────────────┘
 
 enum totem_layers {
-    _QWERTY,
     _QWERTY_MAC,
-    _COLEMAK,
     _NAVIGATION,
     _NUMBERS,
     _SYMBOLS,
@@ -38,16 +36,9 @@ enum totem_layers {
 // └─────────────────────────────────────────────────┘
 
 enum custom_keycodes {
-    COLEMAK = SAFE_RANGE,
-    QWERTY,
-    LTHUMB_2,
-    RTHUMB2,
-    ADJUST,
-    OS_SWAP,
-    MAKE_H,
-    SNAP,
-    MAC,
-    LINUX
+    MAKE_H = SAFE_RANGE,
+    ARROW,
+    RSHIFT_OP
 };
 
 
@@ -55,49 +46,34 @@ enum custom_keycodes {
 // │ d e f i n e   m a c r o n a m e s               │
 // └─────────────────────────────────────────────────┘
 
-// LEFT HAND HOME ROW MODS QWERTY ├──────────────────┐
+// LEFT HAND HOME ROW MODS ├──────────────────┐
 
-#define GUI_A MT(MOD_LGUI, KC_A)
-#define ALT_S MT(MOD_LALT, KC_S)
-#define CTL_D MT(MOD_LCTL, KC_D)
-#define SHT_F MT(MOD_LSFT, KC_F)
-#define ALTGR_V MT(MOD_RALT, KC_V)
+#define CTL_A MT(MOD_LCTL, KC_A)   // Ctrl on A (was Gui)
+#define ALT_S MT(MOD_LALT, KC_S)   // Alt on S
+#define GUI_D MT(MOD_LGUI, KC_D)   // Cmd on D (was Ctrl)
+#define SHT_F MT(MOD_LSFT, KC_F)   // Shift on F
+#define MEH_V MEH_T(KC_V)          // MEH on V (was AltGr)
 
-// RIGHT HAND HOME ROW MODS QWERTY ├─────────────────┐
+// RIGHT HAND HOME ROW MODS ├─────────────────┐
 
-#define SHT_J MT(MOD_RSFT, KC_J)
-#define CTL_K MT(MOD_LCTL, KC_K)
-#define ALT_L MT(MOD_LALT, KC_L)
-#define GUI_S MT(MOD_LGUI, KC_SCLN)
-#define ALTGR_M MT(MOD_RALT, KC_M)
+#define SHT_J MT(MOD_RSFT, KC_J)   // Shift on J
+#define GUI_K MT(MOD_RGUI, KC_K)   // Cmd on K (was Ctrl)
+#define ALT_L MT(MOD_LALT, KC_L)   // Alt on L
+#define CTL_S MT(MOD_RCTL, KC_SCLN) // Ctrl on ; (was Gui)
+#define MEH_M MEH_T(KC_M)          // MEH on M (was AltGr)
 
-
-// LEFT HAND HOME ROW MODS COLEMAK ├─────────────────┐
-
-#define GUI_A MT(MOD_LGUI, KC_A)
-#define ALT_R MT(MOD_LALT, KC_R)
-#define CTL_S MT(MOD_LCTL, KC_S)
-#define SHT_T MT(MOD_LSFT, KC_T)
-
-// RIGHT HAND HOME ROW MODS COLEMAK ├────────────────┐
-
-#define SHT_N MT(MOD_RSFT, KC_N)
-#define CTL_E MT(MOD_LCTL, KC_E)
-#define ALT_I MT(MOD_LALT, KC_I)
-#define GUI_O MT(MOD_LGUI, KC_O)
+// Layer-tap keys on G and H
+#define LT_G LT(_SYSTEM_CONFIG, KC_G)      // Tap for G, hold for SYSTEM_CONFIG
+#define LT_H LT(_FUNCTION_KEYS, KC_H)      // Tap for H, hold for FUNCTION_KEYS
 
 // Thumb Keys
-#define LPINKY LT(_SYSTEM_CONFIG, XXXXXXX) // TODO: Add Repeat key
-#define RPINKY LT(_FUNCTION_KEYS, KC_DEL)
-
 #define LTHUMB1 LT(_NAVIGATION, KC_ENT)
 #define LTHUMB2 LT(_NUMBERS, KC_TAB)
-#define LTHUMB3 MT(MOD_LCTL, KC_ESC)
-#define LTHUMB3_MAC MT(MOD_LGUI, KC_ESC)
+#define LTHUMB3 MT(MOD_LGUI, KC_ESC)        // Cmd/ESC
 
-#define RTHUMB1 MEH_T(KC_SPC)
+#define RTHUMB1 KC_SPC                      // Plain space (was MEH)
 #define RTHUMB2 LT(_SYMBOLS, KC_BSPC)
-#define RTHUMB3 CW_TOGG
+#define RTHUMB3 OSM(MOD_LSFT)               // One-Shot Shift (was Caps Word)
 
 // Switch to workspace keys
 #define WKS1 LGUI(KC_1)
@@ -119,73 +95,29 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
  /*
+
+   ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
+
    ┌─────────────────────────────────────────────────┐
-   │ q w e r t y                                     │      ╭╮╭╮╭╮╭╮
+   │ Q W E R T   (macOS)                             │      ╭╮╭╮╭╮╭╮
    └─────────────────────────────────────────────────┘      │╰╯╰╯╰╯│
              ┌─────────┬─────────┬─────────┬─────────┬──────╨──┐┌──╨──────┬─────────┬─────────┬─────────┬─────────┐
      ╌┄┈┈───═╡    Q    │    W    │    E    │    R    │    T    ││    Y    │    U    │    I    │    O    │    P    │
              ├─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┤
-             │    A    │    S    │    D    │    F    │    G    ││    H    │    J    │    K    │    L    │    ;    │
+             │ CTL/A   │ ALT/S   │ CMD/D   │ SFT/F   │ LT_G/G  ││ LT_H/H  │ SFT/J   │ CMD/K   │ ALT/L   │ CTL/;   │
    ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
-   │ OS SFT  │    Z    │    X    │    C    │    V    │    B    ││    N    │    M    │    ,    │    .    │    /    │CAPS WORD│
+   │   ___   │    Z    │    X    │    C    │  MEH/V  │    B    ││    N    │  MEH/M  │    ,    │    .    │    /    │   ___   │
    └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
-                                 │CTRL/CMD │ NAV/TAB │NUM/SPC  ││ MEH/ENT │SYM/BSPC │SYST/DEL │
-                                 └─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┘*/
-
-   [_QWERTY] = LAYOUT(
- //╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷
-              KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,      KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,
-              GUI_A,    ALT_S,    CTL_D,    SHT_F,    KC_G,      KC_H,     SHT_J,    CTL_K,    ALT_L,    GUI_S,
-    LPINKY,   KC_Z,     KC_X,     KC_C,     ALTGR_V,  KC_B,      KC_N,     ALTGR_M,  KC_COMM,  KC_DOT,   KC_SLSH,  RPINKY,
-                                  LTHUMB3,  LTHUMB2, LTHUMB1,   RTHUMB1,   RTHUMB2,    RTHUMB3
- ),
-/*
-
-   ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
-
-   ┌─────────────────────────────────────────────────┐
-   │ c o l e m a k                                   │      ╭╮╭╮╭╮╭╮
-   └─────────────────────────────────────────────────┘      │╰╯╰╯╰╯│
-             ┌─────────┬─────────┬─────────┬─────────┬──────╨──┐┌──╨──────┬─────────┬─────────┬─────────┬─────────┐
-     ╌┄┈┈───═╡    Q    │    W    │    F    │    P    │    G    ││    J    │    L    │    U    │    Y    │    ;    │
-             ├─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┤
-             │    A    │    R    │    S    │    T    │    D    ││    H    │    N    │    E    │    I    │    O    │
-   ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
-   │ OS SFT  │    Z    │    X    │    C    │    V    │    B    ││    K    │    M    │    ,    │    .    │    /    │CAPS WORD│
-   └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
-                                 │CTRL/CMD │ NAV/TAB │NUM/SPC  ││ MEH/ENT │SYM/BSPC │SYST/DEL │
+                                 │CMD/ESC  │ NAV/TAB │ NUM/ENT ││   SPC   │SYM/BSPC │ OSM/SFT │
                                  └─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┘*/
    [_QWERTY_MAC] = LAYOUT(
  //╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷
               KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,      KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,
-              GUI_A,    ALT_S,    CTL_D,    SHT_F,    KC_G,      KC_H,     SHT_J,    CTL_K,    ALT_L,    GUI_S,
-    LPINKY,   KC_Z,     KC_X,     KC_C,     ALTGR_V,  KC_B,      KC_N,     ALTGR_M,  KC_COMM,  KC_DOT,   KC_SLSH,  RPINKY,
-                                  LTHUMB3_MAC,  LTHUMB2, LTHUMB1,   RTHUMB1,   RTHUMB2,    RTHUMB3
+              CTL_A,    ALT_S,    GUI_D,    SHT_F,    LT_G,      LT_H,     SHT_J,    GUI_K,    ALT_L,    CTL_S,
+    XXXXXXX,  KC_Z,     KC_X,     KC_C,     MEH_V,    KC_B,      KC_N,     MEH_M,    KC_COMM,  KC_DOT,   KC_SLSH,  XXXXXXX,
+                                  LTHUMB3,  LTHUMB2,  LTHUMB1,   RTHUMB1,   RTHUMB2,  RTHUMB3
  ),
-/*
 
-   ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
-
-   ┌─────────────────────────────────────────────────┐
-   │ c o l e m a k                                   │      ╭╮╭╮╭╮╭╮
-   └─────────────────────────────────────────────────┘      │╰╯╰╯╰╯│
-             ┌─────────┬─────────┬─────────┬─────────┬──────╨──┐┌──╨──────┬─────────┬─────────┬─────────┬─────────┐
-     ╌┄┈┈───═╡    Q    │    W    │    F    │    P    │    G    ││    J    │    L    │    U    │    Y    │    ;    │
-             ├─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┤
-             │    A    │    R    │    S    │    T    │    D    ││    H    │    N    │    E    │    I    │    O    │
-   ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
-   │ OS SFT  │    Z    │    X    │    C    │    V    │    B    ││    K    │    M    │    ,    │    .    │    /    │CAPS WORD│
-   └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
-                                 │CTRL/CMD │ NAV/TAB │NUM/SPC  ││ MEH/ENT │SYM/BSPC │SYST/DEL │
-                                 └─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┘*/
-
-   [_COLEMAK] = LAYOUT(
- //╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷
-              KC_Q,     KC_W,     KC_F,     KC_P,     KC_G,      KC_J,     KC_L,     KC_U,     KC_Y,     KC_SCLN,
-              GUI_A,    ALT_R,    CTL_S,    SHT_T,    KC_D,      KC_H,     SHT_N,    CTL_E,    ALT_I,    GUI_O,
-    LPINKY,   KC_Z,     KC_X,     KC_C,     ALTGR_V,  KC_B,      KC_K,     ALTGR_M,  KC_COMM,  KC_DOT,   KC_SLSH,  RPINKY,
-                                  LTHUMB3,  LTHUMB2, LTHUMB1,   RTHUMB1,   RTHUMB2,    RTHUMB3
- ),
  /*
    ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
 
@@ -193,13 +125,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    │ NUMBERS                                         │      ╭╮╭╮╭╮╭╮
    └─────────────────────────────────────────────────┘      │╰╯╰╯╰╯│
              ┌─────────┬─────────┬─────────┬─────────┬──────╨──┐┌──╨──────┬─────────┬─────────┬─────────┬─────────┐
-     ╌┄┈┈───═╡         │         │         │         │         ││    *    │    7    │    8    │    9    │    ,    │
+     ╌┄┈┈───═╡  WKS6   │  WKS7   │  WKS8   │  WKS9   │  WKS0   ││    *    │    7    │    8    │    9    │    ,    │
              ├─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┤
-             │   GUI   │   ALT   │  CTRL   │  SHIFT  │         ││    +    │    4    │    5    │    6    │    .    │
+             │   GUI   │   ALT   │  CTRL   │  SHIFT  │  RALT   ││    +    │    4    │    5    │    6    │    .    │
    ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
-   │         │         │         │         │  RALT   │         ││    +    │    1    │    2    │    3    │    /    │         │
+   │   ___   │  WKS5   │  WKS4   │  WKS3   │  WKS2   │  WKS1   ││    -    │    1    │    2    │    3    │    /    │   ___   │
    └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
-                                 │  _____  │  _____  │  _____  ││   SPC   │  BSPC   │    0    │
+                                 │   ESC   │   ___   │   ENT   ││   SPC   │  BSPC   │    0    │
                                  └─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┘ */
 
    [_NUMBERS] = LAYOUT(
@@ -216,18 +148,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    │ NAVIGATION                                      │      ╭╮╭╮╭╮╭╮
    └─────────────────────────────────────────────────┘      │╰╯╰╯╰╯│
              ┌─────────┬─────────┬─────────┬─────────┬──────╨──┐┌──╨──────┬─────────┬─────────┬─────────┬─────────┐
-     ╌┄┈┈───═╡  WKS6   │  WKS7   │   WKS8  │   WKS9  │  WKS0   ││    #    │    ^    │    $    │    *    │    %    │
+     ╌┄┈┈───═╡   ___   │   ___   │   ___   │   ___   │   ___   ││ ZOOM+   │ ZOOM-   │ ZOOM0   │   ___   │   ___   │
              ├─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┤
-             │   GUI   │   ALT   │  CTRL   │  SHIFT  │  RALT   ││    ←    │    ↓    │    ↑    │    →    │    :    │
+             │   GUI   │   ALT   │  CTRL   │  SHIFT  │   ___   ││    ←    │    ↓    │    ↑    │    →    │    :    │
    ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
-   │         │  WKS5   │  WKS4   │   WKS3  │   WKS2  │  WKS1   ││   ~     │    `    │    \    │    |    │    ?    │         │
+   │   ___   │   ___   │   ___   │   ___   │  RALT   │   ___   ││   ___   │   ___   │    <    │    >    │    ?    │   ___   │
    └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
-                                 │  _____  │  _____  │  _____  ││   SPC   │  DEL    │  BSPC   │
+                                 │   ESC   │   TAB   │   ___   ││   SPC   │   DEL   │   ___   │
                                  └─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┘ */
 
    [_NAVIGATION] = LAYOUT(
  //╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷
-              XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+              XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX,   LGUI(KC_PLUS), LGUI(KC_MINUS), LGUI(KC_0), XXXXXXX,  XXXXXXX,
               KC_LGUI,  KC_LALT,   KC_LCTL,  KC_RSFT,  XXXXXXX,   KC_LEFT,  KC_DOWN,  KC_UP,   KC_RIGHT, KC_COLON,
     XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  KC_RALT,  XXXXXXX,   XXXXXXX,  XXXXXXX,  KC_LABK, KC_RABK,  KC_QUESTION, XXXXXXX,
                                    KC_ESC,   KC_TAB,   XXXXXXX,   KC_SPC,   KC_DEL,   XXXXXXX
@@ -239,21 +171,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    │ SYMBOLS                                         │      ╭╮╭╮╭╮╭╮
    └─────────────────────────────────────────────────┘      │╰╯╰╯╰╯│
              ┌─────────┬─────────┬─────────┬─────────┬──────╨──┐┌──╨──────┬─────────┬─────────┬─────────┬─────────┐
-     ╌┄┈┈───═╡    !    │    @    │    '    │    {    │    }    ││         │         │         │         │         │
+     ╌┄┈┈───═╡    !    │    @    │    '    │    {    │    }    ││    %    │    *    │    €    │   ___   │   ___   │
              ├─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┤
-             │    -    │    _    │    "    │    (    │    )    ││         │  SHIFT  │   CTRL  │   ALT   │   GUI   │
+             │    -    │    _    │    "    │    (    │    )    ││    #    │  SHIFT  │   CTRL  │   ALT   │   GUI   │
    ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
-   │         │    &    │    +    │    =    │   [     │    ]    ││         │  RALT   │         │         │         │         │
+   │   ___   │    &    │    +    │    =    │    [    │    ]    ││    ^    │    $    │    `    │    ->   │    >>   │   ___   │
    └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
-                                 │   ESC   │   TAB   │  ENTER  ││   SPC   │  _____  │   DEL   │
+                                 │    ~    │    \    │    |    ││   SPC   │   ___   │   ___   │
                                  └─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┘ */
 
    [_SYMBOLS] = LAYOUT(
  //╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷
-              KC_EXLM,  KC_AT,    KC_QUOT,  KC_LCBR,  KC_RCBR,   KC_PERC,  KC_ASTR,  XXXXXXX,   XXXXXXX,  XXXXXXX,
+              KC_EXLM,  KC_AT,    KC_QUOT,  KC_LCBR,  KC_RCBR,   KC_PERC,  KC_ASTR,  UC(0x20AC), XXXXXXX,  XXXXXXX,
               KC_MINUS, KC_UNDS,  KC_DQT,   KC_LPRN,  KC_RPRN,   KC_HASH,  KC_RSFT,  KC_RCTL,  KC_LALT,  KC_RGUI,
-    XXXXXXX,  KC_AMPR,  KC_PLUS,  KC_EQUAL, KC_LBRC,  KC_RBRC,   KC_CIRC,  KC_DLR,   KC_GRAVE,  XXXXXXX, XXXXXXX,  XXXXXXX,
-                                  KC_TILDE, KC_BSLS,  KC_PIPE,   KC_SPC,  XXXXXXX,  KC_DEL
+    XXXXXXX,  KC_AMPR,  KC_PLUS,  KC_EQUAL, KC_LBRC,  KC_RBRC,   KC_CIRC,  KC_DLR,   KC_GRAVE,  ARROW,   RSHIFT_OP,  XXXXXXX,
+                                  KC_TILDE, KC_BSLS,  KC_PIPE,   KC_SPC,  XXXXXXX,  XXXXXXX
  ),
  /*
    ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
@@ -262,13 +194,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    │ FUNCTION KEYS                                   │      ╭╮╭╮╭╮╭╮
    └─────────────────────────────────────────────────┘      │╰╯╰╯╰╯│
              ┌─────────┬─────────┬─────────┬─────────┬──────╨──┐┌──╨──────┬─────────┬─────────┬─────────┬─────────┐
-     ╌┄┈┈───═╡  RESET  │         │         │         │         ││         │   F7    │   F8    │   F9    │   F12   │
+     ╌┄┈┈───═╡   F1    │   F2    │   F3    │   F4    │   ___   ││   ___   │   ___   │   ___   │   ___   │   ___   │
              ├─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┤
-             │ DEBUG   │ QWERTY  │         │         │         ││         │   F4    │   F5    │   F6    │   F11   │
+             │   F5    │   F6    │   F7    │   F8    │   ___   ││   ___   │  SHIFT  │   CTRL  │   ALT   │   CTRL  │
    ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
-   │  MAKE   │ OS SWAP │ COLEMAK │         │         │         ││         │   F1    │   F2    │   F3    │   F10   │   F13   │
+   │   ___   │   F9    │  F10    │  F11    │  F12    │   ___   ││   ___   │  RALT   │   ___   │   ___   │   ___   │   ___   │
    └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
-                                 │    ▼    │    ▼    │    ▼    ││    ▼    │    ▼    │    ▼    │
+                                 │   ESC   │   TAB   │   ENT   ││   SPC   │  BSPC   │   ___   │
                                  └─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┘ */
 
    [_FUNCTION_KEYS] = LAYOUT(
@@ -282,24 +214,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
 
    ┌─────────────────────────────────────────────────┐
-   │ a d j u s t                                     │      ╭╮╭╮╭╮╭╮
+   │ SYSTEM CONFIG                                   │      ╭╮╭╮╭╮╭╮
    └─────────────────────────────────────────────────┘      │╰╯╰╯╰╯│
              ┌─────────┬─────────┬─────────┬─────────┬──────╨──┐┌──╨──────┬─────────┬─────────┬─────────┬─────────┐
-     ╌┄┈┈───═╡  RESET  │         │         │         │         ││         │   F7    │   F8    │   F9    │   F12   │
+     ╌┄┈┈───═╡   ___   │   ___   │   ___   │ QK_BOOT │   ___   ││ SCRN3   │ SCRN4   │ SCRN5   │   ___   │   ___   │
              ├─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┤
-             │ DEBUG   │ QWERTY  │         │         │         ││         │   F4    │   F5    │   F6    │   F11   │
+             │   ___   │   ___   │   ___   │ DB_TOGG │   ___   ││  MPLY   │  VOL-   │  VOL+   │  PREV   │  NXT    │
    ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
-   │  MAKE   │ OS SWAP │ COLEMAK │         │         │         ││         │   F1    │   F2    │   F3    │   F10   │   F13   │
+   │   ___   │   ___   │   ___   │   ___   │ MAKE_H  │   ___   ││  MUTE   │   ___   │   ___   │   ___   │   ___   │   ___   │
    └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┤├─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
-                                 │    ▼    │    ▼    │    ▼    ││    ▼    │    ▼    │    ▼    │
+                                 │   ___   │   ___   │   ___   ││   ___   │   ___   │   ___   │
                                  └─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┘ */
 
    [_SYSTEM_CONFIG] = LAYOUT(
  //╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷
-              XXXXXXX,  XXXXXXX,  XXXXXXX,  QK_BOOT,  XXXXXXX,   KC_PSCR,  KC_BRID,  KC_BRIU,  XXXXXXX,  XXXXXXX,
+              XXXXXXX,  XXXXXXX,  XXXXXXX,  QK_BOOT,  XXXXXXX,   SGUI(KC_3), SGUI(KC_4), SGUI(KC_5), XXXXXXX,  XXXXXXX,
               XXXXXXX,  XXXXXXX,  XXXXXXX,  DB_TOGG,  XXXXXXX,   KC_MPLY,  KC_VOLD,  KC_VOLU,  KC_MPRV,  KC_MNXT,
     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  MAKE_H,   XXXXXXX,   KC_AUDIO_MUTE, XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,
-                                  XXXXXXX,  MAC,      LINUX,     XXXXXXX,  XXXXXXX,  XXXXXXX
+                                  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX
  )
 
 /*
@@ -340,35 +272,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
 
 // ┌─────────────────────────────────────────────────┐
-// │ Swap OS l a y e r                             │
-// └─────────────────────────────────────────────────┘
-        case MAC:
-            if (record->event.pressed) {
-                set_single_persistent_default_layer(_QWERTY_MAC);
-            }
-            return false;
-        case LINUX:
-            if (record->event.pressed) {
-                set_single_persistent_default_layer(_QWERTY);
-            }
-            return false;
-
-// ┌─────────────────────────────────────────────────┐
-// │ Swap base l a y e r                             │
-// └─────────────────────────────────────────────────┘
-
-        case COLEMAK:
-            if (record->event.pressed) {
-                set_single_persistent_default_layer(_COLEMAK);
-            }
-            return false;
-        case QWERTY:
-            if (record->event.pressed) {
-                set_single_persistent_default_layer(_QWERTY);
-            }
-            return false;
-
-// ┌─────────────────────────────────────────────────┐
 // │ q m k                                           │
 // └─────────────────────────────────────────────────┘
 
@@ -380,18 +283,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           break;
 
 // ┌─────────────────────────────────────────────────┐
-// │ p r o d u c t i v i t y                         │
+// │ a r r o w   m a c r o s                         │
 // └─────────────────────────────────────────────────┘
 
-      case SNAP:
-          if (record->event.pressed) {
-            if (keymap_config.swap_lctl_lgui) {
-              SEND_STRING(SS_LSFT(SS_LCMD(SS_LCTL("4"))));  //MAC
-            } else {
-              SEND_STRING(SS_LSFT(SS_LWIN("S")));           //WIN
+        case ARROW:
+            if (record->event.pressed) {
+                SEND_STRING("->");
             }
-          }
-          break;
+            return false;
+
+        case RSHIFT_OP:
+            if (record->event.pressed) {
+                SEND_STRING(">>");
+            }
+            return false;
     }
     return true;
 }
