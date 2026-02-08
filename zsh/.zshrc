@@ -182,7 +182,6 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 # <<< FZF <<<
 
 # >>> fnm >>>
-export PATH=$HOME/.fnm:$PATH
 eval "`fnm env`"
 # <<< fnm <<<
 
@@ -202,10 +201,19 @@ eval "$(pyenv virtualenv-init -)"
 complete -o nospace -C /usr/bin/terraform terraform
 # <<< Terraform <<<
 
-# >>> gcloud >>>
-# the next line updates path for the google cloud sdk.
-if [ -f '/users/cesarcastanon/google-cloud-sdk/path.zsh.inc' ]; then . '/users/cesarcastanon/google-cloud-sdk/path.zsh.inc'; fi
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/cesarcastanon/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/cesarcastanon/google-cloud-sdk/completion.zsh.inc'; fi
-# <<< gcloud <<<
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/castares/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/castares/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/castares/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/castares/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
