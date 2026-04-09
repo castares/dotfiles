@@ -1,4 +1,4 @@
-# Vim 
+# Vim
 plugin
 lazy-lock.json
 
@@ -10,6 +10,9 @@ package.json
 # Ranger
 ranger/.config/ranger/plugins/
 
-# Files from knubie/vim-kitty-navigator 
+# Files from knubie/vim-kitty-navigator
 neighboring_window.py
-pass_keys.py 
+pass_keys.py
+
+# MacOS
+.DS_Store
