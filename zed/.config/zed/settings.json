@@ -1,5 +1,10 @@
 {
   // === Core Editor Settings ===
+  "agent_servers": {
+    "cursor": {
+      "type": "registry"
+    }
+  },
   "vim_mode": true,
   "vim": {
     "use_system_clipboard": "always",
