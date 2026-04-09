@@ -1,7 +1,6 @@
 {
     "window.zoomLevel": 1,
     "extensions.autoUpdate": "onlyEnabledExtensions",
-    "workbench.colorTheme": "Catppuccin Frappé",
     "workbench.editor.tabSizing": "shrink",
     "workbench.settings.editor": "json",
     "explorer.confirmDragAndDrop": false,
@@ -16,7 +15,7 @@
     "editor.fontFamily": "JetBrainsMono Nerd Font, Menlo, Monaco, 'Courier New', monospace",
     "editor.renderWhitespace": "trailing",
     "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     "editor.formatOnSaveMode": "file",
     "editor.codeActionsOnSave": {
         "source.organizeImports": "always",
@@ -79,10 +78,7 @@
     "[github-actions-workflow]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
-    "workbench.iconTheme": "helium-icon-theme",
-    "extensions.experimental.affinity": {
-        "asvetliakov.vscode-neovim": 1
-    },
+    "workbench.iconTheme": "material-icon-theme",
     "[dockercompose]": {
         "editor.insertSpaces": true,
         "editor.tabSize": 2,
@@ -95,6 +91,13 @@
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
     "githubPullRequests.pullBranch": "never",
-    "cursor.enable_git_worktrees_setting": true,
     "git.confirmSync": false,
+    "workbench.colorTheme": "Catppuccin Macchiato",
+    "cursor.composer.queueMessageDefaultBehavior": "stop-and-send",
+    "cursor.composer.usageSummaryDisplay": "always",
+    "update.releaseTrack": "dev",
+    "update.mode": "silentlyApplyOnQuit",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
 }
