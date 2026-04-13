@@ -3,25 +3,64 @@
   "agent_servers": {
     "cursor": {
       "type": "registry"
+    },
+    "claude-acp": {
+      "type": "registry"
     }
+  },
+  "buffer_font_weight": 400.0,
+  "context_server_timeout": 59,
+  "edit_predictions": {
+    "sweep": {
+      "privacy_mode": true
+    },
+    "mode": "eager",
+    "enabled_in_text_threads": true,
+    "disabled_globs": [
+      "**/.env*",
+      "**/*.pem",
+      "**/*.key",
+      "**/*.cert",
+      "**/*.crt",
+      "**/secrets.yml",
+      "cicd/*",
+      "**/*.log"
+    ]
+  },
+  "show_edit_predictions": true,
+  "agent_ui_font_size": 18.0,
+  "agent_buffer_font_size": 14.0,
+  "ui_font_weight": 400.0,
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "icon_theme": {
+    "mode": "light",
+    "light": "Colored Zed Icons Theme Light",
+    "dark": "Colored Zed Icons Theme Dark"
   },
   "vim_mode": true,
   "vim": {
     "use_system_clipboard": "always",
-    "use_smartcase_find": true,
+    "use_smartcase_find": true
   },
 
   // Font: Hack at 12pt (from opt.guifont)
   "buffer_font_family": "JetBrainsMono Nerd Font Propo",
   "buffer_font_size": 14,
   "ui_font_family": ".ZedSans",
-  "ui_font_size": 15,
+  "ui_font_size": 17.0,
 
   // Text wrapping (from opt.wrap = true)
   "soft_wrap": "editor_width",
 
   // Theme: tokyonight
-  "theme": "Catppuccin Macchiato",
+  "theme": {
+    "mode": "dark",
+    "light": "Ayu Light",
+    "dark": "Catppuccin Macchiato"
+  },
 
   // Line numbers - relative for vim muscle memory
   "relative_line_numbers": "enabled",
@@ -40,10 +79,10 @@
   // Tab bar (from opt.showtabline = 1)
   "tabs": {
     "git_status": true,
-    "show_close_button": "hover",
+    "show_close_button": "hover"
   },
   "tab_bar": {
-    "show_nav_history_buttons": false,
+    "show_nav_history_buttons": false
   },
 
   // Hide whitespace characters (from opt.list = false)
@@ -63,8 +102,8 @@
     "git_gutter": "tracked_files",
     "inline_blame": {
       "enabled": false,
-      "delay_ms": 500,
-    },
+      "delay_ms": 500
+    }
   },
 
   // Terminal settings
@@ -74,12 +113,12 @@
     "copy_on_select": true,
     "detect_venv": {
       "on": {
-        "directories": [".env", ".venv", "venv"],
-      },
+        "directories": [".env", ".venv", "venv"]
+      }
     },
     "env": {
-      "EDITOR": "zed --wait",
-    },
+      "EDITOR": "zed --wait"
+    }
   },
 
   // Project panel (replacing neo-tree)
@@ -92,19 +131,19 @@
     "auto_fold_dirs": true,
     "file_icons": true,
     "folder_icons": true,
-    "indent_size": 20,
+    "indent_size": 20
   },
 
   // Outline panel
   "outline_panel": {
     "dock": "right",
-    "button": true,
+    "button": true
   },
 
   // Indent guides
   "indent_guides": {
     "enabled": true,
-    "coloring": "fixed",
+    "coloring": "fixed"
   },
 
   // Completion
@@ -112,16 +151,21 @@
 
   // === Language-Specific Configurations ===
   "languages": {
+    // Python
+    "Python": {
+      "language_servers": ["ty", "ruff"],
+      "format_on_save": "on"
+    },
     // SQL/dbt - sqlfmt formatter
     "SQL": {
       "tab_size": 2,
       "formatter": {
         "external": {
           "command": "sqlfmt",
-          "arguments": ["-"],
-        },
+          "arguments": ["-"]
+        }
       },
-      "format_on_save": "on",
-    },
-  },
+      "format_on_save": "on"
+    }
+  }
 }
