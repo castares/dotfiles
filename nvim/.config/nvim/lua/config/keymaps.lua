@@ -14,10 +14,10 @@ map("n", "<C-n>", "<C-d>zz", { desc = "Move cursor down half-page", remap = true
 map("n", "<C-p>", "<C-u>zz", { desc = "Move cursor up half-page", remap = true })
 map("x", "p", '"_dP', { desc = "Replace without losing the pasted content" })
 map("n", "<M-v>", "<C-v>", { desc = "Enter Visual Block Mode" })
-map("t", "<C-h>", "<C-\\><C-N><C-w>h", { desc = "Go to Left Window from Terminal" })
-map("t", "<C-j>", "<C-\\><C-N><C-w>j", { desc = "Go to Left Window from Terminal" })
-map("t", "<C-k>", "<C-\\><C-N><C-w>k", { desc = "Go to Left Window from Terminal" })
-map("t", "<C-l>", "<C-\\><C-N><C-w>l", { desc = "Go to Left Window from Terminal" })
+map("t", "<A-h>", "<C-\\><C-N><C-w>h", { desc = "Go to Left Window from Terminal" })
+map("t", "<A-j>", "<C-\\><C-N><C-w>j", { desc = "Go to Left Window from Terminal" })
+map("t", "<A-k>", "<C-\\><C-N><C-w>k", { desc = "Go to Left Window from Terminal" })
+map("t", "<A-l>", "<C-\\><C-N><C-w>l", { desc = "Go to Left Window from Terminal" })
 
 -- TODO: Sometimes it mixes with the <C-w>w and instead of saving, moves the cursor to the left split
 -- map("n", "<leader>ww", ":w<CR>", { desc = "Save File" })
