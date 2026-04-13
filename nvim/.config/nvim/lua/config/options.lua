@@ -13,4 +13,5 @@ opt.swapfile = false
 opt.listchars = "eol:$,tab:>-,trail:~,extends:>,precedes:<"
 opt.matchpairs:append("<:>")
 
-vim.g.python3_host_prog = "/Users/cesarcastanon/.pyenv/versions/neovim/bin/python3"
+vim.g.python3_host_prog = "~/.pyenv/versions/neovim/bin/python3"
+require("vim._core.ui2").enable()
