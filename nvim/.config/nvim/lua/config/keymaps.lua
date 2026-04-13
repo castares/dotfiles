@@ -10,9 +10,11 @@ map("n", "<A-j>", ":KittyNavigateDown<cr>", { desc = "Go to Lower Window", remap
 map("n", "<A-k>", ":KittyNavigateUp<cr>", { desc = "Go to Upper Window", remap = true })
 map("n", "<A-l>", ":KittyNavigateRight<cr>", { desc = "Go to Right Window", remap = true })
 
-map("n", "<C-n>", "<C-d>zz", { desc = "Move cursor down half-page", remap = true })
-map("n", "<C-p>", "<C-u>zz", { desc = "Move cursor up half-page", remap = true })
+map("n", "<C-n>", "<C-d>", { desc = "Move cursor down half-page", remap = true })
+map("n", "<C-p>", "<C-u>", { desc = "Move cursor up half-page", remap = true })
 map("x", "p", '"_dP', { desc = "Replace without losing the pasted content" })
+map("n", "x", '"_x', { desc = "Don't copy to clipboard the characters deleted with x" })
+map("n", "X", '"_X', { desc = "Don't copy to clipboard the characters deleted with X" })
 map("n", "<M-v>", "<C-v>", { desc = "Enter Visual Block Mode" })
 map("t", "<A-h>", "<C-\\><C-N><C-w>h", { desc = "Go to Left Window from Terminal" })
 map("t", "<A-j>", "<C-\\><C-N><C-w>j", { desc = "Go to Left Window from Terminal" })
@@ -33,3 +35,15 @@ map("n", "<leader>xj", "<cmd>lua vim.diagnostic.goto_next()<CR>", { desc = "Next
 map("n", "<leader>xk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { desc = "Prev Diagnostic" })
 
 map("n", "<leader>uB", "<cmd>:Gitsigns toggle_current_line_blame<CR>", { desc = "Toggle inline blame" })
+
+map("n", "<leader>C", function()
+  local filename = vim.fn.expand("%:t:r") -- Get the file name without extension
+  vim.fn.setreg("+", filename, "c") -- Copy it to the clipboard
+  vim.notify("Copied to clipboard: " .. filename, vim.log.levels.INFO)
+end, { desc = "Copy filename to clipboard" })
+
+map("n", "<leader>y", function()
+  local relative_path = vim.fn.expand("%:~:.") -- Get the relative path of the file
+  vim.fn.setreg("+", relative_path, "c") -- Copy it to the clipboard
+  vim.notify("Copied to clipboard: " .. relative_path, vim.log.levels.INFO)
+end, { desc = "Copy relative path to clipboard" })

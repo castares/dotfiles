@@ -28,6 +28,18 @@ return {
         },
       },
     },
+    window = {
+      mappings = {
+        ["C"] = {
+          function(state)
+            local node = state.tree:get_node()
+            local name = vim.fn.fnamemodify(node.name, ":r") -- Get file name without extension
+            vim.fn.setreg("+", name, "c")
+          end,
+          desc = "Copy File Name (Without Extension) to Clipboard",
+        },
+      },
+    },
   },
   keys = {
     {
