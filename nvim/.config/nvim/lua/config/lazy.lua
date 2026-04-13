@@ -11,40 +11,6 @@ require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-    -- LazyExtras
-    -- coding
-    { import = "lazyvim.plugins.extras.coding.mini-comment" },
-    { import = "lazyvim.plugins.extras.coding.mini-surround" },
-    { import = "lazyvim.plugins.extras.coding.neogen" },
-    -- editor
-    { import = "lazyvim.plugins.extras.editor.mini-move" },
-    { import = "lazyvim.plugins.extras.editor.navic" },
-    { import = "lazyvim.plugins.extras.editor.harpoon2" },
-    { import = "lazyvim.plugins.extras.editor.overseer" },
-    { import = "lazyvim.plugins.extras.editor.inc-rename" },
-    -- dap
-    { import = "lazyvim.plugins.extras.dap.core" },
-    -- linting
-    { import = "lazyvim.plugins.extras.linting.eslint" },
-    -- formatting
-    { import = "lazyvim.plugins.extras.formatting.black" },
-    { import = "lazyvim.plugins.extras.formatting.prettier" },
-    -- langs
-    { import = "lazyvim.plugins.extras.lang.python" },
-    { import = "lazyvim.plugins.extras.lang.sql" },
-    { import = "lazyvim.plugins.extras.lang.rust" },
-    { import = "lazyvim.plugins.extras.lang.typescript" },
-    { import = "lazyvim.plugins.extras.lang.git" },
-    { import = "lazyvim.plugins.extras.lang.markdown" },
-    { import = "lazyvim.plugins.extras.lang.toml" },
-    { import = "lazyvim.plugins.extras.lang.yaml" },
-    { import = "lazyvim.plugins.extras.lang.terraform" },
-    -- test
-    { import = "lazyvim.plugins.extras.test.core" },
-    -- UI
-    { import = "lazyvim.plugins.extras.ui.treesitter-context" },
-    -- util
-    { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
     -- import/override with your plugins
     { import = "plugins" },
   },
