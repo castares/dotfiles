@@ -5,10 +5,10 @@
 local map = LazyVim.safe_keymap_set
 
 vim.g.kitty_navigator_no_mappings = 1
-map("n", "<C-h>", ":KittyNavigateLeft<cr>", { desc = "Go to Left Window", remap = true })
-map("n", "<C-j>", ":KittyNavigateDown<cr>", { desc = "Go to Lower Window", remap = true })
-map("n", "<C-k>", ":KittyNavigateUp<cr>", { desc = "Go to Upper Window", remap = true })
-map("n", "<C-l>", ":KittyNavigateRight<cr>", { desc = "Go to Right Window", remap = true })
+map("n", "<A-h>", ":KittyNavigateLeft<cr>", { desc = "Go to Left Window", remap = true })
+map("n", "<A-j>", ":KittyNavigateDown<cr>", { desc = "Go to Lower Window", remap = true })
+map("n", "<A-k>", ":KittyNavigateUp<cr>", { desc = "Go to Upper Window", remap = true })
+map("n", "<A-l>", ":KittyNavigateRight<cr>", { desc = "Go to Right Window", remap = true })
 
 map("n", "<C-n>", "<C-d>zz", { desc = "Move cursor down half-page", remap = true })
 map("n", "<C-p>", "<C-u>zz", { desc = "Move cursor up half-page", remap = true })
