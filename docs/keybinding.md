@@ -84,10 +84,68 @@ Use the fallback column only when an app cannot support leader mappings directly
 
 ## Zed
 
-- Primary file: `~/.config/zed/keymap.json` (or equivalent managed path in dotfiles).
+- Primary file: `zed/.config/zed/keymap.json` (managed via dotfiles).
 - Keep `vim_mode` enabled and map most motions as `vim::*` actions.
 - For non-vim actions (panel focus, tabs, terminal), use `workspace::*`, `pane::*`, `terminal::*`, or `editor::*` actions.
 - Preserve `A-h/j/k/l` in both editor and terminal focus contexts so pane movement stays consistent.
+
+### Implemented bindings (current keymap.json)
+
+| Binding | Action | Framework mapping | Notes |
+| ------- | ------ | ----------------- | ----- |
+| `A-h/j/k/l` | `workspace::ActivatePaneLeft/Down/Up/Right` | `A-h/j/k/l` | Active in normal mode, ProjectPanel, GitPanel |
+| `C-H` / `C-L` / `C-J` | Toggle left / right / bottom dock | N/A | Zed-specific; no canonical equivalent |
+| `space e` | `project_panel::ToggleFocus` | `leader+e` | Matches |
+| `space t` | `terminal_panel::ToggleFocus` | `leader+ft` | Collapsed to single key; no root/cwd variant |
+| `space p` | `command_palette::Toggle` | N/A | Zed-specific; no canonical equivalent |
+| `space a` | `agent::ToggleFocus` | `leader+a` | Matches |
+| `space o` | `outline_panel::ToggleFocus` | `leader+o` | Matches |
+| `space g` | `git_panel::ToggleFocus` | `leader+gg` | Single `g` instead of `gg` |
+| `space U` | `git::Blame` | `leader+gb` | Uppercase `U`; full blame view |
+| `space u` | `editor::ToggleGitBlameInline` | `leader+uB` | Collapsed to single `u` |
+| `space d` | `editor::ToggleSelectedDiffHunks` | N/A | Zed-specific diff hunk toggle |
+| `space q q` | `pane::CloseActiveItem` | `leader+qq` | Matches |
+| `space q a` | `workspace::CloseAllItemsAndPanes` | `leader+qa` | Matches |
+| `space z` | `workspace::ToggleZoom` | `leader+z` | Matches |
+| `space w v` | `pane::SplitRight` | `leader+wv` | Matches |
+| `space w h` | `pane::SplitDown` | `leader+ws` / `leader+-` | Uses `h` instead of `s` |
+| `space w q` | `pane::CloseActiveItem` | `leader+wd` | Uses `q` instead of `d` |
+| `space x j` / `space x k` | `editor::GoToDiagnostic` / `GoToPreviousDiagnostic` | `leader+xj` / `leader+xk` | Matches |
+| `space x x` | `diagnostics::Deploy` | `leader+xx` | Matches |
+| `space space` / `space f` | `file_finder::Toggle` | `leader+ff` | Two bindings for same action |
+| `space ,` | `tab_switcher::Toggle` | `leader+,` | Matches |
+| `space /` / `space s g` | `workspace::NewSearch` | `leader+/` / `leader+sg` | Matches both |
+| `space s b` | `buffer_search::Deploy` | `leader+sb` | Matches |
+| `space s r` | `projects::OpenRecent` | N/A | Zed-specific recent projects |
+| `space s s` | `outline::Toggle` | `leader+ss` | Matches |
+| `space s S` | `project_symbols::Toggle` | `leader+sS` | Matches |
+| `space shift-c` | `workspace::CopyPath` | `leader+C` | Matches |
+| `space y` | `workspace::CopyRelativePath` | `leader+y` | Matches |
+| `S-h` / `S-l` | `pane::ActivatePreviousItem` / `ActivateNextItem` | `S-h` / `S-l` | Matches |
+| `g d` / `g r` / `g i` / `g t` | Go to definition / references / impl / type | `gd` / `gr` | Matches; adds `gi` and `gt` |
+| `g D` | `editor::GoToDeclaration` | N/A | Zed addition |
+| `K` | `editor::Hover` | `K` | Matches |
+| `space c r` / `space c a` / `space c f` | Rename / code action / format | `leader+cr` / `leader+ca` / `leader+cf` | Matches |
+| `C-n` / `C-p` | `vim::ScrollDown` / `vim::ScrollUp` | `C-n` / `C-p` | Matches half-page nav |
+| `A-v` | `vim::ToggleVisualBlock` | `A-v` | Matches |
+| `g j` / `g k` | `vim::NextMethodStart` / `PreviousMethodStart` | N/A | Zed-specific method navigation |
+| `space v` / `space V` | `editor::SelectLargerSyntaxNode` / `SelectSmallerSyntaxNode` | N/A | Zed-specific (visual mode) |
+| `j k` / `j j` | `vim::NormalBefore` | N/A | Insert mode escape chord |
+| `C-s` | `workspace::Save` | N/A | All editor modes |
+
+### Project panel (vim-style navigation)
+
+| Binding | Action |
+| ------- | ------ |
+| `j` / `k` | `menu::SelectNext` / `SelectPrevious` |
+| `l` / `enter` | `project_panel::Open` |
+| `h` | `project_panel::CollapseSelectedEntry` |
+| `a` / `A` | `project_panel::NewFile` / `NewDirectory` |
+| `r` | `project_panel::Rename` |
+| `d` | `project_panel::Delete` |
+| `y` / `p` / `x` | Copy / Paste / Cut |
+| `G` | `project_panel::ToggleHideGitIgnore` |
+| `H` | `project_panel::ToggleHideHidden` |
 
 ## Cursor / VSCode
 
