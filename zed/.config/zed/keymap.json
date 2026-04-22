@@ -1,14 +1,47 @@
 [
   // ============================================================
-  // PANE/WINDOW NAVIGATION (replacing vim-kitty-navigator)
+  // PANEL NAVIGATION
   // ============================================================
   {
     "context": "Workspace",
     "bindings": {
+      // === Dock Toggles ===
+      "ctrl-H": "workspace::ToggleLeftDock",
+      "ctrl-L": "workspace::ToggleRightDock",
+      "ctrl-J": "workspace::ToggleBottomDock",
+
+      // Alternative Dock Toggles
+      "ctrl-E": "workspace::ToggleLeftDock",
+      "ctrl-A": "workspace::ToggleRightDock",
+      "ctrl-T": "workspace::ToggleBottomDock",
+
+      // === Panel Navigation ===
       "alt-h": "workspace::ActivatePaneLeft",
       "alt-j": "workspace::ActivatePaneDown",
       "alt-k": "workspace::ActivatePaneUp",
       "alt-l": "workspace::ActivatePaneRight",
+    },
+  },
+  {
+    "context": "vim_mode == normal || ProjectPanel || GitPanel",
+    "bindings": {
+      // === File Explorer (framework: leader+e) ===
+      "space e": "project_panel::ToggleFocus",
+
+      // === Terminal (framework: leader+ft / leader+fT) ===
+      "space t": "terminal_panel::ToggleFocus",
+
+      // === Command Palette ===
+      "space p": "command_palette::Toggle",
+
+      // === Agent (framework: leader+a) ===
+      "space a": "agent::ToggleFocus",
+
+      // === Symbols Outline (framework: leader+o) ===
+      "space o": "outline_panel::ToggleFocus",
+
+      // === Git Panel (framework: leader+o) ===
+      "space g": "git_panel::ToggleFocus",
     },
   },
 
@@ -18,14 +51,14 @@
   {
     "context": "VimControl && !menu",
     "bindings": {
-      // Half-page navigation: Ctrl+n/p instead of Ctrl+d/u
+      // Half-page navigation: ctrl-n/p (framework: C-n/C-p)
       "ctrl-n": "vim::ScrollDown",
       "ctrl-p": "vim::ScrollUp",
 
-      // Visual block mode with Alt+v (instead of Ctrl+v)
+      // Visual block mode: alt-v (framework: A-v)
       "alt-v": "vim::ToggleVisualBlock",
 
-      // Function navigation (replacing tresitter gj/gk)
+      // Method navigation
       "g j": "vim::NextMethodStart",
       "g k": "vim::PreviousMethodStart",
     },
@@ -37,71 +70,59 @@
   {
     "context": "vim_mode == normal && !menu",
     "bindings": {
-      // === Window/Quit Commands ===
+      // === Window/Quit (framework: leader+qq / leader+qa) ===
       "space q q": "pane::CloseActiveItem",
       "space q a": "workspace::CloseAllItemsAndPanes",
 
-      // === Window Management ===
+      // === Window Management (framework: leader+z / leader+wv / leader+ws / leader+wd / leader+wq) ===
       "space z": "workspace::ToggleZoom",
       "space w v": "pane::SplitRight",
-      "space w s": "pane::SplitDown",
+      "space w h": "pane::SplitDown",
       "space w q": "pane::CloseActiveItem",
 
-      // === Diagnostics Navigation ===
+      // === Diagnostics (framework: leader+xj / leader+xk / leader+xx) ===
       "space x j": "editor::GoToDiagnostic",
+      "space x k": "editor::GoToPreviousDiagnostic",
+      "space x x": "diagnostics::Deploy",
 
-      // === Git Operations ===
-      "space u shift-b": "editor::ToggleGitBlameInline",
-      "space g n": "git_panel::ToggleFocus",
-      "space g d": "editor::ToggleSelectedDiffHunks",
-      "space g h": "editor::ToggleSelectedDiffHunks",
-      "space g b": "git::Blame",
+      // === Git (framework: leader+gg / leader+gs / leader+gb / leader+uB) ===
+      "space U": "git::Blame",
+      "space u": "editor::ToggleGitBlameInline",
+      "space d": "editor::ToggleSelectedDiffHunks",
 
-      // === File Explorer ===
-      "space shift-e": "project_panel::ToggleFocus",
-      "space e": "project_panel::ToggleFocus",
-
-      // === Clipboard/Path Operations ===
+      // === Clipboard (framework: leader+C / leader+y) ===
       "space shift-c": "workspace::CopyPath",
       "space y": "workspace::CopyRelativePath",
 
-      // === File Navigation ===
+      // === File Navigation (framework: leader+ff / leader+,) ===
       "space space": "file_finder::Toggle",
-      "space f f": "file_finder::Toggle",
-      "space f r": "file_finder::Toggle",
+      "space f": "file_finder::Toggle",
+      "space ,": "tab_switcher::Toggle",
 
-      // === Search ===
+      // === Search (framework: leader+/ / leader+sg / leader+sb) ===
       "space /": "workspace::NewSearch",
       "space s g": "workspace::NewSearch",
       "space s b": "buffer_search::Deploy",
       "space s r": "projects::OpenRecent",
 
-      // === Buffer Navigation ===
+      // === Symbols (framework: leader+ss / leader+sS / leader+o) ===
+      "space s s": "outline::Toggle",
+      "space s shift-s": "project_symbols::Toggle",
+
+      // === Buffer Navigation (framework: S-h / S-l) ===
       "shift-h": "pane::ActivatePreviousItem",
       "shift-l": "pane::ActivateNextItem",
 
-      // === LSP Commands ===
+      // === LSP (framework: gd / gr / K / leader+cr / leader+ca / leader+cf) ===
       "g d": "editor::GoToDefinition",
       "g shift-d": "editor::GoToDeclaration",
       "g r": "editor::FindAllReferences",
       "g i": "editor::GoToImplementation",
       "g t": "editor::GoToTypeDefinition",
-      "space c r": "editor::Rename",
-      "space r n": "editor::Rename",
-      "space c a": "editor::ToggleCodeActions",
-      "space .": "editor::ToggleCodeActions",
       "shift-k": "editor::Hover",
+      "space c r": "editor::Rename",
+      "space c a": "editor::ToggleCodeActions",
       "space c f": "editor::Format",
-
-      // === Command Palette ===
-      "space p": "command_palette::Toggle",
-
-      // === Terminal ===
-      "space t": "terminal_panel::ToggleFocus",
-
-      // === Outline (symbols) ===
-      "space o": "outline::Toggle",
-      "space s s": "outline::Toggle",
     },
   },
 
@@ -111,7 +132,6 @@
   {
     "context": "vim_mode == visual && !menu",
     "bindings": {
-      // Expand/shrink selection semantically
       "space v": "editor::SelectLargerSyntaxNode",
       "space shift-v": "editor::SelectSmallerSyntaxNode",
     },
@@ -142,7 +162,7 @@
   // PROJECT PANEL (File Explorer)
   // ============================================================
   {
-    "context": "ProjectPanel && !menu",
+    "context": "ProjectPanel",
     "bindings": {
       "j": "menu::SelectNext",
       "k": "menu::SelectPrevious",
@@ -158,31 +178,6 @@
       "x": "project_panel::Cut",
       "shift-g": "project_panel::ToggleHideGitIgnore",
       "shift-h": "project_panel::ToggleHideHidden",
-    },
-  },
-
-  // ============================================================
-  // TERMINAL
-  // ============================================================
-  {
-    "context": "Terminal",
-    "bindings": {
-      "ctrl-h": "workspace::ActivatePaneLeft",
-      "ctrl-j": "workspace::ActivatePaneDown",
-      "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-l": "workspace::ActivatePaneRight",
-      "ctrl-\\": "workspace::ToggleBottomDock",
-    },
-  },
-
-  // ============================================================
-  // EMPTY PANE
-  // ============================================================
-  {
-    "context": "EmptyPane",
-    "bindings": {
-      "space f": "file_finder::Toggle",
-      "space e": "project_panel::ToggleFocus",
     },
   },
 ]
