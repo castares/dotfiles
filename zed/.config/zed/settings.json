@@ -1,6 +1,12 @@
 {
   // === Core Editor Settings ===
   "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    },
+    "gemini": {
+      "type": "registry"
+    },
     "cursor": {
       "type": "registry"
     },
