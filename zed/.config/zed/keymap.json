@@ -14,6 +14,7 @@
       "ctrl-E": "workspace::ToggleLeftDock",
       "ctrl-A": "workspace::ToggleRightDock",
       "ctrl-T": "workspace::ToggleBottomDock",
+      // "ctrl-A": "multi_workspace::ToggleWorkspaceSidebar",
 
       // === Panel Navigation ===
       "alt-h": "workspace::ActivatePaneLeft",
@@ -23,7 +24,7 @@
     },
   },
   {
-    "context": "vim_mode == normal || ProjectPanel || GitPanel",
+    "context": "vim_mode == normal || ProjectPanel || GitPanel && vim_mode == normal",
     "bindings": {
       // === File Explorer (framework: leader+e) ===
       "space e": "project_panel::ToggleFocus",
