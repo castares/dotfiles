@@ -24,7 +24,7 @@
     },
   },
   {
-    "context": "vim_mode == normal || ProjectPanel || GitPanel && vim_mode == normal",
+    "context": "vim_mode == normal || ProjectPanel || ChangesList",
     "bindings": {
       // === File Explorer (framework: leader+e) ===
       "space e": "project_panel::ToggleFocus",
@@ -163,7 +163,7 @@
   // PROJECT PANEL (File Explorer)
   // ============================================================
   {
-    "context": "ProjectPanel",
+    "context": "ProjectPanel && not_editing",
     "bindings": {
       "j": "menu::SelectNext",
       "k": "menu::SelectPrevious",

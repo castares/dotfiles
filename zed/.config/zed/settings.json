@@ -1,28 +1,12 @@
 {
   // === Core Editor Settings ===
-  // Terminal settings
-  "terminal": {
-    "dock": "bottom",
-    "shell": "system",
-    "copy_on_select": true,
-    "detect_venv": {
-      "on": {
-        "directories": [".env", ".venv", "venv"],
-      },
-    },
-    "env": {
-      "EDITOR": "zed --wait",
-    },
-  },
-  "debugger": {
-    "dock": "bottom",
-  },
   "collaboration_panel": {
     "button": false,
     "dock": "right",
   },
   "agent": {
     "sidebar_side": "right",
+    "enable_feedback": false,
     "dock": "right",
     "favorite_models": [],
     "model_parameters": [],
@@ -30,13 +14,20 @@
   "git_panel": {
     "dock": "left",
   },
+  "diff_view_style": "unified",
   "agent_servers": {
-    "claude-acp": {
-      "default_mode": "auto",
-      "default_model": "claude-opus-4-6",
+    "codex-acp": {
       "type": "registry",
     },
     "gemini": {
+      "type": "registry",
+    },
+    "claude-acp": {
+      "default_config_options": {
+        "effort": "medium",
+        "model": "claude-opus",
+        "mode": "auto",
+      },
       "type": "registry",
     },
   },
@@ -76,9 +67,9 @@
 
   // Font: Hack at 12pt (from opt.guifont)
   "buffer_font_family": "JetBrainsMono Nerd Font Propo",
-  "buffer_font_size": 14,
+  "buffer_font_size": 14.0,
   "ui_font_family": ".ZedSans",
-  "ui_font_size": 17.0,
+  "ui_font_size": 18.0,
 
   // Text wrapping (from opt.wrap = true)
   "soft_wrap": "editor_width",
@@ -134,6 +125,21 @@
     },
   },
 
+  // Terminal settings
+  "terminal": {
+    "dock": "bottom",
+    "shell": "system",
+    "copy_on_select": true,
+    "detect_venv": {
+      "on": {
+        "directories": [".env", ".venv", "venv"],
+      },
+    },
+    "env": {
+      "EDITOR": "zed --wait",
+    },
+  },
+
   // Project panel (replacing neo-tree)
   "project_panel": {
     "button": true,
@@ -165,8 +171,11 @@
   // === Language-Specific Configurations ===
   "languages": {
     // Python
+    "Markdown": {
+      "show_edit_predictions": false,
+    },
     "Python": {
-      "language_servers": ["ty", "ruff"],
+      "language_servers": ["pyright", "ruff"],
       "format_on_save": "on",
     },
     // SQL/dbt - sqlfmt formatter
